@@ -753,6 +753,25 @@
             .changelog-container {
                 padding: 20px 15px;
             }
+            
+            .faq-item {
+                -webkit-tap-highlight-color: transparent;
+            }
+            .faq-item:active {
+                background: #ff9f43 !important;
+                color: #1a1a1a !important;
+            }
+            .faq-item:active .faq-icon, .faq-item:active h3 {
+                color: #1a1a1a !important;
+            }
+
+            .donator-card {
+                -webkit-tap-highlight-color: transparent;
+            }
+            .donator-card:active {
+                transform: scale(0.95);
+                border-color: #ff9f43;
+            }
         }
     </style>
 </head>
@@ -1073,6 +1092,12 @@
             if (!isActive) {
                 element.classList.add('active');
             }
+            
+            if (window.innerWidth <= 850) {
+                setTimeout(() => {
+                    element.blur();
+                }, 100);
+            }
         }
 
         let slideIndex = 0;
@@ -1122,23 +1147,39 @@
         }
 
         let donatorIndex = 0;
+        const track = document.getElementById('donatorsTrack');
+        const cards = track.getElementsByClassName('donator-card');
+
         function moveDonator(direction) {
-            const track = document.getElementById('donatorsTrack');
-            const cards = track.getElementsByClassName('donator-card');
-            const cardWidth = cards[0].offsetWidth + 20;
+            const cardWidth = cards[0].offsetWidth + 20; 
+            const totalCards = cards.length;
             const totalVisible = window.innerWidth <= 850 ? 1 : 3;
-            const maxIndex = cards.length - totalVisible;
+            const maxIndex = totalCards - totalVisible;
 
             donatorIndex += direction;
 
             if (donatorIndex < 0) {
-                donatorIndex = 0;
+                donatorIndex = maxIndex; 
             } else if (donatorIndex > maxIndex) {
-                donatorIndex = maxIndex;
+                donatorIndex = 0; 
             }
 
             track.style.transform = `translateX(-${donatorIndex * cardWidth}px)`;
         }
+
+        let autoScrollDonators = setInterval(() => {
+            moveDonator(1);
+        }, 3000); 
+
+        const donatorsSection = document.querySelector('.donators-section');
+        donatorsSection.addEventListener('mouseenter', () => clearInterval(autoScrollDonators));
+        donatorsSection.addEventListener('mouseleave', () => {
+            autoScrollDonators = setInterval(() => {
+                moveDonator(1);
+            }, 3000);
+        });
+
+        track.addEventListener('touchstart', () => clearInterval(autoScrollDonators));
 
         function openFullscreen(index) {
             currentFsIndex = index;
@@ -1181,6 +1222,20 @@
             if (e.target === this) {
                 closeFullscreen();
             }
+        });
+
+        document.querySelectorAll('.donator-card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (window.innerWidth <= 850) {
+                    this.style.borderColor = "#ff9f43";
+                    this.style.background = "#2d2d2d";
+                    setTimeout(() => {
+                        this.style.borderColor = "#444";
+                        this.style.background = "#1f1f1f";
+                        this.blur();
+                    }, 400);
+                }
+            });
         });
     </script>
 </body>

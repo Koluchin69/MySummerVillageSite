@@ -182,14 +182,14 @@
         }
 
         .changelog-wrapper {
-            max-height: 480px;
+            max-height: 160px;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
             position: relative;
         }
 
         .changelog-wrapper.expanded {
-            max-height: 2500px;
+            max-height: 3000px;
         }
 
         .changelog-fade {
@@ -197,7 +197,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 120px;
+            height: 60px;
             background: linear-gradient(to bottom, rgba(38, 38, 38, 0), #262626);
             pointer-events: none;
             transition: opacity 0.3s ease;
@@ -210,8 +210,8 @@
 
         .changelog-item {
             border-bottom: 1px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
@@ -221,17 +221,46 @@
             margin-bottom: 0;
         }
 
+        .changelog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         .changelog-date {
             font-size: 1.1rem;
             color: #ff9f43;
             font-weight: bold;
-            margin-bottom: 10px;
             display: block;
+        }
+
+        .changelog-icon {
+            color: #ff9f43;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .changelog-item.open .changelog-icon {
+            transform: rotate(180deg);
+        }
+
+        .changelog-list-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .changelog-item.open .changelog-list-container {
+            max-height: 500px;
         }
 
         .changelog-list {
             list-style: none;
-            padding: 0;
+            padding: 15px 0 0 0;
             margin: 0;
         }
 
@@ -269,6 +298,7 @@
             z-index: 3;
             position: relative;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .changelog-toggle-btn:hover {
@@ -845,100 +875,140 @@
                 <div class="changelog-fade" id="changelogFade"></div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">09.03.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавил 2 шейдера для отображения текстуры с двух сторон.</li>
-                        <li>Добавил шейдер для отображения двух текстур с двух разных сторон, на одном полигоне.</li>
-                        <li>Добавил текстуры на задние фары Ваза2109.</li>
-                        <li>Сделал много атласов текстур.</li>
-                        <li>Оптимизировал модельку Ваз2109 и исправил некоторые недочеты.</li>
-                        <li>Начал работу над моделькой Газели.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">09.03.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавил 2 шейдера для отображения текстуры с двух сторон.</li>
+                            <li>Добавил шейдер для отображения двух текстур с двух разных сторон, на одном полигоне.</li>
+                            <li>Добавил текстуры на задние фары Ваза2109.</li>
+                            <li>Сделал много атласов текстур.</li>
+                            <li>Оптимизировал модельку Ваз2109 и исправил некоторые недочеты.</li>
+                            <li>Начал работу над моделькой Газели.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">01.03.2026 - 02.03.2026</span>
-                    <ul class="changelog-list">
-                        <li>Оптимизировал текстуры.</li>
-                        <li>Перенес модельку Ваза2109 в Unity и начал текстурирование.</li>
-                        <li>Модифицировал скрипт покупки.</li>
-                        <li>Начал чертить подобие будущей карты.</li>
-                        <li>Сделал атласы текстур для Ваза2109.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">01.03.2026 - 02.03.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Оптимизировал текстуры.</li>
+                            <li>Перенес модельку Ваза2109 в Unity и начал текстурирование.</li>
+                            <li>Модифицировал скрипт покупки.</li>
+                            <li>Начал чертить подобие будущей карты.</li>
+                            <li>Сделал атласы текстур для Ваза2109.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">21.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавил поднятие предметов.</li>
-                        <li>Добавил установки деталей.</li>
-                        <li>Улучшил скрипт поднятия предметов(улучшил физику).</li>
-                        <li>Улучшил скрипт установки деталей(добавил включение болтов при установке детали и исправил некоторые баги).</li>
-                        <li>Отсоединил детали, их можно будет установить(передний и задний бампер, заднее сидение).</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">21.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавил поднятие предметов.</li>
+                            <li>Добавил установки деталей.</li>
+                            <li>Улучшил скрипт поднятия предметов(улучшил физику).</li>
+                            <li>Улучшил скрипт установки деталей(добавил включение болтов при установке детали и исправил некоторые баги).</li>
+                            <li>Отсоединил детали, их можно будет установить(передний и задний бампер, заднее сидение).</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">20.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавил откручивание крышек со звуками.</li>
-                        <li>Добавлены звуки ходьбы в зависимости от поверхности.</li>
-                        <li>Добавил звуки ремню безопасности.</li>
-                        <li>Поправил коллайдер ремня безопасности.</li>
-                        <li>Добавил звуки бардачку и козырькам.</li>
-                        <li>Добавил звуки переключения фар.</li>
-                        <li>Добавил звуки капоту и багажнику.</li>
-                        <li>Теперь незакрытый капот открывается на скорости.</li>
-                        <li>Поправил некоторые материалы Ваза2109.</li>
-                        <li>Улучшена физика персонажа.</li>
-                        <li>Улучшена физика подвески Ваза2109.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">20.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавил откручивание крышек со звуками.</li>
+                            <li>Добавлены звуки ходьбы в зависимости от поверхности.</li>
+                            <li>Добавил звуки ремню безопасности.</li>
+                            <li>Поправил коллайдер ремня безопасности.</li>
+                            <li>Добавил звуки бардачку и козырькам.</li>
+                            <li>Добавил звуки переключения фар.</li>
+                            <li>Добавил звуки капоту и багажнику.</li>
+                            <li>Теперь незакрытый капот открывается на скорости.</li>
+                            <li>Поправил некоторые материалы Ваза2109.</li>
+                            <li>Улучшена физика персонажа.</li>
+                            <li>Улучшена физика подвески Ваза2109.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">19.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавил покачивание камеры персонажа.</li>
-                        <li>Добавил движение солнца и возможность проматывать/отматывать время.</li>
-                        <li>Добавил выхлопной дым.</li>
-                        <li>Добавил рабочие ремни безопасности.</li>
-                        <li>Добавил включение индикатора фары на приборке.</li>
-                        <li>Сделал рычажок фар плавнее.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">19.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавил покачивание камеры персонажа.</li>
+                            <li>Добавил движение солнца и возможность проматывать/отматывать время.</li>
+                            <li>Добавил выхлопной дым.</li>
+                            <li>Добавил рабочие ремни безопасности.</li>
+                            <li>Добавил включение индикатора фары на приборке.</li>
+                            <li>Сделал рычажок фар плавнее.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">18.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавил фары и их переключение.</li>
-                        <li>Добавил текстуры приборке.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">18.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавил фары и их переключение.</li>
+                            <li>Добавил текстуры приборке.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">17.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавлены материалы с отображением с двух сторон.</li>
-                        <li>Добавлен ручник.</li>
-                        <li>Добавлен реалистичное открытие капота.</li>
-                        <li>Небольшие улучшения физики машины.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">17.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавлены материалы с отображением с двух сторон.</li>
+                            <li>Добавлен ручник.</li>
+                            <li>Добавлен реалистичное открытие капота.</li>
+                            <li>Небольшие улучшения физики машины.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="changelog-item">
-                    <span class="changelog-date">16.02.2026</span>
-                    <ul class="changelog-list">
-                        <li>Добавлена камера от первого лица в машине.</li>
-                        <li>Добавлена механика проверки давления(надутия) в колесах.</li>
-                        <li>Добавлено движение внешних деталей на двигателе(шкифы, вентилятор).</li>
-                        <li>Добавлено движение козырьков и бардачка.</li>
-                        <li>Добавлено движение педалей при нажатии W и S.</li>
-                        <li>Небольшие улучшения физики машины.</li>
-                    </ul>
+                    <div class="changelog-header" onclick="toggleChangelogItem(this)">
+                        <span class="changelog-date">16.02.2026</span>
+                        <span class="changelog-icon">▼</span>
+                    </div>
+                    <div class="changelog-list-container">
+                        <ul class="changelog-list">
+                            <li>Добавлена камера от первого лица в машине.</li>
+                            <li>Добавлена механика проверки давления(надутия) в колесах.</li>
+                            <li>Добавлено движение внешних деталей на двигателе(шкифы, вентилятор).</li>
+                            <li>Добавлено движение козырьков и бардачка.</li>
+                            <li>Добавлено движение педалей при нажатии W и S.</li>
+                            <li>Небольшие улучшения физики машины.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
-            <button class="changelog-toggle-btn" id="changelogBtn" onclick="toggleChangelog()">
+            <button class="changelog-toggle-btn" id="changelogBtn" onclick="toggleChangelogWrapper()">
                 <span>▼</span>
             </button>
         </div>
@@ -1108,6 +1178,19 @@
             }
         }
 
+        function toggleChangelogItem(headerElement) {
+            const item = headerElement.parentElement;
+            const isActive = item.classList.contains('open');
+
+            document.querySelectorAll('.changelog-item').forEach(el => {
+                el.classList.remove('open');
+            });
+
+            if (!isActive) {
+                item.classList.add('open');
+            }
+        }
+
         let slideIndex = 0;
         const slides = document.getElementById('slides');
         const dots = document.querySelectorAll('.dot');
@@ -1146,7 +1229,7 @@
             updateSlider();
         }
 
-        function toggleChangelog() {
+        function toggleChangelogWrapper() {
             const wrapper = document.getElementById('changelogWrapper');
             const btn = document.getElementById('changelogBtn');
             

@@ -10,8 +10,11 @@
             margin: 0;
             padding: 60px 0 0 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #121212;
-            background-image: radial-gradient(circle at top, #1e1e1e 0%, #121212 100%);
+            background-color: #0c0c0c;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 159, 67, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(255, 159, 67, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(255, 159, 67, 0.03) 0%, transparent 40%);
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -23,11 +26,23 @@
             text-align: center;
             max-width: 800px;
             padding: 50px;
-            background: linear-gradient(145deg, #222222, #1a1a1a);
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 159, 67, 0.1);
-            margin-bottom: 50px;
+            background: linear-gradient(145deg, #181818, #111111);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ff9f43, transparent);
         }
 
         h1 {
@@ -37,13 +52,16 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
-            text-shadow: 0 0 30px rgba(255, 159, 67, 0.3);
+            background: linear-gradient(to bottom, #fff 0%, #ff9f43 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(255, 159, 67, 0.2));
         }
 
         p {
             font-size: 1.15rem;
             line-height: 1.8;
-            color: #b3b3b3;
+            color: #aaaaaa;
             margin-bottom: 0;
         }
 
@@ -55,7 +73,7 @@
         .slider-section {
             width: 100%;
             max-width: 850px;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
             padding: 0 25px;
             box-sizing: border-box;
         }
@@ -64,18 +82,18 @@
             position: relative;
             width: 100%;
             height: 480px;
-            background: #1a1a1a;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #111111;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
         }
 
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide {
@@ -95,46 +113,47 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(12, 12, 12, 0.85);
+            backdrop-filter: blur(12px);
             color: #ff9f43;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: bold;
-            border: 1px solid rgba(255, 159, 67, 0.5);
+            border: 1px solid rgba(255, 159, 67, 0.3);
             z-index: 20;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .slide-title:hover {
             transform: translateY(-3px);
             background: #ff9f43;
             color: #121212;
-            box-shadow: 0 10px 20px rgba(255, 159, 67, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 159, 67, 0.3);
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(18, 18, 18, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(12, 12, 12, 0.7);
+            backdrop-filter: blur(10px);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 1.8rem;
             transition: all 0.3s ease;
             user-select: none;
             z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
         }
 
@@ -143,7 +162,7 @@
             color: #121212;
             border-color: #ff9f43;
             transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.5);
+            box-shadow: 0 0 30px rgba(255, 159, 67, 0.4);
         }
 
         .prev-btn { left: 25px; }
@@ -153,45 +172,47 @@
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .dot {
-            width: 10px;
-            height: 10px;
-            background: #333;
+            width: 12px;
+            height: 12px;
+            background: #252525;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .dot.active-dot {
             background: #ff9f43;
             transform: scale(1.2);
-            box-shadow: 0 0 12px rgba(255, 159, 67, 0.6);
+            box-shadow: 0 0 15px rgba(255, 159, 67, 0.6);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .changelog-section {
             width: 100%;
             max-width: 850px;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             padding: 0 25px;
             box-sizing: border-box;
         }
 
         .changelog-container {
-            background: linear-gradient(145deg, #222222, #1a1a1a);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(145deg, #181818, #111111);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
             position: relative;
         }
 
         .changelog-wrapper {
             max-height: 180px;
             overflow: hidden;
-            transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: max-height 0.7s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
 
@@ -204,8 +225,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
-            background: linear-gradient(to bottom, rgba(34, 34, 34, 0), #222222);
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(24, 24, 24, 0), #181818);
             pointer-events: none;
             transition: opacity 0.3s ease;
             z-index: 2;
@@ -216,7 +237,7 @@
         }
 
         .changelog-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding-bottom: 20px;
             margin-bottom: 20px;
             text-align: left;
@@ -234,7 +255,14 @@
             align-items: center;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
-            padding: 5px 0;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: background-color 0.2s ease;
+            margin: 0 -12px;
+        }
+
+        .changelog-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .changelog-date {
@@ -259,7 +287,7 @@
         .changelog-list-container {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .changelog-item.open .changelog-list-container {
@@ -268,52 +296,54 @@
 
         .changelog-list {
             list-style: none;
-            padding: 15px 0 0 5px;
+            padding: 15px 0 5px 12px;
             margin: 0;
         }
 
         .changelog-list li {
             font-size: 1.05rem;
-            color: #b3b3b3;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            padding-left: 24px;
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            padding-left: 26px;
             position: relative;
         }
 
         .changelog-list li::before {
-            content: "→";
+            content: "•";
             color: #ff9f43;
+            font-size: 1.5rem;
             font-weight: bold;
             position: absolute;
             left: 0;
+            top: -2px;
         }
 
         .changelog-toggle-btn {
-            background: #121212;
+            background: #111111;
             border: 1px solid rgba(255, 159, 67, 0.3);
             color: #ff9f43;
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            margin: 25px auto 0 auto;
+            margin: 30px auto 0 auto;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 3;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             -webkit-tap-highlight-color: transparent;
         }
 
         .changelog-toggle-btn:hover {
             background: #ff9f43;
             color: #121212;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
+            transform: scale(1.15);
+            box-shadow: 0 0 30px rgba(255, 159, 67, 0.4);
         }
 
         .changelog-toggle-btn span {
@@ -329,7 +359,7 @@
         .donators-section {
             width: 100%;
             max-width: 850px;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             padding: 0 25px;
             box-sizing: border-box;
             text-align: center;
@@ -337,12 +367,12 @@
 
         .donators-slider {
             position: relative;
-            background: linear-gradient(145deg, #222222, #1a1a1a);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            margin-bottom: 20px;
+            background: linear-gradient(145deg, #181818, #111111);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+            margin-bottom: 25px;
         }
 
         .donators-track-container {
@@ -354,64 +384,65 @@
 
         .donators-track {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             gap: 20px;
         }
 
         .donator-card {
             min-width: calc(33.333% - 14px);
-            background: #1c1c1c;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 25px;
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 30px 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background-color 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
         .donator-card:hover {
             border-color: #ff9f43;
-            transform: translateY(-10px);
-            background-color: #222;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(-12px);
+            background-color: #1a1a1a;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .donator-rank {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ff9f43;
             font-weight: bold;
             margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .donator-name {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #ffffff;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-weight: 800;
+            margin-bottom: 10px;
             word-break: break-all;
         }
 
         .donator-amount {
-            font-size: 1rem;
-            color: #888;
+            font-size: 1.05rem;
+            color: #888888;
         }
 
         .donator-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(18, 18, 18, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(12, 12, 12, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -419,32 +450,75 @@
             z-index: 5;
             transition: all 0.3s ease;
             padding: 0;
+            backdrop-filter: blur(10px);
         }
 
         .donator-btn:hover {
             background: #ff9f43;
             color: #121212;
             border-color: #ff9f43;
-            box-shadow: 0 0 15px rgba(255, 159, 67, 0.4);
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
         }
 
         .donator-prev { left: 15px; }
         .donator-next { right: 15px; }
 
-        .donators-footer-text {
-            font-size: 0.95rem;
-            color: #888;
-            margin: 0;
+        .donator-accounts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .account-box {
+            background: #181818;
+            padding: 14px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .account-box:hover {
+            border-color: #ff9f43;
+            transform: translateY(-3px);
+            background: #1c1c1c;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .account-title {
+            font-size: 0.9rem;
+            color: #888888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .account-number {
+            font-size: 1.1rem;
+            color: #ff9f43;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .faq-title {
             color: #ff9f43;
             font-size: 2.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-align: center;
-            font-weight: 800;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff 0%, #ff9f43 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .faq-grid {
@@ -456,17 +530,17 @@
             padding: 0 25px;
             box-sizing: border-box;
             align-items: start;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .faq-item {
-            background: linear-gradient(145deg, #222222, #1a1a1a);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 25px;
+            background: linear-gradient(145deg, #181818, #111111);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 18px;
+            padding: 28px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -474,10 +548,10 @@
         }
 
         .faq-item:hover {
-            transform: translateY(-5px);
-            background: #252525;
+            transform: translateY(-6px);
+            background: #1a1a1a;
             border-color: rgba(255, 159, 67, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .faq-item-center {
@@ -496,12 +570,12 @@
 
         .faq-item h3 {
             margin: 0;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #ffffff;
             transition: color 0.3s ease;
             text-align: left;
             padding-right: 15px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .faq-item:hover h3 {
@@ -519,13 +593,13 @@
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .faq-content p {
             font-size: 1.05rem;
-            color: #a6a6a6;
-            line-height: 1.6;
+            color: #999999;
+            line-height: 1.7;
             text-align: left;
             margin: 0;
             padding-top: 20px;
@@ -533,7 +607,7 @@
 
         .faq-item.active {
             border-color: #ff9f43;
-            background: #1c1c1c;
+            background: #131313;
         }
 
         .faq-item.active .faq-icon {
@@ -559,7 +633,7 @@
         .social-section {
             width: 100%;
             max-width: 850px;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             padding: 0 25px;
             box-sizing: border-box;
             text-align: center;
@@ -572,28 +646,28 @@
         }
 
         .social-item {
-            background: linear-gradient(145deg, #222222, #1a1a1a);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 30px;
+            background: linear-gradient(145deg, #181818, #111111);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 18px;
+            padding: 35px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .social-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: #ff9f43;
-            box-shadow: 0 15px 35px rgba(255, 159, 67, 0.2);
-            background: #252525;
+            box-shadow: 0 20px 40px rgba(255, 159, 67, 0.2);
+            background: #1a1a1a;
         }
 
         .social-name {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #ffffff;
             font-weight: 800;
             margin-bottom: 8px;
@@ -608,7 +682,7 @@
 
         .social-sub {
             font-size: 0.95rem;
-            color: #888;
+            color: #777777;
         }
 
         .fullscreen-overlay {
@@ -617,7 +691,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(5, 5, 5, 0.95);
             z-index: 1000;
             display: none;
             justify-content: center;
@@ -648,10 +722,10 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(12, 12, 12, 0.85);
+            backdrop-filter: blur(10px);
             padding: 12px 25px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 159, 67, 0.5);
             text-align: center;
         }
@@ -659,8 +733,8 @@
         .fullscreen-img {
             max-width: 100%;
             max-height: 75vh;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+            border-radius: 16px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
             user-select: none;
             cursor: zoom-out;
             object-fit: contain;
@@ -689,20 +763,20 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(18, 18, 18, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(12, 12, 12, 0.7);
+            backdrop-filter: blur(10px);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
-            font-size: 2.5rem;
+            font-size: 2rem;
             transition: all 0.3s ease;
             user-select: none;
             z-index: 1010;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             padding: 0;
         }
@@ -720,15 +794,15 @@
 
         .footer {
             width: 100%;
-            background: #0d0d0d;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            background: #090909;
+            padding: 35px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
             text-align: center;
             margin-top: auto;
         }
 
         .footer-text {
-            color: #666666;
+            color: #555555;
             font-size: 0.95rem;
             margin: 0;
             letter-spacing: 1px;
@@ -740,7 +814,7 @@
             }
             .container {
                 max-width: 90%;
-                padding: 30px;
+                padding: 35px 25px;
             }
             h1 {
                 font-size: 2.2rem;
@@ -755,8 +829,8 @@
                 height: 280px;
             }
             .slider-btn {
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
                 font-size: 1.5rem;
             }
             .prev-btn { left: 15px; }
@@ -765,7 +839,7 @@
                 top: 15px;
                 left: 15px;
                 font-size: 1rem;
-                padding: 8px 15px;
+                padding: 8px 16px;
             }
             .donator-card {
                 min-width: calc(100% - 10px);
@@ -774,7 +848,7 @@
                 max-width: 95%;
             }
             .donators-slider {
-                padding: 30px 15px;
+                padding: 35px 15px;
             }
             .faq-grid {
                 grid-template-columns: 1fr;
@@ -799,14 +873,14 @@
                 font-size: 2.5rem;
             }
             .fs-nav-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.8rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.6rem;
             }
             .fs-prev-btn { left: 15px; }
             .fs-next-btn { right: 15px; }
             .changelog-container {
-                padding: 30px 20px;
+                padding: 35px 20px;
             }
             
             .faq-item {
@@ -814,16 +888,12 @@
             }
             .faq-item:hover {
                 transform: none;
-                background: linear-gradient(145deg, #222222, #1a1a1a);
-                border-color: rgba(255, 255, 255, 0.03);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+                background: linear-gradient(145deg, #181818, #111111);
+                border-color: rgba(255, 255, 255, 0.02);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             }
             .faq-item.active {
-                background: #1c1c1c !important;
-                border-color: #ff9f43 !important;
-            }
-            .faq-item.active:hover {
-                background: #1c1c1c !important;
+                background: #111111 !important;
                 border-color: #ff9f43 !important;
             }
             
@@ -832,13 +902,13 @@
             }
             .donator-card:hover {
                 transform: none;
-                border-color: rgba(255, 255, 255, 0.05);
-                box-shadow: none;
+                border-color: rgba(255, 255, 255, 0.03);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
             }
             .donator-card.touch-active {
                 transform: scale(0.96) !important;
                 border-color: #ff9f43 !important;
-                background-color: #222222 !important;
+                background-color: #1a1a1a !important;
             }
         }
     </style>
@@ -1063,7 +1133,17 @@
                 </div>
             </div>
         </div>
-        <p class="donators-footer-text">Карта: <span class="highlight">4400430374454202</span> (KaspiKZ)</p>
+        
+        <div class="donator-accounts">
+            <div class="account-box">
+                <span class="account-title">KaspiKZ</span>
+                <span class="account-number">4400430374454202</span>
+            </div>
+            <div class="account-box">
+                <span class="account-title">Т-Банк (РФ)</span>
+                <span class="account-number">2200702027764880</span>
+            </div>
+        </div>
     </div>
 
     <h2 class="faq-title">Вопросы по игре</h2>
@@ -1155,7 +1235,7 @@
                 <span class="faq-icon">▼</span>
             </div>
             <div class="faq-content">
-                <p>Можно подписаться на <a href="https://t.me/MSVgame" target="_blank" class="faq-link">ТГК</a> или подкинуть деньжат на карту: <span class="highlight">4400430374454202</span> (KaspiKZ).</p>
+                <p>Можно подписаться на <a href="https://t.me/MSVgame" target="_blank" class="faq-link">ТГК</a> или подкинуть деньжат на карты, указанные выше.</p>
             </div>
         </div>
     </div>

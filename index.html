@@ -330,7 +330,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .donator-card:hover {
@@ -368,14 +368,15 @@
             color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 5;
             transition: all 0.3s ease;
+            padding: 0;
         }
 
         .donator-btn:hover {
@@ -384,8 +385,8 @@
             border-color: #ff9f43;
         }
 
-        .donator-prev { left: 10px; }
-        .donator-next { right: 10px; }
+        .donator-prev { left: 15px; }
+        .donator-next { right: 15px; }
 
         .donators-footer-text {
             font-size: 0.9rem;
@@ -757,20 +758,33 @@
             .faq-item {
                 -webkit-tap-highlight-color: transparent;
             }
-            .faq-item:active {
-                background: #ff9f43 !important;
-                color: #1a1a1a !important;
+            .faq-item:hover {
+                transform: none;
+                background: #262626;
+                border-color: #333;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             }
-            .faq-item:active .faq-icon, .faq-item:active h3 {
-                color: #1a1a1a !important;
+            .faq-item.active {
+                background: #2d2d2d !important;
+                border-color: #ff9f43 !important;
             }
-
+            .faq-item.active:hover {
+                background: #2d2d2d !important;
+                border-color: #ff9f43 !important;
+            }
+            
             .donator-card {
                 -webkit-tap-highlight-color: transparent;
             }
-            .donator-card:active {
-                transform: scale(0.95);
-                border-color: #ff9f43;
+            .donator-card:hover {
+                transform: none;
+                border-color: #444;
+                box-shadow: none;
+            }
+            .donator-card.touch-active {
+                transform: scale(0.95) !important;
+                border-color: #ff9f43 !important;
+                background-color: #2d2d2d !important;
             }
         }
     </style>
@@ -933,8 +947,8 @@
     <div class="donators-section">
         <h2 class="faq-title">Топ донатеров</h2>
         <div class="donators-slider">
-            <button class="donator-btn donator-prev" onclick="moveDonator(-1)">❮</button>
-            <button class="donator-btn donator-next" onclick="moveDonator(1)">❯</button>
+            <button class="donator-btn donator-prev" onclick="manualMoveDonator(-1)">❮</button>
+            <button class="donator-btn donator-next" onclick="manualMoveDonator(1)">❯</button>
             <div class="donators-track-container">
                 <div class="donators-track" id="donatorsTrack">
                     <div class="donator-card">
@@ -1092,12 +1106,6 @@
             if (!isActive) {
                 element.classList.add('active');
             }
-            
-            if (window.innerWidth <= 850) {
-                setTimeout(() => {
-                    element.blur();
-                }, 100);
-            }
         }
 
         let slideIndex = 0;
@@ -1149,6 +1157,8 @@
         let donatorIndex = 0;
         const track = document.getElementById('donatorsTrack');
         const cards = track.getElementsByClassName('donator-card');
+        let autoScrollDonators;
+        let resumeTimeout;
 
         function moveDonator(direction) {
             const cardWidth = cards[0].offsetWidth + 20; 
@@ -1167,19 +1177,42 @@
             track.style.transform = `translateX(-${donatorIndex * cardWidth}px)`;
         }
 
-        let autoScrollDonators = setInterval(() => {
-            moveDonator(1);
-        }, 3000); 
-
-        const donatorsSection = document.querySelector('.donators-section');
-        donatorsSection.addEventListener('mouseenter', () => clearInterval(autoScrollDonators));
-        donatorsSection.addEventListener('mouseleave', () => {
+        function startAutoScroll() {
+            clearInterval(autoScrollDonators);
             autoScrollDonators = setInterval(() => {
                 moveDonator(1);
             }, 3000);
+        }
+
+        function manualMoveDonator(direction) {
+            clearInterval(autoScrollDonators);
+            clearTimeout(resumeTimeout);
+            moveDonator(direction);
+            resumeTimeout = setTimeout(startAutoScroll, 3000); 
+        }
+
+        startAutoScroll();
+
+        const donatorsSection = document.querySelector('.donators-section');
+        donatorsSection.addEventListener('mouseenter', () => {
+            if(window.innerWidth > 850) clearInterval(autoScrollDonators);
+        });
+        donatorsSection.addEventListener('mouseleave', () => {
+            if(window.innerWidth > 850) startAutoScroll();
         });
 
-        track.addEventListener('touchstart', () => clearInterval(autoScrollDonators));
+        document.querySelectorAll('.donator-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                clearInterval(autoScrollDonators);
+                clearTimeout(resumeTimeout);
+                this.classList.add('touch-active');
+            }, {passive: true});
+
+            card.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+                resumeTimeout = setTimeout(startAutoScroll, 3000); 
+            }, {passive: true});
+        });
 
         function openFullscreen(index) {
             currentFsIndex = index;
@@ -1222,20 +1255,6 @@
             if (e.target === this) {
                 closeFullscreen();
             }
-        });
-
-        document.querySelectorAll('.donator-card').forEach(card => {
-            card.addEventListener('click', function() {
-                if (window.innerWidth <= 850) {
-                    this.style.borderColor = "#ff9f43";
-                    this.style.background = "#2d2d2d";
-                    setTimeout(() => {
-                        this.style.borderColor = "#444";
-                        this.style.background = "#1f1f1f";
-                        this.blur();
-                    }, 400);
-                }
-            });
         });
     </script>
 </body>

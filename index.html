@@ -156,12 +156,72 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
-            }
+        }
 
         .dot.active-dot {
             background: #ff9f43;
             transform: scale(1.2);
             box-shadow: 0 0 10px rgba(255, 159, 67, 0.5);
+        }
+
+        .changelog-section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 60px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .changelog-container {
+            background: #262626;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .changelog-item {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .changelog-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .changelog-date {
+            font-size: 1.1rem;
+            color: #ff9f43;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .changelog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .changelog-list li {
+            font-size: 1.05rem;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .changelog-list li::before {
+            content: "•";
+            color: #ff9f43;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         .donators-section {
@@ -309,7 +369,7 @@
             transform: translateY(-3px);
             background: #2d2d2d;
             border-color: #ff9f43;
-            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.2);
+            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.21);
         }
 
         .faq-item-center {
@@ -627,6 +687,9 @@
             }
             .fs-prev-btn { left: 15px; }
             .fs-next-btn { right: 15px; }
+            .changelog-container {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
@@ -676,6 +739,39 @@
             <div class="dot" onclick="currentSlide(3)"></div>
             <div class="dot" onclick="currentSlide(4)"></div>
             <div class="dot" onclick="currentSlide(5)"></div>
+        </div>
+    </div>
+
+    <div class="changelog-section">
+        <h2 class="faq-title">Список изменений (Changelog)</h2>
+        <div class="changelog-container">
+            <div class="changelog-item">
+                <span class="changelog-date">16.02.2026</span>
+                <ul class="changelog-list">
+                    <li>1 - Добавлена камера от первого лица в машине.</li>
+                    <li>2 - Добавлена механика проверки давления(надутия) в колесах.</li>
+                    <li>3 - Добавлено движение внешних деталей на двигателе(шкифы, вентилятор).</li>
+                    <li>4 - Добавлено движение козырьков и бардачка.</li>
+                    <li>5 - Добавлено движение педалей при нажатии W и S.</li>
+                    <li>6 - Небольшие улучшения физики машины.</li>
+                </ul>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">17.02.2026</span>
+                <ul class="changelog-list">
+                    <li>1 - Добавлены материалы с отображением с двух сторон.</li>
+                    <li>2 - Добавлен ручник.</li>
+                    <li>3 - Добавлено реалистичное открытие капота.</li>
+                    <li>4 - Небольшие улучшения физики машины.</li>
+                </ul>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">18.02.2026</span>
+                <ul class="changelog-list">
+                    <li>1 - Добавил фары и их переключение.</li>
+                    <li>2 - Добавил текстуры приборке.</li>
+                </ul>
+            </div>
         </div>
     </div>
 

@@ -8,9 +8,10 @@
     <style>
         body {
             margin: 0;
-            padding: 40px 0 0 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
+            padding: 60px 0 0 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #121212;
+            background-image: radial-gradient(circle at top, #1e1e1e 0%, #121212 100%);
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -21,58 +22,60 @@
         .container {
             text-align: center;
             max-width: 800px;
-            padding: 40px;
-            background: #262626;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
-            margin-bottom: 40px;
+            padding: 50px;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 159, 67, 0.1);
+            margin-bottom: 50px;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 24px;
             color: #ff9f43;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(255, 159, 67, 0.3);
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #cccccc;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #b3b3b3;
             margin-bottom: 0;
         }
 
         .highlight {
             color: #ff9f43;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .slider-section {
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 50px;
-            padding: 0 20px;
+            max-width: 850px;
+            margin-bottom: 60px;
+            padding: 0 25px;
             box-sizing: border-box;
         }
 
         .slider-container {
             position: relative;
             width: 100%;
-            height: 450px;
-            background: #262626;
-            border-radius: 12px;
-            border: 1px solid #333;
+            height: 480px;
+            background: #1a1a1a;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
         }
 
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .slide {
@@ -90,15 +93,16 @@
 
         .slide-title {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            top: 25px;
+            left: 25px;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
             color: #ff9f43;
-            padding: 8px 15px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-size: 1.1rem;
             font-weight: bold;
-            border: 1px solid #ff9f43;
+            border: 1px solid rgba(255, 159, 67, 0.5);
             z-index: 20;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -109,34 +113,37 @@
         .slide-title:hover {
             transform: translateY(-3px);
             background: #ff9f43;
-            color: #1a1a1a;
-            box-shadow: 0 0 15px rgba(255, 159, 67, 0.6);
+            color: #121212;
+            box-shadow: 0 10px 20px rgba(255, 159, 67, 0.4);
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(5px);
             color: #ffffff;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            font-size: 3.5rem;
+            font-size: 2rem;
             transition: all 0.3s ease;
             user-select: none;
             z-index: 10;
-            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: auto;
-            height: auto;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
         }
 
         .slider-btn:hover {
-            color: #ff9f43;
-            transform: translateY(-50%) scale(1.15);
-            text-shadow: 0 0 20px rgba(255, 159, 67, 0.8);
+            background: #ff9f43;
+            color: #121212;
+            border-color: #ff9f43;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.5);
         }
 
         .prev-btn { left: 25px; }
@@ -145,14 +152,14 @@
         .dots-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
-            background: #444;
+            width: 10px;
+            height: 10px;
+            background: #333;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -161,30 +168,30 @@
         .dot.active-dot {
             background: #ff9f43;
             transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(255, 159, 67, 0.5);
+            box-shadow: 0 0 12px rgba(255, 159, 67, 0.6);
         }
 
         .changelog-section {
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 60px;
-            padding: 0 20px;
+            max-width: 850px;
+            margin-bottom: 70px;
+            padding: 0 25px;
             box-sizing: border-box;
         }
 
         .changelog-container {
-            background: #262626;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             position: relative;
         }
 
         .changelog-wrapper {
-            max-height: 160px;
+            max-height: 180px;
             overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
+            transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
         }
 
@@ -197,8 +204,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 60px;
-            background: linear-gradient(to bottom, rgba(38, 38, 38, 0), #262626);
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(34, 34, 34, 0), #222222);
             pointer-events: none;
             transition: opacity 0.3s ease;
             z-index: 2;
@@ -209,9 +216,9 @@
         }
 
         .changelog-item {
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
@@ -227,12 +234,13 @@
             align-items: center;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            padding: 5px 0;
         }
 
         .changelog-date {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #ff9f43;
-            font-weight: bold;
+            font-weight: 700;
             display: block;
         }
 
@@ -251,30 +259,30 @@
         .changelog-list-container {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .changelog-item.open .changelog-list-container {
-            max-height: 500px;
+            max-height: 600px;
         }
 
         .changelog-list {
             list-style: none;
-            padding: 15px 0 0 0;
+            padding: 15px 0 0 5px;
             margin: 0;
         }
 
         .changelog-list li {
             font-size: 1.05rem;
-            color: #cccccc;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            padding-left: 20px;
+            color: #b3b3b3;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 24px;
             position: relative;
         }
 
         .changelog-list li::before {
-            content: "•";
+            content: "→";
             color: #ff9f43;
             font-weight: bold;
             position: absolute;
@@ -282,29 +290,30 @@
         }
 
         .changelog-toggle-btn {
-            background: #1f1f1f;
-            border: 1px solid #333;
+            background: #121212;
+            border: 1px solid rgba(255, 159, 67, 0.3);
             color: #ff9f43;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            margin: 20px auto 0 auto;
+            margin: 25px auto 0 auto;
             font-size: 1.2rem;
             transition: all 0.3s ease;
             z-index: 3;
             position: relative;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             -webkit-tap-highlight-color: transparent;
         }
 
         .changelog-toggle-btn:hover {
             background: #ff9f43;
-            color: #1a1a1a;
+            color: #121212;
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
         }
 
         .changelog-toggle-btn span {
@@ -319,21 +328,21 @@
 
         .donators-section {
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 60px;
-            padding: 0 20px;
+            max-width: 850px;
+            margin-bottom: 70px;
+            padding: 0 25px;
             box-sizing: border-box;
             text-align: center;
         }
 
         .donators-slider {
             position: relative;
-            background: #262626;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-            margin-bottom: 15px;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
         }
 
         .donators-track-container {
@@ -351,10 +360,10 @@
 
         .donator-card {
             min-width: calc(33.333% - 14px);
-            background: #1f1f1f;
-            border: 1px solid #444;
-            border-radius: 8px;
-            padding: 20px;
+            background: #1c1c1c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -366,21 +375,24 @@
         .donator-card:hover {
             border-color: #ff9f43;
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.3);
+            background-color: #222;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
         .donator-rank {
             font-size: 1rem;
             color: #ff9f43;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .donator-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #ffffff;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 8px;
             word-break: break-all;
         }
 
@@ -393,8 +405,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #444;
+            background: rgba(18, 18, 18, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
@@ -411,48 +423,50 @@
 
         .donator-btn:hover {
             background: #ff9f43;
-            color: #1a1a1a;
+            color: #121212;
             border-color: #ff9f43;
+            box-shadow: 0 0 15px rgba(255, 159, 67, 0.4);
         }
 
         .donator-prev { left: 15px; }
         .donator-next { right: 15px; }
 
         .donators-footer-text {
-            font-size: 0.9rem;
-            color: #aaaaaa;
+            font-size: 0.95rem;
+            color: #888;
             margin: 0;
         }
 
         .faq-title {
             color: #ff9f43;
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-align: center;
+            font-weight: 800;
         }
 
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 800px;
+            gap: 25px;
+            max-width: 850px;
             width: 100%;
-            padding: 0 20px;
+            padding: 0 25px;
             box-sizing: border-box;
             align-items: start;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .faq-item {
-            background: #262626;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 20px;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -460,15 +474,15 @@
         }
 
         .faq-item:hover {
-            transform: translateY(-3px);
-            background: #2d2d2d;
-            border-color: #ff9f43;
-            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.21);
+            transform: translateY(-5px);
+            background: #252525;
+            border-color: rgba(255, 159, 67, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .faq-item-center {
             grid-column: 1 / -1;
-            max-width: calc(50% - 10px);
+            max-width: calc(50% - 13px);
             margin: 0 auto;
             width: 100%;
         }
@@ -482,11 +496,12 @@
 
         .faq-item h3 {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #ffffff;
             transition: color 0.3s ease;
             text-align: left;
-            padding-right: 10px;
+            padding-right: 15px;
+            font-weight: 700;
         }
 
         .faq-item:hover h3 {
@@ -504,21 +519,21 @@
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, margin-top 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .faq-content p {
-            font-size: 1rem;
-            color: #aaaaaa;
-            line-height: 1.5;
+            font-size: 1.05rem;
+            color: #a6a6a6;
+            line-height: 1.6;
             text-align: left;
             margin: 0;
-            padding-top: 15px;
+            padding-top: 20px;
         }
 
         .faq-item.active {
             border-color: #ff9f43;
-            background: #2d2d2d;
+            background: #1c1c1c;
         }
 
         .faq-item.active .faq-icon {
@@ -526,7 +541,7 @@
         }
 
         .faq-item.active .faq-content {
-            max-height: 200px; 
+            max-height: 250px; 
         }
 
         .faq-link {
@@ -543,9 +558,9 @@
 
         .social-section {
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 60px;
-            padding: 0 20px;
+            max-width: 850px;
+            margin-bottom: 70px;
+            padding: 0 25px;
             box-sizing: border-box;
             text-align: center;
         }
@@ -553,37 +568,37 @@
         .social-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .social-item {
-            background: #262626;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 25px;
+            background: linear-gradient(145deg, #222222, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .social-item:hover {
             transform: translateY(-5px);
             border-color: #ff9f43;
-            box-shadow: 0 8px 25px rgba(255, 159, 67, 0.2);
-            background: #2d2d2d;
+            box-shadow: 0 15px 35px rgba(255, 159, 67, 0.2);
+            background: #252525;
         }
 
         .social-name {
             font-size: 1.5rem;
             color: #ffffff;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 800;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: color 0.3s ease;
         }
 
@@ -592,7 +607,7 @@
         }
 
         .social-sub {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #888;
         }
 
@@ -602,7 +617,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(10, 10, 10, 0.95);
             z-index: 1000;
             display: none;
             justify-content: center;
@@ -628,15 +643,16 @@
 
         .fs-title {
             color: #ff9f43;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 12px 25px;
             border-radius: 8px;
-            border: 1px solid #ff9f43;
+            border: 1px solid rgba(255, 159, 67, 0.5);
             text-align: center;
         }
 
@@ -644,7 +660,7 @@
             max-width: 100%;
             max-height: 75vh;
             border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.89);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
             user-select: none;
             cursor: zoom-out;
             object-fit: contain;
@@ -673,26 +689,30 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(5px);
             color: #ffffff;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            font-size: 4.5rem;
+            font-size: 2.5rem;
             transition: all 0.3s ease;
             user-select: none;
             z-index: 1010;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: auto;
-            height: auto;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             padding: 0;
         }
 
         .fs-nav-btn:hover {
-            color: #ff9f43;
-            transform: translateY(-50%) scale(1.15);
-            text-shadow: 0 0 25px rgba(255, 159, 67, 0.8);
+            background: #ff9f43;
+            color: #121212;
+            transform: translateY(-50%) scale(1.1);
+            border-color: #ff9f43;
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
         }
 
         .fs-prev-btn { left: 40px; }
@@ -700,30 +720,30 @@
 
         .footer {
             width: 100%;
-            background: #212121;
-            padding: 20px 0;
-            border-top: 1px solid #333;
+            background: #0d0d0d;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
             text-align: center;
             margin-top: auto;
         }
 
         .footer-text {
-            color: #888888;
+            color: #666666;
             font-size: 0.95rem;
             margin: 0;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 850px) {
             body {
-                padding-top: 20px;
+                padding-top: 30px;
             }
             .container {
                 max-width: 90%;
-                padding: 20px;
+                padding: 30px;
             }
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             p {
                 font-size: 1.1rem;
@@ -732,18 +752,20 @@
                 max-width: 100%;
             }
             .slider-container {
-                height: 250px;
+                height: 280px;
             }
             .slider-btn {
-                font-size: 2.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
             }
-            .prev-btn { left: 10px; }
-            .next-btn { right: 10px; }
+            .prev-btn { left: 15px; }
+            .next-btn { right: 15px; }
             .slide-title {
-                top: 10px;
-                left: 10px;
+                top: 15px;
+                left: 15px;
                 font-size: 1rem;
-                padding: 5px 10px;
+                padding: 8px 15px;
             }
             .donator-card {
                 min-width: calc(100% - 10px);
@@ -752,7 +774,7 @@
                 max-width: 95%;
             }
             .donators-slider {
-                padding: 20px 10px;
+                padding: 30px 15px;
             }
             .faq-grid {
                 grid-template-columns: 1fr;
@@ -772,17 +794,19 @@
                 font-size: 1.1rem;
             }
             .close-btn {
-                top: 15px;
+                top: 20px;
                 right: 20px;
                 font-size: 2.5rem;
             }
             .fs-nav-btn {
-                font-size: 2.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
             }
             .fs-prev-btn { left: 15px; }
             .fs-next-btn { right: 15px; }
             .changelog-container {
-                padding: 20px 15px;
+                padding: 30px 20px;
             }
             
             .faq-item {
@@ -790,16 +814,16 @@
             }
             .faq-item:hover {
                 transform: none;
-                background: #262626;
-                border-color: #333;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: linear-gradient(145deg, #222222, #1a1a1a);
+                border-color: rgba(255, 255, 255, 0.03);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             }
             .faq-item.active {
-                background: #2d2d2d !important;
+                background: #1c1c1c !important;
                 border-color: #ff9f43 !important;
             }
             .faq-item.active:hover {
-                background: #2d2d2d !important;
+                background: #1c1c1c !important;
                 border-color: #ff9f43 !important;
             }
             
@@ -808,13 +832,13 @@
             }
             .donator-card:hover {
                 transform: none;
-                border-color: #444;
+                border-color: rgba(255, 255, 255, 0.05);
                 box-shadow: none;
             }
             .donator-card.touch-active {
-                transform: scale(0.95) !important;
+                transform: scale(0.96) !important;
                 border-color: #ff9f43 !important;
-                background-color: #2d2d2d !important;
+                background-color: #222222 !important;
             }
         }
     </style>
@@ -834,8 +858,8 @@
         <div class="slider-container">
             <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
             
-            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">❮</button>
-            <button class="slider-btn next-btn" onclick="moveSlide(1)">❯</button>
+            <button class="slider-btn prev-btn" onclick="manualSliderMove(-1)">❮</button>
+            <button class="slider-btn next-btn" onclick="manualSliderMove(1)">❯</button>
             
             <div class="slides" id="slides">
                 <div class="slide">
@@ -859,12 +883,12 @@
             </div>
         </div>
         <div class="dots-container" id="dots">
-            <div class="dot active-dot" onclick="currentSlide(0)"></div>
-            <div class="dot" onclick="currentSlide(1)"></div>
-            <div class="dot" onclick="currentSlide(2)"></div>
-            <div class="dot" onclick="currentSlide(3)"></div>
-            <div class="dot" onclick="currentSlide(4)"></div>
-            <div class="dot" onclick="currentSlide(5)"></div>
+            <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
+            <div class="dot" onclick="manualDotSlide(1)"></div>
+            <div class="dot" onclick="manualDotSlide(2)"></div>
+            <div class="dot" onclick="manualDotSlide(3)"></div>
+            <div class="dot" onclick="manualDotSlide(4)"></div>
+            <div class="dot" onclick="manualDotSlide(5)"></div>
         </div>
     </div>
 
@@ -1194,7 +1218,8 @@
         let slideIndex = 0;
         const slides = document.getElementById('slides');
         const dots = document.querySelectorAll('.dot');
-        const totalSlides = document.querySelectorAll('.slide').length;
+        const totalSlides = 6;
+        let mainSliderTimer;
 
         const screenshotData = [
             { path: "screenshots/Ваз2109.jpg", title: "Ваз-2109" },
@@ -1204,8 +1229,6 @@
             { path: "screenshots/магазин.jpg", title: "Магазин" },
             { path: "screenshots/ЯщикПива.jpg", title: "Ящик Пива" }
         ];
-
-        let currentFsIndex = 0;
 
         function updateSlider() {
             slides.style.transform = `translateX(-${slideIndex * 100}%)`;
@@ -1224,10 +1247,26 @@
             updateSlider();
         }
 
-        function currentSlide(index) {
-            slideIndex = index;
-            updateSlider();
+        function manualSliderMove(n) {
+            clearInterval(mainSliderTimer);
+            moveSlide(n);
+            startMainSliderAuto();
         }
+
+        function manualDotSlide(n) {
+            clearInterval(mainSliderTimer);
+            slideIndex = n;
+            updateSlider();
+            startMainSliderAuto();
+        }
+
+        function startMainSliderAuto() {
+            mainSliderTimer = setInterval(() => {
+                moveSlide(1);
+            }, 5000);
+        }
+
+        startMainSliderAuto();
 
         function toggleChangelogWrapper() {
             const wrapper = document.getElementById('changelogWrapper');
@@ -1264,25 +1303,17 @@
             clearInterval(autoScrollDonators);
             autoScrollDonators = setInterval(() => {
                 moveDonator(1);
-            }, 3000);
+            }, 3500);
         }
 
         function manualMoveDonator(direction) {
             clearInterval(autoScrollDonators);
             clearTimeout(resumeTimeout);
             moveDonator(direction);
-            resumeTimeout = setTimeout(startAutoScroll, 3000); 
+            resumeTimeout = setTimeout(startAutoScroll, 3500); 
         }
 
         startAutoScroll();
-
-        const donatorsSection = document.querySelector('.donators-section');
-        donatorsSection.addEventListener('mouseenter', () => {
-            if(window.innerWidth > 850) clearInterval(autoScrollDonators);
-        });
-        donatorsSection.addEventListener('mouseleave', () => {
-            if(window.innerWidth > 850) startAutoScroll();
-        });
 
         document.querySelectorAll('.donator-card').forEach(card => {
             card.addEventListener('touchstart', function() {
@@ -1293,7 +1324,7 @@
 
             card.addEventListener('touchend', function() {
                 this.classList.remove('touch-active');
-                resumeTimeout = setTimeout(startAutoScroll, 3000); 
+                resumeTimeout = setTimeout(startAutoScroll, 3500); 
             }, {passive: true});
         });
 

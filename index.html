@@ -163,6 +163,31 @@
             background: #ff9f43;
         }
 
+        .description-container {
+            margin-top: 25px;
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+            min-height: 100px;
+        }
+
+        .desc-title {
+            color: #ff9f43;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .desc-text {
+            color: #aaaaaa;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
         .changelog-section {
             width: 100%;
             max-width: 850px;
@@ -226,6 +251,10 @@
             padding: 8px 12px;
             border-radius: 10px;
             margin: 0 -12px;
+        }
+
+        .changelog-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .changelog-date {
@@ -578,6 +607,7 @@
             background: rgba(5, 5, 5, 0.95);
             z-index: 1000;
             display: none;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
@@ -592,36 +622,56 @@
         .fullscreen-content {
             position: relative;
             max-width: 85%;
-            max-height: 90%;
+            max-height: 80%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
-        .fs-title {
-            color: #ff9f43;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            background: #121212;
-            padding: 12px 25px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 159, 67, 0.5);
-            text-align: center;
+        .fs-img-container {
+            position: relative;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .fullscreen-img {
             max-width: 100%;
-            max-height: 75vh;
+            max-height: 65vh;
             border-radius: 16px;
             user-select: none;
             cursor: zoom-out;
             object-fit: contain;
             opacity: 1;
             transition: opacity 0.3s ease;
+        }
+
+        .fs-description {
+            width: 100%;
+            max-width: 800px;
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .fs-desc-title {
+            color: #ff9f43;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .fs-desc-text {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
         }
 
         .close-btn {
@@ -702,6 +752,12 @@
             .fs-next-btn { right: 15px; }
             .changelog-container { padding: 35px 20px; }
 
+            .fs-description {
+                max-width: 90%;
+                padding: 15px;
+                margin-top: 15px;
+            }
+
             .donator-card.touch-active {
                 background-color: #222 !important;
                 border-color: #ff9f43 !important;
@@ -755,6 +811,11 @@
             <div class="dot" onclick="manualDotSlide(3)"></div>
             <div class="dot" onclick="manualDotSlide(4)"></div>
             <div class="dot" onclick="manualDotSlide(5)"></div>
+        </div>
+
+        <div class="description-container">
+            <span class="desc-title" id="descTitle">Ваз-2109</span>
+            <p class="desc-text" id="descText">Здесь находится текст массовка описания этого скриншота. Ты сможешь самостоятельно вписать сюда всю нужную информацию об этой машине или окружении.</p>
         </div>
     </div>
 
@@ -1053,12 +1114,18 @@
 
     <div class="fullscreen-overlay" id="fullscreenOverlay">
         <span class="close-btn" onclick="closeFullscreen()">&times;</span>
-        <button class="fs-nav-btn fs-prev-btn" onclick="navigateFullscreen(-1)">❮</button>
-        <button class="fs-nav-btn fs-next-btn" onclick="navigateFullscreen(1)">❯</button>
         
         <div class="fullscreen-content">
-            <div class="fs-title" id="fsTitle"></div>
-            <img class="fullscreen-img" id="fullscreenImg" src="" alt="Полный экран" onclick="closeFullscreen()">
+            <div class="fs-img-container">
+                <button class="fs-nav-btn fs-prev-btn" onclick="navigateFullscreen(-1)">❮</button>
+                <img class="fullscreen-img" id="fullscreenImg" src="" alt="Полный экран" onclick="closeFullscreen()">
+                <button class="fs-nav-btn fs-next-btn" onclick="navigateFullscreen(1)">❯</button>
+            </div>
+
+            <div class="fs-description">
+                <span class="fs-desc-title" id="fsDescTitle"></span>
+                <p class="fs-desc-text" id="fsDescText"></p>
+            </div>
         </div>
     </div>
 
@@ -1087,17 +1154,21 @@
         let mainSliderTimer;
 
         const screenshotData = [
-            { path: "screenshots/Ваз2109.jpg", title: "Ваз-2109" },
-            { path: "screenshots/Ваз2109Безвнешних деталей.jpg", title: "Без внешних деталей" },
-            { path: "screenshots/двигатель.jpg", title: "Двигатель" },
-            { path: "screenshots/газель.jpg", title: "Газель" },
-            { path: "screenshots/магазин.jpg", title: "Магазин" },
-            { path: "screenshots/ЯщикПива.jpg", title: "Ящик Пива" }
+            { path: "screenshots/Ваз2109.jpg", title: "Ваз-2109", text: "Здесь находится текст массовка описания этого скриншота. Ты сможешь самостоятельно вписать сюда всю нужную информацию об этой машине или окружении." },
+            { path: "screenshots/Ваз2109Безвнешних деталей.jpg", title: "Без внешних деталей", text: "Второе описание массовка для скриншота без внешних деталей. Описывай разборку и замену запчастей." },
+            { path: "screenshots/двигатель.jpg", title: "Двигатель", text: "Третье описание массовка для скриншота двигателя. Расскажи подробнее о запчастях мотора." },
+            { path: "screenshots/газель.jpg", title: "Газель", text: "Четвертое описание массовка для скриншота Газели. Напиши о доставке грузов." },
+            { path: "screenshots/магазин.jpg", title: "Магазин", text: "Пятое описание массовка для скриншота Магазина. Укажи на ассортимент в местном ларьке." },
+            { path: "screenshots/ЯщикПива.jpg", title: "Ящик Пива", text: "Шестое описание массовка для скриншота Ящика Пива. Расскажи об отдыхе после тяжелой работы в гараже." }
         ];
 
         function updateSlider() {
             slides.style.transform = `translateX(-${slideIndex * 100}%)`;
             document.getElementById('mainSlideTitle').textContent = screenshotData[slideIndex].title;
+            
+            document.getElementById('descTitle').textContent = screenshotData[slideIndex].title;
+            document.getElementById('descText').textContent = screenshotData[slideIndex].text;
+
             dots.forEach(dot => dot.classList.remove('active-dot'));
             dots[slideIndex].classList.add('active-dot');
         }
@@ -1176,11 +1247,17 @@
             }, {passive: true});
         });
 
+        let currentFsIndex = 0;
+
         function openFullscreen(index) {
             currentFsIndex = index;
+            const overlay = document.getElementById('fullscreenOverlay');
+            
             document.getElementById('fullscreenImg').src = screenshotData[index].path;
-            document.getElementById('fsTitle').textContent = screenshotData[index].title;
-            document.getElementById('fullscreenOverlay').classList.add('active');
+            document.getElementById('fsDescTitle').textContent = screenshotData[index].title;
+            document.getElementById('fsDescText').textContent = screenshotData[index].text;
+
+            overlay.classList.add('active');
         }
 
         function closeFullscreen() {
@@ -1190,10 +1267,14 @@
         function navigateFullscreen(direction) {
             const img = document.getElementById('fullscreenImg');
             img.style.opacity = '0';
+            
             setTimeout(() => {
                 currentFsIndex = (currentFsIndex + direction + screenshotData.length) % screenshotData.length;
+                
                 img.src = screenshotData[currentFsIndex].path;
-                document.getElementById('fsTitle').textContent = screenshotData[currentFsIndex].title;
+                document.getElementById('fsDescTitle').textContent = screenshotData[currentFsIndex].title;
+                document.getElementById('fsDescText').textContent = screenshotData[currentFsIndex].text;
+
                 img.style.opacity = '1';
             }, 300);
         }

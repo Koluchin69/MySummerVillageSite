@@ -13,26 +13,23 @@
             background-color: #0a0a0a;
             background-image: 
                 linear-gradient(rgba(255, 159, 67, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 159, 67, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 50% 0%, rgba(255, 159, 67, 0.15), transparent 60%);
-            background-size: 40px 40px, 40px 40px, 100% 100%;
-            background-position: center center;
+                linear-gradient(90deg, rgba(255, 159, 67, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             text-align: center;
             max-width: 800px;
             padding: 50px;
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
+            background: #141414;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 159, 67, 0.1);
+            border: 1px solid #222;
             margin-bottom: 60px;
             position: relative;
         }
@@ -55,7 +52,6 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
-            text-shadow: 0 2px 20px rgba(255, 159, 67, 0.4);
         }
 
         p {
@@ -84,16 +80,15 @@
             height: 480px;
             background: #111;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
         }
 
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.5s ease-out;
             will-change: transform;
         }
 
@@ -114,41 +109,29 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            background: rgba(12, 12, 12, 0.85);
-            backdrop-filter: blur(12px);
+            background: #121212;
             color: #ff9f43;
             padding: 12px 24px;
             border-radius: 10px;
             font-size: 1.1rem;
             font-weight: bold;
-            border: 1px solid rgba(255, 159, 67, 0.3);
+            border: 1px solid rgba(255, 159, 67, 0.4);
             z-index: 20;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.2s ease;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            will-change: transform;
-        }
-
-        .slide-title:hover {
-            transform: translateY(-3px);
-            background: #ff9f43;
-            color: #121212;
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(12, 12, 12, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(18, 18, 18, 0.9);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
             cursor: pointer;
             font-size: 1.8rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            user-select: none;
             z-index: 10;
             display: flex;
             align-items: center;
@@ -156,14 +139,6 @@
             width: 54px;
             height: 54px;
             border-radius: 50%;
-            will-change: transform;
-        }
-
-        .slider-btn:hover {
-            background: #ff9f43;
-            color: #121212;
-            border-color: #ff9f43;
-            transform: translateY(-50%) scale(1.1);
         }
 
         .prev-btn { left: 25px; }
@@ -182,12 +157,10 @@
             background: #252525;
             border-radius: 50%;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .dot.active-dot {
             background: #ff9f43;
-            transform: scale(1.2);
         }
 
         .changelog-section {
@@ -199,20 +172,17 @@
         }
 
         .changelog-container {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 159, 67, 0.05);
+            background: #141414;
+            border: 1px solid #222;
             border-radius: 20px;
             padding: 45px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
             position: relative;
         }
 
         .changelog-wrapper {
             max-height: 180px;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
+            transition: max-height 0.4s ease-out;
         }
 
         .changelog-wrapper.expanded {
@@ -225,18 +195,17 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: linear-gradient(to bottom, rgba(20, 20, 20, 0), rgba(20, 20, 20, 1));
+            background: linear-gradient(to bottom, transparent, #141414);
             pointer-events: none;
-            transition: opacity 0.3s ease;
             z-index: 2;
         }
 
         .changelog-wrapper.expanded .changelog-fade {
-            opacity: 0;
+            display: none;
         }
 
         .changelog-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid #222;
             padding-bottom: 20px;
             margin-bottom: 20px;
             text-align: left;
@@ -256,12 +225,7 @@
             -webkit-tap-highlight-color: transparent;
             padding: 8px 12px;
             border-radius: 10px;
-            transition: background-color 0.2s ease;
             margin: 0 -12px;
-        }
-
-        .changelog-header:hover {
-            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .changelog-date {
@@ -275,7 +239,7 @@
             color: #ff9f43;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
             user-select: none;
         }
 
@@ -286,7 +250,7 @@
         .changelog-list-container {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.3s ease-out;
         }
 
         .changelog-item.open .changelog-list-container {
@@ -320,7 +284,7 @@
 
         .changelog-toggle-btn {
             background: #111;
-            border: 1px solid rgba(255, 159, 67, 0.3);
+            border: 1px solid rgba(255, 159, 67, 0.4);
             color: #ff9f43;
             width: 50px;
             height: 50px;
@@ -331,23 +295,14 @@
             cursor: pointer;
             margin: 30px auto 0 auto;
             font-size: 1.2rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
             z-index: 3;
             position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             -webkit-tap-highlight-color: transparent;
         }
 
-        .changelog-toggle-btn:hover {
-            background: #ff9f43;
-            color: #121212;
-            transform: scale(1.15);
-        }
-
         .changelog-toggle-btn span {
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
             display: inline-block;
-            transform: rotate(0deg);
         }
 
         .changelog-toggle-btn.active span {
@@ -365,12 +320,10 @@
 
         .donators-slider {
             position: relative;
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 159, 67, 0.05);
+            background: #141414;
+            border: 1px solid #222;
             border-radius: 20px;
             padding: 45px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
             margin-bottom: 25px;
         }
 
@@ -383,15 +336,15 @@
 
         .donators-track {
             display: flex;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s ease-out;
             gap: 20px;
             will-change: transform;
         }
 
         .donator-card {
             min-width: calc(33.333% - 14px);
-            background: #151515;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
             border-radius: 14px;
             padding: 30px 20px;
             box-sizing: border-box;
@@ -399,13 +352,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .donator-card:hover {
-            border-color: #ff9f43;
-            transform: translateY(-12px);
-            background-color: #1a1a1a;
         }
 
         .donator-rank {
@@ -434,8 +380,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(12, 12, 12, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #111;
+            border: 1px solid #333;
             color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
@@ -446,15 +392,7 @@
             align-items: center;
             justify-content: center;
             z-index: 5;
-            transition: transform 0.3s ease, background-color 0.3s ease;
             padding: 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .donator-btn:hover {
-            background: #ff9f43;
-            color: #121212;
-            border-color: #ff9f43;
         }
 
         .donator-prev { left: 15px; }
@@ -470,24 +408,15 @@
         }
 
         .account-box {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(10px);
+            background: #141414;
             padding: 14px 24px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 159, 67, 0.15);
+            border: 1px solid rgba(255, 159, 67, 0.2);
             width: fit-content;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 6px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .account-box:hover {
-            border-color: #ff9f43;
-            transform: translateY(-3px);
-            background: #1c1c1c;
         }
 
         .account-title {
@@ -513,7 +442,6 @@
             letter-spacing: 3px;
             text-align: center;
             font-weight: 900;
-            text-shadow: 0 2px 15px rgba(255, 159, 67, 0.3);
         }
 
         .faq-grid {
@@ -529,24 +457,16 @@
         }
 
         .faq-item {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            background: #141414;
+            border: 1px solid #222;
             border-radius: 18px;
             padding: 28px;
             cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             height: fit-content;
-        }
-
-        .faq-item:hover {
-            transform: translateY(-6px);
-            background: #1a1a1a;
-            border-color: rgba(255, 159, 67, 0.3);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .faq-item-center {
@@ -567,28 +487,23 @@
             margin: 0;
             font-size: 1.2rem;
             color: #ffffff;
-            transition: color 0.3s ease;
             text-align: left;
             padding-right: 15px;
             font-weight: 800;
-        }
-
-        .faq-item:hover h3 {
-            color: #ff9f43;
         }
 
         .faq-icon {
             color: #ff9f43;
             font-weight: bold;
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
             user-select: none;
         }
 
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.3s ease-out;
         }
 
         .faq-content p {
@@ -602,7 +517,7 @@
 
         .faq-item.active {
             border-color: #ff9f43;
-            background: #131313;
+            background: #111;
         }
 
         .faq-item.active .faq-icon {
@@ -611,17 +526,6 @@
 
         .faq-item.active .faq-content {
             max-height: 250px; 
-        }
-
-        .faq-link {
-            color: #ff9f43;
-            text-decoration: none;
-            font-weight: bold;
-            transition: text-shadow 0.3s ease;
-        }
-
-        .faq-link:hover {
-            text-decoration: underline;
         }
 
         .social-section {
@@ -640,9 +544,8 @@
         }
 
         .social-item {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            background: #141414;
+            border: 1px solid #222;
             border-radius: 18px;
             padding: 35px;
             display: flex;
@@ -650,14 +553,6 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
-
-        .social-item:hover {
-            transform: translateY(-6px);
-            border-color: #ff9f43;
-            background: #1a1a1a;
         }
 
         .social-name {
@@ -667,11 +562,6 @@
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: color 0.3s ease;
-        }
-
-        .social-item:hover .social-name {
-            color: #ff9f43;
         }
 
         .social-sub {
@@ -691,7 +581,7 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         .fullscreen-overlay.active {
@@ -716,8 +606,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
-            background: rgba(12, 12, 12, 0.85);
-            backdrop-filter: blur(10px);
+            background: #121212;
             padding: 12px 25px;
             border-radius: 10px;
             border: 1px solid rgba(255, 159, 67, 0.5);
@@ -728,12 +617,11 @@
             max-width: 100%;
             max-height: 75vh;
             border-radius: 16px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
             user-select: none;
             cursor: zoom-out;
             object-fit: contain;
             opacity: 1;
-            transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.3s ease;
         }
 
         .close-btn {
@@ -744,26 +632,19 @@
             font-size: 3rem;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.3s ease;
             user-select: none;
             z-index: 1010;
-        }
-
-        .close-btn:hover {
-            color: #ff9f43;
         }
 
         .fs-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(12, 12, 12, 0.7);
-            backdrop-filter: blur(10px);
+            background: #121212;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
             cursor: pointer;
             font-size: 2rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
             user-select: none;
             z-index: 1010;
             display: flex;
@@ -775,13 +656,6 @@
             padding: 0;
         }
 
-        .fs-nav-btn:hover {
-            background: #ff9f43;
-            color: #121212;
-            transform: translateY(-50%) scale(1.1);
-            border-color: #ff9f43;
-        }
-
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
 
@@ -789,7 +663,7 @@
             width: 100%;
             background: #090909;
             padding: 35px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-top: 1px solid #222;
             text-align: center;
             margin-top: auto;
         }
@@ -804,97 +678,33 @@
         @media (max-width: 850px) {
             body {
                 padding-top: 30px;
-                background-size: 20px 20px, 20px 20px, 100% 100%;
+                background-size: 20px 20px, 20px 20px;
             }
             .container {
                 max-width: 90%;
                 padding: 35px 25px;
             }
-            h1 {
-                font-size: 2.2rem;
-            }
-            p {
-                font-size: 1.1rem;
-            }
-            .slider-section {
-                max-width: 100%;
-            }
-            .slider-container {
-                height: 280px;
-            }
-            .slider-btn {
-                width: 44px;
-                height: 44px;
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 2.2rem; }
+            p { font-size: 1.1rem; }
+            .slider-container { height: 280px; }
+            .slider-btn { width: 44px; height: 44px; font-size: 1.5rem; }
             .prev-btn { left: 15px; }
             .next-btn { right: 15px; }
-            .slide-title {
-                top: 15px;
-                left: 15px;
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-            .donator-card {
-                min-width: calc(100% - 10px);
-            }
-            .donators-section {
-                max-width: 95%;
-            }
-            .donators-slider {
-                padding: 35px 15px;
-            }
-            .faq-grid {
-                grid-template-columns: 1fr;
-                max-width: 95%;
-            }
-            .faq-item-center {
-                grid-column: auto;
-                max-width: none;
-                margin: 0;
-            }
-            .social-grid {
-                grid-template-columns: 1fr;
-                max-width: 95%;
-                margin: 0 auto;
-            }
-            .fs-title {
-                font-size: 1.1rem;
-            }
-            .close-btn {
-                top: 20px;
-                right: 20px;
-                font-size: 2.5rem;
-            }
-            .fs-nav-btn {
-                width: 48px;
-                height: 48px;
-                font-size: 1.6rem;
-            }
+            .slide-title { top: 15px; left: 15px; font-size: 1rem; padding: 8px 16px; }
+            .donators-slider { padding: 35px 15px; }
+            .donator-card { min-width: calc(100% - 10px); }
+            .faq-grid { grid-template-columns: 1fr; max-width: 95%; }
+            .faq-item-center { max-width: none; margin: 0; }
+            .social-grid { grid-template-columns: 1fr; max-width: 95%; margin: 0 auto; }
+            .close-btn { top: 20px; right: 20px; font-size: 2.5rem; }
+            .fs-nav-btn { width: 48px; height: 48px; font-size: 1.6rem; }
             .fs-prev-btn { left: 15px; }
             .fs-next-btn { right: 15px; }
-            .changelog-container {
-                padding: 35px 20px;
-            }
-            
-            .faq-item:hover {
-                transform: none;
-                background: rgba(20, 20, 20, 0.85);
-                border-color: rgba(255, 255, 255, 0.02);
-            }
-            .faq-item.active {
-                background: #111111 !important;
-                border-color: #ff9f43 !important;
-            }
-            
-            .donator-card:hover {
-                transform: none;
-                border-color: rgba(255, 255, 255, 0.03);
-            }
+            .changelog-container { padding: 35px 20px; }
+
             .donator-card.touch-active {
-                transform: scale(0.96) !important;
+                background-color: #222 !important;
                 border-color: #ff9f43 !important;
-                background-color: #1a1a1a !important;
             }
         }
     </style>

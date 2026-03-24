@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySummerVillage</title>
-    <script data-goatcounter="https://daviddzhumabaev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://koluchin6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <style>
         body {
             margin: 0;
@@ -25,6 +25,45 @@
             align-items: center;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        .online-counter {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(17, 13, 36, 0.8);
+            border: 1px solid #8a2be2;
+            padding: 10px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        .online-text {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
         }
 
         .container {
@@ -272,92 +311,6 @@
             z-index: 2;
         }
 
-        .changelog-wrapper.expanded .changelog-fade {
-            display: none;
-        }
-
-        .changelog-item {
-            border-bottom: 1px solid #221a30;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .changelog-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .changelog-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin: 0 -12px;
-        }
-
-        .changelog-header:hover {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .changelog-date {
-            font-size: 1.15rem;
-            color: #ff9f43;
-            font-weight: 700;
-            display: block;
-        }
-
-        .changelog-icon {
-            color: #ff9f43;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.2s ease;
-            user-select: none;
-        }
-
-        .changelog-item.open .changelog-icon {
-            transform: rotate(180deg);
-        }
-
-        .changelog-list-container {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .changelog-item.open .changelog-list-container {
-            max-height: 600px;
-        }
-
-        .changelog-list {
-            list-style: none;
-            padding: 15px 0 5px 12px;
-            margin: 0;
-        }
-
-        .changelog-list li {
-            font-size: 1.05rem;
-            color: #a0a0a0;
-            line-height: 1.7;
-            margin-bottom: 12px;
-            padding-left: 26px;
-            position: relative;
-        }
-
-        .changelog-list li::before {
-            content: "•";
-            color: #ff9f43;
-            font-size: 1.5rem;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-
         .changelog-toggle-btn {
             background: #0d0a14;
             border: 1px solid rgba(138, 43, 226, 0.4);
@@ -529,14 +482,6 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-        }
-
-        .contact-title {
-            font-size: 1.5rem;
-            color: #ffffff;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .contact-link {
@@ -855,10 +800,25 @@
                 background-color: #171324 !important;
                 border-color: #8a2be2 !important;
             }
+            
+            .online-counter {
+                top: 10px;
+                left: 10px;
+                padding: 6px 12px;
+            }
+            
+            .online-text {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <div class="online-counter">
+        <div class="online-dot"></div>
+        <span class="online-text">На сайте: <span id="onlineCount">1</span></span>
+    </div>
 
     <div class="container">
         <div class="studio-header">
@@ -1201,7 +1161,7 @@
                 <span class="faq-icon">▼</span>
             </div>
             <div class="faq-content">
-                <p>Можно подписаться на <a href="https://t.me/MSVgame" target="_blank" class="faq-link">ТГК</a> или подкинуть деньжат на карты, указанные выше.</p>
+                <p>Можно поддержать проект подпиской на Telegram-канал или переводом на реквизиты выше.</p>
             </div>
         </div>
     </div>
@@ -1373,6 +1333,22 @@
             }, 300);
         }
 
+        function fakeRealtimeCounter() {
+            let countSpan = document.getElementById('onlineCount');
+            let current = Math.floor(Math.random() * (12 - 4 + 1)) + 4;
+            countSpan.textContent = current;
+
+            setInterval(() => {
+                let change = Math.random() > 0.5 ? 1 : -1;
+                let next = current + change;
+                if (next < 2) next = 2;
+                if (next > 25) next = 22;
+                current = next;
+                countSpan.textContent = current;
+            }, 7000);
+        }
+
+        fakeRealtimeCounter();
         startAutoScroll();
         startMainSliderAuto();
         updateSlider();

@@ -10,11 +10,13 @@
             margin: 0;
             padding: 60px 0 0 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #0c0c0c;
+            background-color: #0a0a0a;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(255, 159, 67, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(255, 159, 67, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 100% 100%, rgba(255, 159, 67, 0.03) 0%, transparent 40%);
+                linear-gradient(rgba(255, 159, 67, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 159, 67, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at 50% 0%, rgba(255, 159, 67, 0.15), transparent 60%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            background-position: center center;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -26,10 +28,11 @@
             text-align: center;
             max-width: 800px;
             padding: 50px;
-            background: linear-gradient(145deg, #181818, #111111);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 159, 67, 0.1);
             margin-bottom: 60px;
             position: relative;
         }
@@ -40,7 +43,7 @@
             top: -1px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30%;
+            width: 40%;
             height: 1px;
             background: linear-gradient(90deg, transparent, #ff9f43, transparent);
         }
@@ -52,10 +55,7 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
-            background: linear-gradient(to bottom, #fff 0%, #ff9f43 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(255, 159, 67, 0.2));
+            text-shadow: 0 2px 20px rgba(255, 159, 67, 0.4);
         }
 
         p {
@@ -82,7 +82,7 @@
             position: relative;
             width: 100%;
             height: 480px;
-            background: #111111;
+            background: #111;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.03);
             overflow: hidden;
@@ -182,14 +182,12 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
         }
 
         .dot.active-dot {
             background: #ff9f43;
             transform: scale(1.2);
             box-shadow: 0 0 15px rgba(255, 159, 67, 0.6);
-            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .changelog-section {
@@ -201,8 +199,9 @@
         }
 
         .changelog-container {
-            background: linear-gradient(145deg, #181818, #111111);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 159, 67, 0.05);
             border-radius: 20px;
             padding: 45px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
@@ -226,7 +225,7 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: linear-gradient(to bottom, rgba(24, 24, 24, 0), #181818);
+            background: linear-gradient(to bottom, rgba(20, 20, 20, 0), rgba(20, 20, 20, 1));
             pointer-events: none;
             transition: opacity 0.3s ease;
             z-index: 2;
@@ -320,7 +319,7 @@
         }
 
         .changelog-toggle-btn {
-            background: #111111;
+            background: #111;
             border: 1px solid rgba(255, 159, 67, 0.3);
             color: #ff9f43;
             width: 50px;
@@ -367,8 +366,9 @@
 
         .donators-slider {
             position: relative;
-            background: linear-gradient(145deg, #181818, #111111);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 159, 67, 0.05);
             border-radius: 20px;
             padding: 45px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
@@ -390,7 +390,7 @@
 
         .donator-card {
             min-width: calc(33.333% - 14px);
-            background: #111111;
+            background: #151515;
             border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 14px;
             padding: 30px 20px;
@@ -473,10 +473,11 @@
         }
 
         .account-box {
-            background: #181818;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
             padding: 14px 24px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 159, 67, 0.15);
             width: fit-content;
             display: flex;
             flex-direction: column;
@@ -516,9 +517,7 @@
             letter-spacing: 3px;
             text-align: center;
             font-weight: 900;
-            background: linear-gradient(to bottom, #fff 0%, #ff9f43 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 15px rgba(255, 159, 67, 0.3);
         }
 
         .faq-grid {
@@ -534,7 +533,8 @@
         }
 
         .faq-item {
-            background: linear-gradient(145deg, #181818, #111111);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 18px;
             padding: 28px;
@@ -646,7 +646,8 @@
         }
 
         .social-item {
-            background: linear-gradient(145deg, #181818, #111111);
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 18px;
             padding: 35px;
@@ -811,6 +812,7 @@
         @media (max-width: 850px) {
             body {
                 padding-top: 30px;
+                background-size: 20px 20px, 20px 20px, 100% 100%;
             }
             .container {
                 max-width: 90%;
@@ -883,12 +885,9 @@
                 padding: 35px 20px;
             }
             
-            .faq-item {
-                -webkit-tap-highlight-color: transparent;
-            }
             .faq-item:hover {
                 transform: none;
-                background: linear-gradient(145deg, #181818, #111111);
+                background: rgba(20, 20, 20, 0.85);
                 border-color: rgba(255, 255, 255, 0.02);
                 box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             }
@@ -897,9 +896,6 @@
                 border-color: #ff9f43 !important;
             }
             
-            .donator-card {
-                -webkit-tap-highlight-color: transparent;
-            }
             .donator-card:hover {
                 transform: none;
                 border-color: rgba(255, 255, 255, 0.03);
@@ -1100,6 +1096,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
             
             <button class="changelog-toggle-btn" id="changelogBtn" onclick="toggleChangelogWrapper()">
@@ -1136,7 +1133,7 @@
         
         <div class="donator-accounts">
             <div class="account-box">
-                <span class="account-title">KaspiKZ</span>
+                <span class="account-title">KaspiKZ (КЗ)</span>
                 <span class="account-number">4400430374454202</span>
             </div>
             <div class="account-box">
@@ -1272,27 +1269,15 @@
     <script>
         function toggleFaq(element) {
             const isActive = element.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            if (!isActive) {
-                element.classList.add('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
         }
 
         function toggleChangelogItem(headerElement) {
             const item = headerElement.parentElement;
             const isActive = item.classList.contains('open');
-
-            document.querySelectorAll('.changelog-item').forEach(el => {
-                el.classList.remove('open');
-            });
-
-            if (!isActive) {
-                item.classList.add('open');
-            }
+            document.querySelectorAll('.changelog-item').forEach(el => el.classList.remove('open'));
+            if (!isActive) item.classList.add('open');
         }
 
         let slideIndex = 0;
@@ -1318,12 +1303,7 @@
         }
 
         function moveSlide(n) {
-            slideIndex += n;
-            if (slideIndex >= totalSlides) {
-                slideIndex = 0;
-            } else if (slideIndex < 0) {
-                slideIndex = totalSlides - 1;
-            }
+            slideIndex = (slideIndex + n + totalSlides) % totalSlides;
             updateSlider();
         }
 
@@ -1341,19 +1321,14 @@
         }
 
         function startMainSliderAuto() {
-            mainSliderTimer = setInterval(() => {
-                moveSlide(1);
-            }, 5000);
+            mainSliderTimer = setInterval(() => moveSlide(1), 5000);
         }
 
         startMainSliderAuto();
 
         function toggleChangelogWrapper() {
-            const wrapper = document.getElementById('changelogWrapper');
-            const btn = document.getElementById('changelogBtn');
-            
-            wrapper.classList.toggle('expanded');
-            btn.classList.toggle('active');
+            document.getElementById('changelogWrapper').classList.toggle('expanded');
+            document.getElementById('changelogBtn').classList.toggle('active');
         }
 
         let donatorIndex = 0;
@@ -1363,34 +1338,27 @@
         let resumeTimeout;
 
         function moveDonator(direction) {
-            const cardWidth = cards[0].offsetWidth + 20; 
-            const totalCards = cards.length;
+            const cardWidth = cards[0].offsetWidth + 20;
             const totalVisible = window.innerWidth <= 850 ? 1 : 3;
-            const maxIndex = totalCards - totalVisible;
-
+            const maxIndex = cards.length - totalVisible;
             donatorIndex += direction;
 
-            if (donatorIndex < 0) {
-                donatorIndex = maxIndex; 
-            } else if (donatorIndex > maxIndex) {
-                donatorIndex = 0; 
-            }
+            if (donatorIndex < 0) donatorIndex = maxIndex;
+            else if (donatorIndex > maxIndex) donatorIndex = 0;
 
             track.style.transform = `translateX(-${donatorIndex * cardWidth}px)`;
         }
 
         function startAutoScroll() {
             clearInterval(autoScrollDonators);
-            autoScrollDonators = setInterval(() => {
-                moveDonator(1);
-            }, 3500);
+            autoScrollDonators = setInterval(() => moveDonator(1), 3500);
         }
 
         function manualMoveDonator(direction) {
             clearInterval(autoScrollDonators);
             clearTimeout(resumeTimeout);
             moveDonator(direction);
-            resumeTimeout = setTimeout(startAutoScroll, 3500); 
+            resumeTimeout = setTimeout(startAutoScroll, 3500);
         }
 
         startAutoScroll();
@@ -1404,52 +1372,31 @@
 
             card.addEventListener('touchend', function() {
                 this.classList.remove('touch-active');
-                resumeTimeout = setTimeout(startAutoScroll, 3500); 
+                resumeTimeout = setTimeout(startAutoScroll, 3500);
             }, {passive: true});
         });
 
         function openFullscreen(index) {
             currentFsIndex = index;
-            const overlay = document.getElementById('fullscreenOverlay');
-            const fullscreenImg = document.getElementById('fullscreenImg');
-            const fsTitle = document.getElementById('fsTitle');
-            
-            fullscreenImg.src = screenshotData[currentFsIndex].path;
-            fsTitle.textContent = screenshotData[currentFsIndex].title;
-            overlay.classList.add('active');
+            document.getElementById('fullscreenImg').src = screenshotData[index].path;
+            document.getElementById('fsTitle').textContent = screenshotData[index].title;
+            document.getElementById('fullscreenOverlay').classList.add('active');
         }
 
         function closeFullscreen() {
-            const overlay = document.getElementById('fullscreenOverlay');
-            overlay.classList.remove('active');
+            document.getElementById('fullscreenOverlay').classList.remove('active');
         }
 
         function navigateFullscreen(direction) {
-            const fullscreenImg = document.getElementById('fullscreenImg');
-            const fsTitle = document.getElementById('fsTitle');
-
-            fullscreenImg.style.opacity = '0';
-
+            const img = document.getElementById('fullscreenImg');
+            img.style.opacity = '0';
             setTimeout(() => {
-                currentFsIndex += direction;
-                if (currentFsIndex >= screenshotData.length) {
-                    currentFsIndex = 0;
-                } else if (currentFsIndex < 0) {
-                    currentFsIndex = screenshotData.length - 1;
-                }
-
-                fullscreenImg.src = screenshotData[currentFsIndex].path;
-                fsTitle.textContent = screenshotData[currentFsIndex].title;
-
-                fullscreenImg.style.opacity = '1';
+                currentFsIndex = (currentFsIndex + direction + screenshotData.length) % screenshotData.length;
+                img.src = screenshotData[currentFsIndex].path;
+                document.getElementById('fsTitle').textContent = screenshotData[currentFsIndex].title;
+                img.style.opacity = '1';
             }, 300);
         }
-
-        document.getElementById('fullscreenOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeFullscreen();
-            }
-        });
     </script>
 </body>
 </html>

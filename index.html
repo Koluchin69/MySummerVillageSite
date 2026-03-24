@@ -11,8 +11,14 @@
             padding: 60px 0 0 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: #08070b;
-            background-image: linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(138, 43, 226, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 35%),
+                linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(138, 43, 226, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -292,6 +298,10 @@
             padding: 8px 12px;
             border-radius: 10px;
             margin: 0 -12px;
+        }
+
+        .changelog-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .changelog-date {
@@ -792,10 +802,26 @@
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
 
+        .footer {
+            width: 100%;
+            background: #090909;
+            padding: 35px 0;
+            border-top: 1px solid #221a30;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #555555;
+            font-size: 0.95rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
         @media (max-width: 850px) {
             body {
                 padding-top: 30px;
-                background-size: 20px 20px, 20px 20px;
+                background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
             }
             .container {
                 max-width: 90%;

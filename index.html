@@ -93,7 +93,8 @@
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
         }
 
         .slide {
@@ -124,16 +125,16 @@
             z-index: 20;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            will-change: transform;
         }
 
         .slide-title:hover {
             transform: translateY(-3px);
             background: #ff9f43;
             color: #121212;
-            box-shadow: 0 15px 30px rgba(255, 159, 67, 0.3);
         }
 
         .slider-btn {
@@ -146,7 +147,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
             font-size: 1.8rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             user-select: none;
             z-index: 10;
             display: flex;
@@ -155,6 +156,7 @@
             width: 54px;
             height: 54px;
             border-radius: 50%;
+            will-change: transform;
         }
 
         .slider-btn:hover {
@@ -162,7 +164,6 @@
             color: #121212;
             border-color: #ff9f43;
             transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 159, 67, 0.4);
         }
 
         .prev-btn { left: 25px; }
@@ -181,13 +182,12 @@
             background: #252525;
             border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .dot.active-dot {
             background: #ff9f43;
             transform: scale(1.2);
-            box-shadow: 0 0 15px rgba(255, 159, 67, 0.6);
         }
 
         .changelog-section {
@@ -211,12 +211,12 @@
         .changelog-wrapper {
             max-height: 180px;
             overflow: hidden;
-            transition: max-height 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
 
         .changelog-wrapper.expanded {
-            max-height: 3000px;
+            max-height: 2500px;
         }
 
         .changelog-fade {
@@ -286,7 +286,7 @@
         .changelog-list-container {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .changelog-item.open .changelog-list-container {
@@ -331,7 +331,7 @@
             cursor: pointer;
             margin: 30px auto 0 auto;
             font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
             z-index: 3;
             position: relative;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -342,7 +342,6 @@
             background: #ff9f43;
             color: #121212;
             transform: scale(1.15);
-            box-shadow: 0 0 30px rgba(255, 159, 67, 0.4);
         }
 
         .changelog-toggle-btn span {
@@ -386,6 +385,7 @@
             display: flex;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             gap: 20px;
+            will-change: transform;
         }
 
         .donator-card {
@@ -399,15 +399,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background-color 0.4s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
         }
 
         .donator-card:hover {
             border-color: #ff9f43;
             transform: translateY(-12px);
             background-color: #1a1a1a;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .donator-rank {
@@ -448,7 +446,7 @@
             align-items: center;
             justify-content: center;
             z-index: 5;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             padding: 0;
             backdrop-filter: blur(10px);
         }
@@ -457,7 +455,6 @@
             background: #ff9f43;
             color: #121212;
             border-color: #ff9f43;
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
         }
 
         .donator-prev { left: 15px; }
@@ -483,7 +480,7 @@
             flex-direction: column;
             align-items: center;
             gap: 6px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -491,7 +488,6 @@
             border-color: #ff9f43;
             transform: translateY(-3px);
             background: #1c1c1c;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         .account-title {
@@ -539,7 +535,7 @@
             border-radius: 18px;
             padding: 28px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
@@ -551,7 +547,6 @@
             transform: translateY(-6px);
             background: #1a1a1a;
             border-color: rgba(255, 159, 67, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .faq-item-center {
@@ -593,7 +588,7 @@
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.3s ease;
         }
 
         .faq-content p {
@@ -627,7 +622,6 @@
 
         .faq-link:hover {
             text-decoration: underline;
-            text-shadow: 0 0 10px rgba(255, 159, 67, 0.41);
         }
 
         .social-section {
@@ -656,14 +650,13 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .social-item:hover {
             transform: translateY(-6px);
             border-color: #ff9f43;
-            box-shadow: 0 20px 40px rgba(255, 159, 67, 0.2);
             background: #1a1a1a;
         }
 
@@ -770,7 +763,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
             font-size: 2rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             user-select: none;
             z-index: 1010;
             display: flex;
@@ -787,7 +780,6 @@
             color: #121212;
             transform: translateY(-50%) scale(1.1);
             border-color: #ff9f43;
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
         }
 
         .fs-prev-btn { left: 40px; }
@@ -889,7 +881,6 @@
                 transform: none;
                 background: rgba(20, 20, 20, 0.85);
                 border-color: rgba(255, 255, 255, 0.02);
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             }
             .faq-item.active {
                 background: #111111 !important;
@@ -899,7 +890,6 @@
             .donator-card:hover {
                 transform: none;
                 border-color: rgba(255, 255, 255, 0.03);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
             }
             .donator-card.touch-active {
                 transform: scale(0.96) !important;

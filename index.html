@@ -10,8 +10,8 @@
             margin: 0;
             padding: 60px 0 0 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #0a0a0a;
-            background-image: linear-gradient(rgba(255, 159, 67, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 67, 0.05) 1px, transparent 1px);
+            background-color: #08070b;
+            background-image: linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(138, 43, 226, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             color: #ffffff;
             display: flex;
@@ -25,9 +25,9 @@
             text-align: center;
             max-width: 800px;
             padding: 50px;
-            background: #141414;
+            background: #110e1a;
             border-radius: 20px;
-            border: 1px solid #222;
+            border: 1px solid #221a30;
             margin-bottom: 60px;
             position: relative;
         }
@@ -40,7 +40,7 @@
             transform: translateX(-50%);
             width: 40%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #ff9f43, transparent);
+            background: linear-gradient(90deg, transparent, #8a2be2, transparent);
         }
 
         .studio-header {
@@ -54,16 +54,16 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: contain;
-            border: 2px solid #ff9f43;
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.3);
+            object-fit: cover;
+            border: 2px solid #8a2be2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
             margin-bottom: 15px;
             background-color: transparent;
         }
 
         .studio-name {
             font-size: 1.2rem;
-            color: #ff9f43;
+            color: #8a2be2;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -71,8 +71,8 @@
         }
 
         .studio-desc-box {
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: #171324;
+            border: 1px solid #2a2040;
             border-radius: 12px;
             padding: 15px 25px;
             max-width: 600px;
@@ -89,7 +89,7 @@
         h1 {
             font-size: 3.5rem;
             margin-bottom: 24px;
-            color: #ff9f43;
+            color: #8a2be2;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
@@ -119,9 +119,9 @@
             position: relative;
             width: 100%;
             height: 480px;
-            background: #111;
+            background: #0d0a14;
             border-radius: 20px;
-            border: 1px solid #222;
+            border: 1px solid #221a30;
             overflow: hidden;
         }
 
@@ -150,7 +150,7 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            background: #121212;
+            background: #110e1a;
             color: #ff9f43;
             padding: 12px 24px;
             border-radius: 10px;
@@ -168,9 +168,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(18, 18, 18, 0.9);
+            background: rgba(17, 14, 26, 0.9);
             color: #ffffff;
-            border: 1px solid #333;
+            border: 1px solid #2a2040;
             cursor: pointer;
             font-size: 1.8rem;
             z-index: 10;
@@ -195,19 +195,19 @@
         .dot {
             width: 12px;
             height: 12px;
-            background: #252525;
+            background: #221a30;
             border-radius: 50%;
             cursor: pointer;
         }
 
         .dot.active-dot {
-            background: #ff9f43;
+            background: #8a2be2;
         }
 
         .description-container {
             margin-top: 25px;
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 16px;
             padding: 25px;
             text-align: left;
@@ -238,8 +238,8 @@
         }
 
         .changelog-container {
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 20px;
             padding: 45px;
             position: relative;
@@ -261,35 +261,55 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: linear-gradient(to bottom, transparent, #141414);
+            background: linear-gradient(to bottom, transparent, #110e1a);
             pointer-events: none;
             z-index: 2;
         }
 
-        .changelog-toggle-btn {
-            background: #111;
-            border: 1px solid rgba(255, 159, 67, 0.4);
-            color: #ff9f43;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .changelog-wrapper.expanded .changelog-fade {
+            display: none;
+        }
+
+        .changelog-item {
+            border-bottom: 1px solid #221a30;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .changelog-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .changelog-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             cursor: pointer;
-            margin: 30px auto 0 auto;
-            font-size: 1.2rem;
-            z-index: 3;
-            position: relative;
             -webkit-tap-highlight-color: transparent;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin: 0 -12px;
         }
 
-        .changelog-toggle-btn span {
+        .changelog-date {
+            font-size: 1.15rem;
+            color: #ff9f43;
+            font-weight: 700;
+            display: block;
+        }
+
+        .changelog-icon {
+            color: #ff9f43;
+            font-weight: bold;
+            font-size: 1.1rem;
             transition: transform 0.2s ease;
-            display: inline-block;
+            user-select: none;
         }
 
-        .changelog-toggle-btn.active span {
+        .changelog-item.open .changelog-icon {
             transform: rotate(180deg);
         }
 
@@ -328,6 +348,33 @@
             top: -2px;
         }
 
+        .changelog-toggle-btn {
+            background: #0d0a14;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            color: #8a2be2;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 30px auto 0 auto;
+            font-size: 1.2rem;
+            z-index: 3;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .changelog-toggle-btn span {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .changelog-toggle-btn.active span {
+            transform: rotate(180deg);
+        }
+
         .donators-section {
             width: 100%;
             max-width: 850px;
@@ -339,8 +386,8 @@
 
         .donators-slider {
             position: relative;
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 20px;
             padding: 45px;
             margin-bottom: 25px;
@@ -362,8 +409,8 @@
 
         .donator-card {
             min-width: calc(33.333% - 14px);
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
+            background: #171324;
+            border: 1px solid #2a2040;
             border-radius: 14px;
             padding: 30px 20px;
             box-sizing: border-box;
@@ -399,8 +446,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: #111;
-            border: 1px solid #333;
+            background: #0d0a14;
+            border: 1px solid #2a2040;
             color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
@@ -427,10 +474,10 @@
         }
 
         .account-box {
-            background: #141414;
+            background: #110e1a;
             padding: 14px 24px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 159, 67, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.3);
             width: fit-content;
             display: flex;
             flex-direction: column;
@@ -463,8 +510,8 @@
         }
 
         .contact-box {
-            background: #141414;
-            border: 1px solid rgba(255, 159, 67, 0.2);
+            background: #110e1a;
+            border: 1px solid rgba(138, 43, 226, 0.3);
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
@@ -483,24 +530,24 @@
         }
 
         .contact-link {
-            color: #ff9f43;
+            color: #8a2be2;
             font-size: 1.3rem;
             font-weight: bold;
             text-decoration: none;
             padding: 12px 30px;
-            border: 1px solid #ff9f43;
+            border: 1px solid #8a2be2;
             border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            background: #ff9f43;
-            color: #121212;
-            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
+            background: #8a2be2;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
         }
 
         .faq-title {
-            color: #ff9f43;
+            color: #8a2be2;
             font-size: 2.2rem;
             margin-bottom: 45px;
             text-transform: uppercase;
@@ -522,8 +569,8 @@
         }
 
         .faq-item {
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 18px;
             padding: 28px;
             cursor: pointer;
@@ -558,7 +605,7 @@
         }
 
         .faq-icon {
-            color: #ff9f43;
+            color: #8a2be2;
             font-weight: bold;
             font-size: 1.2rem;
             transition: transform 0.2s ease;
@@ -581,8 +628,8 @@
         }
 
         .faq-item.active {
-            border-color: #ff9f43;
-            background: #111;
+            border-color: #8a2be2;
+            background: #0d0a14;
         }
 
         .faq-item.active .faq-icon {
@@ -609,8 +656,8 @@
         }
 
         .social-item {
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 18px;
             padding: 35px;
             display: flex;
@@ -640,7 +687,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 5, 5, 0.95);
+            background: rgba(8, 7, 11, 0.97);
             z-index: 1000;
             display: none;
             flex-direction: column;
@@ -687,8 +734,8 @@
         .fs-description {
             width: 100%;
             max-width: 800px;
-            background: #141414;
-            border: 1px solid #222;
+            background: #110e1a;
+            border: 1px solid #221a30;
             border-radius: 16px;
             padding: 20px;
             margin-top: 20px;
@@ -726,9 +773,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: #121212;
+            background: #0d0a14;
             color: #ffffff;
-            border: 1px solid #333;
+            border: 1px solid #221a30;
             cursor: pointer;
             font-size: 2rem;
             user-select: none;
@@ -744,22 +791,6 @@
 
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
-
-        .footer {
-            width: 100%;
-            background: #090909;
-            padding: 35px 0;
-            border-top: 1px solid #222;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-text {
-            color: #555555;
-            font-size: 0.95rem;
-            margin: 0;
-            letter-spacing: 1px;
-        }
 
         @media (max-width: 850px) {
             body {
@@ -795,8 +826,8 @@
             }
 
             .donator-card.touch-active {
-                background-color: #222 !important;
-                border-color: #ff9f43 !important;
+                background-color: #171324 !important;
+                border-color: #8a2be2 !important;
             }
         }
     </style>
@@ -805,7 +836,7 @@
 
     <div class="container">
         <div class="studio-header">
-            <img src="Koluchin6StudioLOGO.jpg" alt="Koluchin6Studio Logo" class="studio-logo">
+            <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio Logo" class="studio-logo">
             <span class="studio-name">Koluchin6Studio</span>
             <div class="studio-desc-box">
                 <p class="studio-desc-text">Koluchin6Studio — инди-студия, основанная в 2024 году. В настоящее время студия состоит из одного разработчика. Сейчас ведётся разработка проекта MySummerVillage — игры о жизни в деревне и детализированной сборке автомобиля. </p>

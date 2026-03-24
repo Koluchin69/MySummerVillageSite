@@ -102,6 +102,13 @@
             font-weight: 900;
         }
 
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #aaaaaa;
+            margin-bottom: 0;
+        }
+
         .highlight {
             color: #ff9f43;
             font-weight: 600;
@@ -257,7 +264,7 @@
 
         .changelog-fade {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 100px;
@@ -266,30 +273,54 @@
             z-index: 2;
         }
 
-        .changelog-toggle-btn {
-            background: #0d0a14;
-            border: 1px solid rgba(138, 43, 226, 0.4);
-            color: #8a2be2;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .changelog-wrapper.expanded .changelog-fade {
+            display: none;
+        }
+
+        .changelog-item {
+            border-bottom: 1px solid #221a30;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .changelog-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .changelog-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             cursor: pointer;
-            margin: 30px auto 0 auto;
-            font-size: 1.2rem;
-            z-index: 3;
-            position: relative;
             -webkit-tap-highlight-color: transparent;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin: 0 -12px;
         }
 
-        .changelog-toggle-btn span {
+        .changelog-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .changelog-date {
+            font-size: 1.15rem;
+            color: #ff9f43;
+            font-weight: 700;
+            display: block;
+        }
+
+        .changelog-icon {
+            color: #ff9f43;
+            font-weight: bold;
+            font-size: 1.1rem;
             transition: transform 0.2s ease;
-            display: inline-block;
+            user-select: none;
         }
 
-        .changelog-toggle-btn.active span {
+        .changelog-item.open .changelog-icon {
             transform: rotate(180deg);
         }
 
@@ -326,6 +357,33 @@
             position: absolute;
             left: 0;
             top: -2px;
+        }
+
+        .changelog-toggle-btn {
+            background: #0d0a14;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            color: #8a2be2;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 30px auto 0 auto;
+            font-size: 1.2rem;
+            z-index: 3;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .changelog-toggle-btn span {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .changelog-toggle-btn.active span {
+            transform: rotate(180deg);
         }
 
         .donators-section {
@@ -380,7 +438,6 @@
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            text-transform: uppercase;
         }
 
         .donator-name {
@@ -737,6 +794,22 @@
 
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
+
+        .footer {
+            width: 100%;
+            background: #090909;
+            padding: 35px 0;
+            border-top: 1px solid #221a30;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #555555;
+            font-size: 0.95rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
 
         @media (max-width: 850px) {
             body {

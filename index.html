@@ -140,13 +140,6 @@
             font-weight: 900;
         }
 
-        p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #aaaaaa;
-            margin-bottom: 0;
-        }
-
         .highlight {
             color: #ff9f43;
             font-weight: 600;
@@ -336,6 +329,41 @@
 
         .changelog-toggle-btn.active span {
             transform: rotate(180deg);
+        }
+
+        .changelog-list-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .changelog-item.open .changelog-list-container {
+            max-height: 600px;
+        }
+
+        .changelog-list {
+            list-style: none;
+            padding: 15px 0 5px 12px;
+            margin: 0;
+        }
+
+        .changelog-list li {
+            font-size: 1.05rem;
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            padding-left: 26px;
+            position: relative;
+        }
+
+        .changelog-list li::before {
+            content: "•";
+            color: #ff9f43;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
         .donators-section {
@@ -817,7 +845,7 @@
 
     <div class="online-counter">
         <div class="online-dot"></div>
-        <span class="online-text">На сайте: <span id="onlineCount">1</span></span>
+        <span class="online-text">Просмотры сегодня: <span id="viewCount">Загрузка...</span></span>
     </div>
 
     <div class="container">
@@ -1333,22 +1361,23 @@
             }, 300);
         }
 
-        function fakeRealtimeCounter() {
-            let countSpan = document.getElementById('onlineCount');
-            let current = Math.floor(Math.random() * (12 - 4 + 1)) + 4;
-            countSpan.textContent = current;
-
-            setInterval(() => {
-                let change = Math.random() > 0.5 ? 1 : -1;
-                let next = current + change;
-                if (next < 2) next = 2;
-                if (next > 25) next = 22;
-                current = next;
-                countSpan.textContent = current;
-            }, 7000);
+        async function fetchRealViews() {
+            const span = document.getElementById('viewCount');
+            try {
+                const response = await fetch('https://koluchin6.goatcounter.com/counter/today.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    span.textContent = data.count || 0;
+                } else {
+                    span.textContent = "0";
+                }
+            } catch (error) {
+                span.textContent = "—";
+            }
         }
 
-        fakeRealtimeCounter();
+        fetchRealViews();
+        setInterval(fetchRealViews, 60000);
         startAutoScroll();
         startMainSliderAuto();
         updateSlider();

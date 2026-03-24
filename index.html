@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySummerVillage</title>
-    <script data-goatcounter="https://koluchin6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://koluchin69.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <style>
         body {
             margin: 0;
@@ -138,6 +138,13 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #aaaaaa;
+            margin-bottom: 0;
         }
 
         .highlight {
@@ -295,7 +302,7 @@
 
         .changelog-fade {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
             height: 100px;
@@ -775,22 +782,6 @@
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
 
-        .footer {
-            width: 100%;
-            background: #090909;
-            padding: 35px 0;
-            border-top: 1px solid #221a30;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-text {
-            color: #555555;
-            font-size: 0.95rem;
-            margin: 0;
-            letter-spacing: 1px;
-        }
-
         @media (max-width: 850px) {
             body {
                 padding-top: 30px;
@@ -845,7 +836,7 @@
 
     <div class="online-counter">
         <div class="online-dot"></div>
-        <span class="online-text">Просмотры сегодня: <span id="viewCount">Загрузка...</span></span>
+        <span class="online-text">Просмотры сегодня: <span id="viewCount">...</span></span>
     </div>
 
     <div class="container">
@@ -1364,10 +1355,10 @@
         async function fetchRealViews() {
             const span = document.getElementById('viewCount');
             try {
-                const response = await fetch('https://koluchin6.goatcounter.com/counter/today.json');
+                const response = await fetch('https://koluchin69.goatcounter.com/counter/all.json');
                 if (response.ok) {
                     const data = await response.json();
-                    span.textContent = data.count || 0;
+                    span.textContent = data.count || "0";
                 } else {
                     span.textContent = "0";
                 }
@@ -1377,10 +1368,7 @@
         }
 
         fetchRealViews();
-        setInterval(fetchRealViews, 60000);
-        startAutoScroll();
-        startMainSliderAuto();
-        updateSlider();
+        setInterval(fetchRealViews, 300000); // 5 минут
     </script>
 </body>
 </html>

@@ -28,44 +28,6 @@
             position: relative;
         }
 
-        .online-counter {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(17, 13, 36, 0.8);
-            border: 1px solid #8a2be2;
-            padding: 10px 18px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 100;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .online-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00;
-            animation: pulse-green 1.5s infinite;
-        }
-
-        .online-text {
-            font-size: 0.95rem;
-            color: #ffffff;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        @keyframes pulse-green {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
-        }
-
         .container {
             text-align: center;
             max-width: 800px;
@@ -138,13 +100,6 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
-        }
-
-        p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #aaaaaa;
-            margin-bottom: 0;
         }
 
         .highlight {
@@ -302,7 +257,7 @@
 
         .changelog-fade {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
             height: 100px;
@@ -311,54 +266,30 @@
             z-index: 2;
         }
 
-        .changelog-wrapper.expanded .changelog-fade {
-            display: none;
-        }
-
-        .changelog-item {
-            border-bottom: 1px solid #221a30;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .changelog-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .changelog-header {
+        .changelog-toggle-btn {
+            background: #0d0a14;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            color: #8a2be2;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
+            margin: 30px auto 0 auto;
+            font-size: 1.2rem;
+            z-index: 3;
+            position: relative;
             -webkit-tap-highlight-color: transparent;
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin: 0 -12px;
         }
 
-        .changelog-header:hover {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .changelog-date {
-            font-size: 1.15rem;
-            color: #ff9f43;
-            font-weight: 700;
-            display: block;
-        }
-
-        .changelog-icon {
-            color: #ff9f43;
-            font-weight: bold;
-            font-size: 1.1rem;
+        .changelog-toggle-btn span {
             transition: transform 0.2s ease;
-            user-select: none;
+            display: inline-block;
         }
 
-        .changelog-item.open .changelog-icon {
+        .changelog-toggle-btn.active span {
             transform: rotate(180deg);
         }
 
@@ -395,33 +326,6 @@
             position: absolute;
             left: 0;
             top: -2px;
-        }
-
-        .changelog-toggle-btn {
-            background: #0d0a14;
-            border: 1px solid rgba(138, 43, 226, 0.4);
-            color: #8a2be2;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            margin: 30px auto 0 auto;
-            font-size: 1.2rem;
-            z-index: 3;
-            position: relative;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .changelog-toggle-btn span {
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
-
-        .changelog-toggle-btn.active span {
-            transform: rotate(180deg);
         }
 
         .donators-section {
@@ -476,6 +380,7 @@
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .donator-name {
@@ -833,22 +738,6 @@
         .fs-prev-btn { left: 40px; }
         .fs-next-btn { right: 40px; }
 
-        .footer {
-            width: 100%;
-            background: #090909;
-            padding: 35px 0;
-            border-top: 1px solid #221a30;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-text {
-            color: #555555;
-            font-size: 0.95rem;
-            margin: 0;
-            letter-spacing: 1px;
-        }
-
         @media (max-width: 850px) {
             body {
                 padding-top: 30px;
@@ -886,25 +775,10 @@
                 background-color: #171324 !important;
                 border-color: #8a2be2 !important;
             }
-            
-            .online-counter {
-                top: 10px;
-                left: 10px;
-                padding: 6px 12px;
-            }
-            
-            .online-text {
-                font-size: 0.85rem;
-            }
         }
     </style>
 </head>
 <body>
-
-    <div class="online-counter">
-        <div class="online-dot"></div>
-        <span class="online-text">Просмотры сегодня: <span id="viewCount">...</span></span>
-    </div>
 
     <div class="container">
         <div class="studio-header">
@@ -1419,22 +1293,9 @@
             }, 300);
         }
 
-        async function fetchRealViews() {
-            const span = document.getElementById('viewCount');
-            try {
-                const response = await fetch('https://koluchin69.goatcounter.com/counter//.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    span.textContent = data.count > 0 ? data.count : "0";
-                } else {
-                    span.textContent = "0";
-                }
-            } catch (error) {
-                span.textContent = "0";
-            }
-        }
-
-        window.addEventListener('load', fetchRealViews);
+        startAutoScroll();
+        startMainSliderAuto();
+        updateSlider();
     </script>
 </body>
 </html>

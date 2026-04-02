@@ -36,7 +36,6 @@
             background-attachment: fixed;
         }
 
-        /* Навигация */
         nav {
             position: fixed;
             top: 0;
@@ -67,6 +66,7 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1.2px;
+            cursor: pointer;
         }
 
         .nav-link:hover,
@@ -82,6 +82,14 @@
             margin: 0 auto;
             padding-left: 20px;
             padding-right: 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
         }
 
         .hero {
@@ -135,7 +143,6 @@
             font-weight: 700;
         }
 
-        /* Секции */
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -154,7 +161,6 @@
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
         }
 
-        /* Слайдер */
         .slider-section {
             width: 100%;
             max-width: 920px;
@@ -175,6 +181,11 @@
             width: 100%;
             height: 100%;
             transition: transform 0.6s ease-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
         }
 
         .slide img {
@@ -198,6 +209,7 @@
             z-index: 20;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         .slider-btn {
@@ -262,6 +274,82 @@
             margin-bottom: 14px;
         }
 
+        .faq-section {
+            max-width: 820px;
+            margin: 0 auto 110px;
+            padding-top: 60px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.12rem;
+            font-weight: 600;
+            padding: 24px 30px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: color 0.3s;
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            color: white;
+        }
+
+        .faq-question.open {
+            color: var(--highlight);
+        }
+
+        .faq-arrow {
+            font-size: 1.3rem;
+            color: var(--accent);
+            transition: transform 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-question.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 30px;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding: 0 30px 24px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            border-top: 1px solid var(--border);
+            padding-top: 18px;
+        }
+
         .footer {
             text-align: center;
             padding: 60px 20px 40px;
@@ -281,68 +369,139 @@
 </head>
 <body>
 
-    <!-- Навигация с вкладками -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-link active" id="tab-main">Главная</a>
-            <a href="lore.html" class="nav-link" id="tab-lore">Лор игры</a>
+            <a class="nav-link active" onclick="showPage('main', this)">Главная</a>
+            <a class="nav-link" onclick="showPage('faq', this)">Вопросы</a>
+            <a href="lore.html" class="nav-link">Лор игры</a>
         </div>
     </nav>
 
     <main>
-        <div class="hero">
-            <div class="studio-header">
-                <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio Logo" class="studio-logo">
-                <span class="studio-name">Koluchin6Studio</span>
-            </div>
-            <h1>MySummerVillage</h1>
-            <p>
-                <span class="highlight">Инди-игра</span> про жизнь в русской деревне и детальную реставрацию автомобиля ВАЗ-2109.<br>
-                Верни старую «девятку» к жизни и выживи в глубинке 2009 года.
-            </p>
-        </div>
 
-        <!-- Слайдер -->
-        <div class="slider-section">
-            <div class="slider-container">
-                <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
+        <div class="page active" id="page-main">
+            <div class="hero">
+                <div class="studio-header">
+                    <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio Logo" class="studio-logo">
+                    <span class="studio-name">Koluchin6Studio</span>
+                </div>
+                <h1>MySummerVillage</h1>
+                <p>
+                    <span class="highlight">Инди-игра</span> про жизнь в русской деревне и детальную реставрацию автомобиля ВАЗ-2109.<br>
+                    Верни старую «девятку» к жизни и выживи в глубинке 2009 года.
+                </p>
+            </div>
+
+            <div class="slider-section">
+                <div class="slider-container">
+                    <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
+                    
+                    <button class="slider-btn prev-btn" onclick="manualSliderMove(-1)">❮</button>
+                    <button class="slider-btn next-btn" onclick="manualSliderMove(1)">❯</button>
+                    
+                    <div class="slides" id="slides">
+                        <div class="slide"><img src="screenshots/Ваз2109.jpg" alt="Ваз2109" onclick="openFullscreen(0)"></div>
+                        <div class="slide"><img src="screenshots/Ваз2109Безвнешних деталей.jpg" alt="Ваз2109 без деталей" onclick="openFullscreen(1)"></div>
+                        <div class="slide"><img src="screenshots/двигатель.jpg" alt="Двигатель" onclick="openFullscreen(2)"></div>
+                        <div class="slide"><img src="screenshots/газель.jpg" alt="Газель" onclick="openFullscreen(3)"></div>
+                        <div class="slide"><img src="screenshots/магазин.jpg" alt="Магазин" onclick="openFullscreen(4)"></div>
+                        <div class="slide"><img src="screenshots/ЯщикПива.jpg" alt="Ящик Пива" onclick="openFullscreen(5)"></div>
+                    </div>
+                </div>
                 
-                <button class="slider-btn prev-btn" onclick="manualSliderMove(-1)">❮</button>
-                <button class="slider-btn next-btn" onclick="manualSliderMove(1)">❯</button>
-                
-                <div class="slides" id="slides">
-                    <div class="slide"><img src="screenshots/Ваз2109.jpg" alt="Ваз2109" onclick="openFullscreen(0)"></div>
-                    <div class="slide"><img src="screenshots/Ваз2109Безвнешних деталей.jpg" alt="Ваз2109 без деталей" onclick="openFullscreen(1)"></div>
-                    <div class="slide"><img src="screenshots/двигатель.jpg" alt="Двигатель" onclick="openFullscreen(2)"></div>
-                    <div class="slide"><img src="screenshots/газель.jpg" alt="Газель" onclick="openFullscreen(3)"></div>
-                    <div class="slide"><img src="screenshots/магазин.jpg" alt="Магазин" onclick="openFullscreen(4)"></div>
-                    <div class="slide"><img src="screenshots/ЯщикПива.jpg" alt="Ящик Пива" onclick="openFullscreen(5)"></div>
+                <div class="dots-container" id="dots">
+                    <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
+                    <div class="dot" onclick="manualDotSlide(1)"></div>
+                    <div class="dot" onclick="manualDotSlide(2)"></div>
+                    <div class="dot" onclick="manualDotSlide(3)"></div>
+                    <div class="dot" onclick="manualDotSlide(4)"></div>
+                    <div class="dot" onclick="manualDotSlide(5)"></div>
+                </div>
+
+                <div class="description-container">
+                    <span class="desc-title" id="descTitle">Ваз-2109</span>
+                    <p class="desc-text" id="descText">Основной транспорт в игре. Капризная машина, часто ломается, проводка перегорает, детали быстро изнашиваются.</p>
                 </div>
             </div>
-            
-            <div class="dots-container" id="dots">
-                <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
-                <div class="dot" onclick="manualDotSlide(1)"></div>
-                <div class="dot" onclick="manualDotSlide(2)"></div>
-                <div class="dot" onclick="manualDotSlide(3)"></div>
-                <div class="dot" onclick="manualDotSlide(4)"></div>
-                <div class="dot" onclick="manualDotSlide(5)"></div>
-            </div>
 
-            <div class="description-container">
-                <span class="desc-title" id="descTitle">Ваз-2109</span>
-                <p class="desc-text" id="descText">Основной транспорт в игре. Капризная машина, часто ломается, проводка перегорает, детали быстро изнашиваются.</p>
+            <div class="footer">
+                © 2026 Koluchin6Studio. Все права защищены.
             </div>
         </div>
 
-        <!-- Здесь ты можешь добавить остальные секции (Changelog, Донаты, FAQ и т.д.) -->
+        <div class="page" id="page-faq">
+            <div class="faq-section">
+                <div class="section-title">Вопросы</div>
 
-        <div class="footer">
-            © 2026 Koluchin6Studio. Все права защищены.
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Игра будет в Steam?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, игра будет в Steam.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Какой транспорт будет в игре?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>В игре будет: ВАЗ-2109, ГАЗель, мотоблок, трактор, и мб мотоцикл.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Что такое MSV?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MSV — MySummerVillage. Проще говоря аббревиатура игры.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Сколько разрабатывается игра?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Игра разрабатывается с 12 февраля 2026 года, если учитывать то что проект уже третий раз переделывается — то уже 2 года.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Про что игра?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MySummerVillage — это игра про жизнь в деревне и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        У игры есть сюжет?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer">
+                © 2026 Koluchin6Studio. Все права защищены.
+            </div>
         </div>
+
     </main>
 
-    <!-- Полноэкранный просмотр -->
     <div class="fullscreen-overlay" id="fullscreenOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,8,20,0.98); z-index: 2000; align-items: center; justify-content: center; flex-direction: column;">
         <span onclick="closeFullscreen()" style="position: absolute; top: 35px; right: 45px; font-size: 3.5rem; color: white; cursor: pointer; z-index: 2010;">×</span>
         
@@ -371,12 +530,29 @@
             { path: "screenshots/ЯщикПива.jpg", title: "Ящик Пива", text: "То чем ты будешь питаться перебирая движок, в игре будет много другого алкоголя." }
         ];
 
+        function showPage(pageId, navEl) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            navEl.classList.add('active');
+        }
+
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
+            if (!isOpen) {
+                answer.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
+
         function updateSlider() {
             document.getElementById('slides').style.transform = `translateX(-${slideIndex * 100}%)`;
             document.getElementById('mainSlideTitle').textContent = screenshotData[slideIndex].title;
             document.getElementById('descTitle').textContent = screenshotData[slideIndex].title;
             document.getElementById('descText').textContent = screenshotData[slideIndex].text;
-            
             document.querySelectorAll('.dot').forEach((dot, i) => {
                 dot.classList.toggle('active-dot', i === slideIndex);
             });

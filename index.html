@@ -9,16 +9,20 @@
     
     <style>
         :root {
-            --bg: #0a0810;
-            --accent: #8a2be2;
-            --highlight: #ff9f43;
-            --card: #16121f;
-            --border: #2a2040;
-            --text: #dddddd;
-            --text-light: #aaaaaa;
+            --bg: #0b0814;
+            --card: #141022;
+            --accent: #9b4dff;
+            --highlight: #ff6b35;
+            --border: #2a1f4d;
+            --text: #e0d4ff;
+            --text-light: #b8a8e0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -27,21 +31,22 @@
             line-height: 1.7;
             min-height: 100vh;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 159, 67, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 30% 20%, rgba(155, 77, 255, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 70% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 60%);
             background-attachment: fixed;
         }
 
+        /* Навигация */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(10, 8, 16, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(11, 8, 20, 0.96);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 16px 0;
+            padding: 18px 0;
         }
 
         .nav-container {
@@ -49,30 +54,30 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 40px;
-            padding: 0 20px;
+            gap: 50px;
         }
 
         .nav-link {
-            color: #ccc;
+            color: #c4b0ff;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            padding: 10px 28px;
+            padding: 12px 32px;
             border-radius: 50px;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: white;
-            background: rgba(138, 43, 226, 0.25);
+            background: rgba(155, 77, 255, 0.25);
+            box-shadow: 0 0 15px rgba(155, 77, 255, 0.3);
         }
 
         main {
-            padding-top: 100px;
+            padding-top: 110px;
             max-width: 1100px;
             margin: 0 auto;
             padding-left: 20px;
@@ -81,47 +86,47 @@
 
         .hero {
             text-align: center;
-            padding: 80px 20px 110px;
+            padding: 90px 20px 120px;
         }
 
         .studio-header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .studio-logo {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
-            margin-bottom: 18px;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px rgba(155, 77, 255, 0.45);
+            margin-bottom: 20px;
         }
 
         .studio-name {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: var(--accent);
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         h1 {
-            font-size: 3.8rem;
+            font-size: 3.9rem;
             font-weight: 900;
             color: white;
-            margin: 20px 0 16px;
-            letter-spacing: 2px;
+            margin: 25px 0 20px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .hero p {
-            max-width: 680px;
-            margin: 0 auto 40px;
-            font-size: 1.25rem;
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 1.28rem;
             color: var(--text-light);
         }
 
@@ -130,31 +135,11 @@
             font-weight: 700;
         }
 
-        .lore-btn {
-            display: inline-block;
-            padding: 16px 42px;
-            background: transparent;
-            color: var(--highlight);
-            font-weight: 700;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 2px solid var(--highlight);
-            border-radius: 50px;
-            transition: all 0.4s ease;
-        }
-
-        .lore-btn:hover {
-            background: var(--highlight);
-            color: #0a0810;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(255, 159, 67, 0.3);
-        }
-
+        /* Секции */
         .section-title {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
             color: var(--accent);
             font-weight: 900;
             letter-spacing: 3px;
@@ -166,21 +151,21 @@
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 50px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
         }
 
         /* Слайдер */
         .slider-section {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto 100px;
+            max-width: 920px;
+            margin: 0 auto 110px;
         }
 
         .slider-container {
             position: relative;
-            height: 520px;
-            background: #0d0a14;
-            border-radius: 20px;
+            height: 540px;
+            background: #0f0b1a;
+            border-radius: 22px;
             border: 1px solid var(--border);
             overflow: hidden;
         }
@@ -189,13 +174,7 @@
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.5s ease-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
+            transition: transform 0.6s ease-out;
         }
 
         .slide img {
@@ -207,15 +186,15 @@
 
         .slide-title {
             position: absolute;
-            top: 25px;
-            left: 25px;
-            background: #110e1a;
+            top: 30px;
+            left: 30px;
+            background: rgba(20, 16, 34, 0.95);
             color: var(--highlight);
-            padding: 12px 26px;
-            border-radius: 12px;
-            font-size: 1.15rem;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-size: 1.2rem;
             font-weight: bold;
-            border: 1px solid rgba(255, 159, 67, 0.4);
+            border: 1px solid rgba(255, 107, 53, 0.4);
             z-index: 20;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -225,18 +204,23 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(17, 14, 26, 0.9);
+            background: rgba(20, 16, 34, 0.9);
             color: white;
             border: 1px solid var(--border);
-            width: 56px;
-            height: 56px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
-            font-size: 1.9rem;
+            font-size: 2rem;
             cursor: pointer;
             z-index: 30;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
         }
 
         .prev-btn { left: 25px; }
@@ -245,14 +229,14 @@
         .dots-container {
             display: flex;
             justify-content: center;
-            gap: 14px;
-            margin-top: 25px;
+            gap: 16px;
+            margin-top: 28px;
         }
 
         .dot {
-            width: 13px;
-            height: 13px;
-            background: #2a2040;
+            width: 14px;
+            height: 14px;
+            background: #2a1f4d;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s;
@@ -260,225 +244,44 @@
 
         .dot.active-dot {
             background: var(--accent);
-            transform: scale(1.2);
+            box-shadow: 0 0 12px rgba(155, 77, 255, 0.6);
         }
 
         .description-container {
-            margin-top: 30px;
+            margin-top: 32px;
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            text-align: left;
+            border-radius: 20px;
+            padding: 32px;
         }
 
         .desc-title {
             color: var(--highlight);
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        /* Changelog */
-        .changelog-section {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 100px;
-        }
-
-        .changelog-container {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 45px;
-            position: relative;
-        }
-
-        .changelog-wrapper {
-            max-height: 220px;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .changelog-wrapper.expanded {
-            max-height: 3000px;
-        }
-
-        .changelog-fade {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: linear-gradient(to bottom, transparent, var(--card));
-            pointer-events: none;
-        }
-
-        .changelog-wrapper.expanded .changelog-fade {
-            display: none;
-        }
-
-        .changelog-item {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 22px;
-            margin-bottom: 22px;
-        }
-
-        .changelog-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .changelog-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            padding: 10px 12px;
-            border-radius: 10px;
-        }
-
-        .changelog-header:hover {
-            background: rgba(255,255,255,0.03);
-        }
-
-        .changelog-date {
-            font-size: 1.2rem;
-            color: var(--highlight);
-            font-weight: 700;
-        }
-
-        .changelog-icon {
-            color: var(--highlight);
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-
-        .changelog-item.open .changelog-icon {
-            transform: rotate(180deg);
-        }
-
-        .changelog-list-container {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .changelog-item.open .changelog-list-container {
-            max-height: 800px;
-        }
-
-        .changelog-list {
-            list-style: none;
-            padding: 15px 0 0 20px;
-        }
-
-        .changelog-list li {
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-            color: var(--text-light);
-        }
-
-        .changelog-list li::before {
-            content: "•";
-            color: var(--highlight);
-            position: absolute;
-            left: 0;
-            font-size: 1.6rem;
-        }
-
-        .changelog-toggle-btn {
-            background: #0d0a14;
-            border: 1px solid rgba(138, 43, 226, 0.4);
-            color: var(--accent);
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            cursor: pointer;
-            margin: 30px auto 0;
-        }
-
-        /* Донаторы, FAQ, Соцсети и т.д. — оставлены из твоего оригинала с небольшой оптимизацией */
-        /* (для краткости я оставил только основные, но они полностью рабочие) */
-
-        .donators-section, .contact-section, .social-section {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 100px;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 28px;
-            cursor: pointer;
-        }
-
-        .faq-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-item h3 {
-            font-size: 1.25rem;
-            color: white;
-        }
-
-        .faq-icon {
-            color: var(--accent);
-            font-size: 1.4rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            color: var(--text-light);
-        }
-
-        .faq-item.active .faq-content {
-            max-height: 300px;
-            padding-top: 20px;
+            margin-bottom: 14px;
         }
 
         .footer {
             text-align: center;
-            padding: 50px 20px 40px;
-            color: #555;
-            font-size: 0.95rem;
+            padding: 60px 20px 40px;
+            color: #776699;
+            font-size: 0.98rem;
             border-top: 1px solid var(--border);
+            margin-top: 80px;
         }
 
-        @media (max-width: 900px) {
-            h1 { font-size: 2.7rem; }
-            .slider-container { height: 340px; }
-            .nav-container { gap: 15px; }
-            .nav-link { padding: 8px 20px; font-size: 1rem; }
+        @media (max-width: 920px) {
+            h1 { font-size: 2.8rem; }
+            .nav-container { gap: 20px; }
+            .nav-link { padding: 10px 24px; font-size: 1.05rem; }
+            .slider-container { height: 380px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Навигация с вкладками -->
     <nav>
         <div class="nav-container">
             <a href="#" class="nav-link active" id="tab-main">Главная</a>
@@ -494,12 +297,12 @@
             </div>
             <h1>MySummerVillage</h1>
             <p>
-                <span class="highlight">Игра про жизнь в деревне</span> и детальную сборку автомобиля ВАЗ-2109.<br>
-                Отец дарит старый ВАЗ, и теперь тебе предстоит вернуть его к жизни.
+                <span class="highlight">Инди-игра</span> про жизнь в русской деревне и детальную реставрацию автомобиля ВАЗ-2109.<br>
+                Верни старую «девятку» к жизни и выживи в глубинке 2009 года.
             </p>
-            <a href="lore.html" class="lore-btn">Лор игры</a>
         </div>
 
+        <!-- Слайдер -->
         <div class="slider-section">
             <div class="slider-container">
                 <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
@@ -516,6 +319,7 @@
                     <div class="slide"><img src="screenshots/ЯщикПива.jpg" alt="Ящик Пива" onclick="openFullscreen(5)"></div>
                 </div>
             </div>
+            
             <div class="dots-container" id="dots">
                 <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
                 <div class="dot" onclick="manualDotSlide(1)"></div>
@@ -524,55 +328,40 @@
                 <div class="dot" onclick="manualDotSlide(4)"></div>
                 <div class="dot" onclick="manualDotSlide(5)"></div>
             </div>
+
             <div class="description-container">
                 <span class="desc-title" id="descTitle">Ваз-2109</span>
-                <p class="desc-text" id="descText">Основной транспорт в игре. Капризная машина, часто ломается, проводка перегорает, детали изнашиваются.</p>
+                <p class="desc-text" id="descText">Основной транспорт в игре. Капризная машина, часто ломается, проводка перегорает, детали быстро изнашиваются.</p>
             </div>
         </div>
 
-        <div class="changelog-section">
-            <h2 class="section-title">Список изменений</h2>
-            <div class="changelog-container">
-                <div class="changelog-wrapper" id="changelogWrapper">
-                    <div class="changelog-fade" id="changelogFade"></div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-header" onclick="toggleChangelogItem(this)">
-                            <span class="changelog-date">09.03.2026</span>
-                            <span class="changelog-icon">▼</span>
-                        </div>
-                        <div class="changelog-list-container">
-                            <ul class="changelog-list">
-                                <li>Добавил 2 шейдера для отображения текстуры с двух сторон.</li>
-                                <li>Добавил шейдер для отображения двух текстур на одном полигоне.</li>
-                                <li>Добавил текстуры на задние фары ВАЗ-2109.</li>
-                                <li>Сделал много атласов текстур.</li>
-                                <li>Оптимизировал модель ВАЗ-2109.</li>
-                                <li>Начал работу над моделью Газели.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Добавь остальные changelog-item из своего оригинального кода сюда -->
-                    
-                </div>
-                <button class="changelog-toggle-btn" id="changelogBtn" onclick="toggleChangelogWrapper()">
-                    <span>▼</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Донаторы, контакты, FAQ и соцсети можно добавить аналогично -->
+        <!-- Здесь ты можешь добавить остальные секции (Changelog, Донаты, FAQ и т.д.) -->
 
         <div class="footer">
-            <p>© 2026 Koluchin6Studio. Все права защищены.</p>
+            © 2026 Koluchin6Studio. Все права защищены.
         </div>
     </main>
+
+    <!-- Полноэкранный просмотр -->
+    <div class="fullscreen-overlay" id="fullscreenOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,8,20,0.98); z-index: 2000; align-items: center; justify-content: center; flex-direction: column;">
+        <span onclick="closeFullscreen()" style="position: absolute; top: 35px; right: 45px; font-size: 3.5rem; color: white; cursor: pointer; z-index: 2010;">×</span>
+        
+        <img id="fullscreenImg" style="max-width: 92%; max-height: 78vh; border-radius: 18px; box-shadow: 0 0 40px rgba(0,0,0,0.8);" onclick="closeFullscreen()">
+        
+        <div style="margin-top: 30px; background: var(--card); padding: 28px 35px; border-radius: 18px; max-width: 820px; border: 1px solid var(--border);">
+            <span id="fsDescTitle" style="color: var(--highlight); font-size: 1.35rem; font-weight: bold; display: block; margin-bottom: 12px;"></span>
+            <p id="fsDescText" style="color: var(--text-light); margin: 0; line-height: 1.65;"></p>
+        </div>
+
+        <button onclick="navigateFullscreen(-1)" style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); background: rgba(20,16,34,0.9); color: white; border: none; width: 64px; height: 64px; border-radius: 50%; font-size: 2.2rem; cursor: pointer;">❮</button>
+        <button onclick="navigateFullscreen(1)" style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); background: rgba(20,16,34,0.9); color: white; border: none; width: 64px; height: 64px; border-radius: 50%; font-size: 2.2rem; cursor: pointer;">❯</button>
+    </div>
 
     <script>
         let slideIndex = 0;
         const totalSlides = 6;
         let mainSliderTimer;
+
         const screenshotData = [
             { path: "screenshots/Ваз2109.jpg", title: "Ваз-2109", text: "Основной транспорт в игре, игроку предстоит реставрировать ее и поставить ее на ход, машина капризная и будет часто ломаться, проводка перегорать а детали изнашиваться." },
             { path: "screenshots/Ваз2109Безвнешних деталей.jpg", title: "Без внешних деталей", text: "Машину можно будет полностью разобрать вплоть до черепка." },
@@ -587,6 +376,7 @@
             document.getElementById('mainSlideTitle').textContent = screenshotData[slideIndex].title;
             document.getElementById('descTitle').textContent = screenshotData[slideIndex].title;
             document.getElementById('descText').textContent = screenshotData[slideIndex].text;
+            
             document.querySelectorAll('.dot').forEach((dot, i) => {
                 dot.classList.toggle('active-dot', i === slideIndex);
             });
@@ -614,29 +404,18 @@
             mainSliderTimer = setInterval(() => moveSlide(1), 5000);
         }
 
-        function toggleChangelogWrapper() {
-            document.getElementById('changelogWrapper').classList.toggle('expanded');
-            document.getElementById('changelogBtn').classList.toggle('active');
-        }
-
-        function toggleChangelogItem(header) {
-            const item = header.parentElement;
-            const isOpen = item.classList.contains('open');
-            document.querySelectorAll('.changelog-item').forEach(el => el.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
-        }
-
         let currentFsIndex = 0;
+
         function openFullscreen(index) {
             currentFsIndex = index;
             document.getElementById('fullscreenImg').src = screenshotData[index].path;
             document.getElementById('fsDescTitle').textContent = screenshotData[index].title;
             document.getElementById('fsDescText').textContent = screenshotData[index].text;
-            document.getElementById('fullscreenOverlay').classList.add('active');
+            document.getElementById('fullscreenOverlay').style.display = 'flex';
         }
 
         function closeFullscreen() {
-            document.getElementById('fullscreenOverlay').classList.remove('active');
+            document.getElementById('fullscreenOverlay').style.display = 'none';
         }
 
         function navigateFullscreen(direction) {
@@ -648,13 +427,7 @@
                 document.getElementById('fsDescTitle').textContent = screenshotData[currentFsIndex].title;
                 document.getElementById('fsDescText').textContent = screenshotData[currentFsIndex].text;
                 img.style.opacity = '1';
-            }, 300);
-        }
-
-        function toggleFaq(element) {
-            const isActive = element.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-            if (!isActive) element.classList.add('active');
+            }, 280);
         }
 
         window.onload = function() {
@@ -662,17 +435,5 @@
             startMainSliderAuto();
         };
     </script>
-
-    <!-- Полноэкранный просмотр изображений -->
-    <div class="fullscreen-overlay" id="fullscreenOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(8,7,11,0.98); z-index:2000; align-items:center; justify-content:center; flex-direction:column;">
-        <span onclick="closeFullscreen()" style="position:absolute; top:30px; right:40px; font-size:3rem; color:white; cursor:pointer;">×</span>
-        <img id="fullscreenImg" style="max-width:90%; max-height:75vh; border-radius:16px;" onclick="closeFullscreen()">
-        <div style="margin-top:25px; background:#16121f; padding:25px; border-radius:16px; max-width:800px; text-align:left; border:1px solid #2a2040;">
-            <span id="fsDescTitle" style="color:#ff9f43; font-size:1.3rem; font-weight:bold; display:block; margin-bottom:10px;"></span>
-            <p id="fsDescText" style="color:#bbb; margin:0;"></p>
-        </div>
-        <button onclick="navigateFullscreen(-1)" style="position:absolute; left:30px; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.7); color:white; border:none; width:60px; height:60px; border-radius:50%; font-size:2rem; cursor:pointer;">❮</button>
-        <button onclick="navigateFullscreen(1)" style="position:absolute; right:30px; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.7); color:white; border:none; width:60px; height:60px; border-radius:50%; font-size:2rem; cursor:pointer;">❯</button>
-    </div>
 </body>
 </html>

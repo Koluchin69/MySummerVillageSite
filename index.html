@@ -67,6 +67,9 @@
             text-transform: uppercase;
             letter-spacing: 1.2px;
             cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
         }
 
         .nav-link:hover,
@@ -153,14 +156,6 @@
             text-transform: uppercase;
         }
 
-        .container {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-        }
-
         .slider-section {
             width: 100%;
             max-width: 920px;
@@ -231,10 +226,7 @@
             transition: all 0.3s;
         }
 
-        .slider-btn:hover {
-            background: var(--accent);
-        }
-
+        .slider-btn:hover { background: var(--accent); }
         .prev-btn { left: 25px; }
         .next-btn { right: 25px; }
 
@@ -289,9 +281,7 @@
             transition: border-color 0.3s;
         }
 
-        .faq-item:hover {
-            border-color: var(--accent);
-        }
+        .faq-item:hover { border-color: var(--accent); }
 
         .faq-question {
             width: 100%;
@@ -311,13 +301,8 @@
             font-family: inherit;
         }
 
-        .faq-question:hover {
-            color: white;
-        }
-
-        .faq-question.open {
-            color: var(--highlight);
-        }
+        .faq-question:hover { color: white; }
+        .faq-question.open { color: var(--highlight); }
 
         .faq-arrow {
             font-size: 1.3rem;
@@ -326,9 +311,7 @@
             flex-shrink: 0;
         }
 
-        .faq-question.open .faq-arrow {
-            transform: rotate(180deg);
-        }
+        .faq-question.open .faq-arrow { transform: rotate(180deg); }
 
         .faq-answer {
             max-height: 0;
@@ -350,6 +333,51 @@
             padding-top: 18px;
         }
 
+        .lore-section {
+            max-width: 820px;
+            margin: 0 auto 110px;
+            padding-top: 60px;
+        }
+
+        .lore-block {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+            position: relative;
+        }
+
+        .lore-block::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .lore-block h2 {
+            font-size: 1.8rem;
+            color: var(--highlight);
+            margin: 40px 0 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .lore-block h2:first-of-type { margin-top: 0; }
+
+        .lore-block p {
+            font-size: 1.12rem;
+            line-height: 1.85;
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
         .footer {
             text-align: center;
             padding: 60px 20px 40px;
@@ -364,6 +392,7 @@
             .nav-container { gap: 20px; }
             .nav-link { padding: 10px 24px; font-size: 1.05rem; }
             .slider-container { height: 380px; }
+            .lore-block { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -371,9 +400,9 @@
 
     <nav>
         <div class="nav-container">
-            <a class="nav-link active" onclick="showPage('main', this)">Главная</a>
-            <a class="nav-link" onclick="showPage('faq', this)">Вопросы</a>
-            <a href="lore.html" class="nav-link">Лор игры</a>
+            <button class="nav-link active" onclick="showPage('main', this)">Главная</button>
+            <button class="nav-link" onclick="showPage('faq', this)">Вопросы</button>
+            <button class="nav-link" onclick="showPage('lore', this)">Лор игры</button>
         </div>
     </nav>
 
@@ -387,7 +416,7 @@
                 </div>
                 <h1>MySummerVillage</h1>
                 <p>
-                    <span class="highlight">Инди-игра</span> про жизнь в русской деревне и детальную реставрацию автомобиля ВАЗ-2109.<br>
+                    <span class="highlight">Инди-игра</span> про жизнь в деревне казахстанской глубинки и детальную реставрацию автомобиля ВАЗ-2109.<br>
                     Верни старую «девятку» к жизни и выживи в глубинке 2009 года.
                 </p>
             </div>
@@ -395,10 +424,8 @@
             <div class="slider-section">
                 <div class="slider-container">
                     <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
-                    
                     <button class="slider-btn prev-btn" onclick="manualSliderMove(-1)">❮</button>
                     <button class="slider-btn next-btn" onclick="manualSliderMove(1)">❯</button>
-                    
                     <div class="slides" id="slides">
                         <div class="slide"><img src="screenshots/Ваз2109.jpg" alt="Ваз2109" onclick="openFullscreen(0)"></div>
                         <div class="slide"><img src="screenshots/Ваз2109Безвнешних деталей.jpg" alt="Ваз2109 без деталей" onclick="openFullscreen(1)"></div>
@@ -408,7 +435,7 @@
                         <div class="slide"><img src="screenshots/ЯщикПива.jpg" alt="Ящик Пива" onclick="openFullscreen(5)"></div>
                     </div>
                 </div>
-                
+
                 <div class="dots-container" id="dots">
                     <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
                     <div class="dot" onclick="manualDotSlide(1)"></div>
@@ -424,9 +451,7 @@
                 </div>
             </div>
 
-            <div class="footer">
-                © 2026 Koluchin6Studio. Все права защищены.
-            </div>
+            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
         <div class="page" id="page-faq">
@@ -479,7 +504,7 @@
                         <span class="faq-arrow">▼</span>
                     </button>
                     <div class="faq-answer">
-                        <p>MySummerVillage — это игра про жизнь в деревне и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p>
+                        <p>MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p>
                     </div>
                 </div>
 
@@ -492,26 +517,52 @@
                         <p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p>
                     </div>
                 </div>
-
             </div>
 
-            <div class="footer">
-                © 2026 Koluchin6Studio. Все права защищены.
+            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
+        </div>
+
+        <div class="page" id="page-lore">
+            <div class="lore-section">
+                <div class="section-title">Лор игры</div>
+                <div class="lore-block">
+                    <h2>События игры проходят в выдуманном округе <span class="highlight">Казахстана</span></h2>
+
+                    <h2>Начало пути</h2>
+                    <p>
+                        История <span class="highlight">MySummerVillage</span> начинается на перроне маленькой железнодорожной станции. Городской парень приезжает в деревню к родителям. Отец уезжает с матерью в отпуск, оставляя сыну ключи от дома и старый <span class="highlight">ВАЗ-2109</span>, который уже два года врастает в землю во дворе.
+                    </p>
+                    <p>
+                        Главному герою, который в жизни не держал в руках топора, придется с нуля привыкать к суровому деревенскому быту: учиться колоть дрова, зарабатывать на хлеб, носить воду и, самое главное, возвращать к жизни машину.
+                    </p>
+
+                    <h2>Наследие отца</h2>
+                    <p>
+                        <span class="highlight">ВАЗ-2109</span>. Старая «девятка», которая уже второй год простаивает во дворе.
+                        Она помнит лучшие времена, но сейчас это просто груда ржавого металла. Игроку предстоит вернуть ее к жизни,
+                        перебрать двигатель и провести реставрацию внешнего вида автомобиля.
+                    </p>
+
+                    <h2>Деревенская рутина</h2>
+                    <p>
+                        Помимо восстановления автомобиля в игре будет много дел, которыми можно будет заняться. По приезду главного героя двор будет неухожен.
+                        Игрок по желанию может убрать его, вырвать кусты и сорняки, перекрасить старый забор и вывезти мусор с двора.
+                    </p>
+                </div>
             </div>
+
+            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
     </main>
 
     <div class="fullscreen-overlay" id="fullscreenOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,8,20,0.98); z-index: 2000; align-items: center; justify-content: center; flex-direction: column;">
         <span onclick="closeFullscreen()" style="position: absolute; top: 35px; right: 45px; font-size: 3.5rem; color: white; cursor: pointer; z-index: 2010;">×</span>
-        
         <img id="fullscreenImg" style="max-width: 92%; max-height: 78vh; border-radius: 18px; box-shadow: 0 0 40px rgba(0,0,0,0.8);" onclick="closeFullscreen()">
-        
         <div style="margin-top: 30px; background: var(--card); padding: 28px 35px; border-radius: 18px; max-width: 820px; border: 1px solid var(--border);">
             <span id="fsDescTitle" style="color: var(--highlight); font-size: 1.35rem; font-weight: bold; display: block; margin-bottom: 12px;"></span>
             <p id="fsDescText" style="color: var(--text-light); margin: 0; line-height: 1.65;"></p>
         </div>
-
         <button onclick="navigateFullscreen(-1)" style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); background: rgba(20,16,34,0.9); color: white; border: none; width: 64px; height: 64px; border-radius: 50%; font-size: 2.2rem; cursor: pointer;">❮</button>
         <button onclick="navigateFullscreen(1)" style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); background: rgba(20,16,34,0.9); color: white; border: none; width: 64px; height: 64px; border-radius: 50%; font-size: 2.2rem; cursor: pointer;">❯</button>
     </div>
@@ -535,6 +586,7 @@
             document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
             navEl.classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function toggleFaq(btn) {

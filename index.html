@@ -229,11 +229,12 @@
             text-align: center;
         }
         .social-title {
-            font-size: 1.35rem;
+            font-size: 1.45rem;
             color: var(--accent);
             margin-bottom: 28px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            font-weight: 800;
         }
         .social-circles {
             display: flex;
@@ -261,9 +262,9 @@
             border-color: var(--highlight);
         }
         .social-circle img {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 8px;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 10px;
         }
         .social-circle span {
             font-size: 0.95rem;
@@ -349,6 +350,23 @@
             border-top: 1px solid var(--border);
             padding-top: 18px;
         }
+
+        .contact-hint {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 1.08rem;
+            color: var(--text-light);
+        }
+        .contact-hint a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .contact-hint a:hover {
+            color: var(--highlight);
+            text-decoration: underline;
+        }
+
         .footer {
             text-align: center;
             padding: 60px 20px 40px;
@@ -420,11 +438,11 @@
                 <div class="social-title">Наши соц-сети</div>
                 <div class="social-circles">
                     <a href="https://t.me/MSVgame" target="_blank" class="social-circle">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="Telegram">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
                         <span>Telegram</span>
                     </a>
                     <a href="https://www.tiktok.com/@koluchin666?is_from_webapp=1&sender_device=pc" target="_blank" class="social-circle">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/2048px-TikTok_logo.svg.png" alt="TikTok">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
                         <span>TikTok</span>
                     </a>
                 </div>
@@ -435,7 +453,7 @@
 
         <div class="page" id="page-faq">
             <div class="faq-section">
-                <div class="section-title">Вопросы</div>
+                <div class="section-title">Частые вопросы</div>
 
                 <div class="faq-subtitle">Об игре</div>
                 
@@ -506,6 +524,36 @@
                     </div>
                 </div>
 
+                <div class="faq-subtitle">Разработка</div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Будет на телефоны?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Нет, игра разрабатывается только для ПК устройств.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Сколько людей разрабатывает игру?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>У игры всего 1 разработчик.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Какая студия занимается разработкой игры?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Разработкой игры занимается инди-студия Koluchin6Studio, на данный момент в студии всего один действующий разработчик.</p>
+                    </div>
+                </div>
+
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         Сколько разрабатывается игра?
@@ -514,6 +562,11 @@
                     <div class="faq-answer">
                         <p>Игра разрабатывается с 12 февраля 2026 года, если учитывать то что проект уже третий раз переделывается — то уже 2 года.</p>
                     </div>
+                </div>
+
+                <!-- Подсказка внизу -->
+                <div class="contact-hint">
+                    Не нашёл ответ? Задай вопрос в чате <a href="https://t.me/MSVgame" target="_blank">ТГК</a>
                 </div>
             </div>
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>

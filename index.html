@@ -6,7 +6,7 @@
     <meta name="description" content="MySummerVillage — игра про жизнь в деревне и детальный ремонт ВАЗ-2109">
     <title>MySummerVillage — жизнь в деревне и ремонт ВАЗ-2109</title>
     <script data-goatcounter="https://koluchin6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    
+   
     <style>
         :root {
             --bg: #0b0814;
@@ -17,25 +17,22 @@
             --text: #e0d4ff;
             --text-light: #b8a8e0;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
             min-height: 100vh;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 30% 20%, rgba(155, 77, 255, 0.18) 0%, transparent 60%),
                 radial-gradient(circle at 70% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 60%);
             background-attachment: fixed;
         }
-
         nav {
             position: fixed;
             top: 0;
@@ -47,7 +44,6 @@
             z-index: 1000;
             padding: 18px 0;
         }
-
         .nav-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -55,7 +51,6 @@
             justify-content: center;
             gap: 50px;
         }
-
         .nav-link {
             color: #c4b0ff;
             text-decoration: none;
@@ -71,14 +66,12 @@
             border: none;
             font-family: inherit;
         }
-
         .nav-link:hover,
         .nav-link.active {
             color: white;
             background: rgba(155, 77, 255, 0.25);
             box-shadow: 0 0 15px rgba(155, 77, 255, 0.3);
         }
-
         main {
             padding-top: 110px;
             max-width: 1100px;
@@ -86,27 +79,22 @@
             padding-left: 20px;
             padding-right: 20px;
         }
-
         .page {
             display: none;
         }
-
         .page.active {
             display: block;
         }
-
         .hero {
             text-align: center;
             padding: 90px 20px 120px;
         }
-
         .studio-header {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 35px;
         }
-
         .studio-logo {
             width: 120px;
             height: 120px;
@@ -116,7 +104,6 @@
             box-shadow: 0 0 40px rgba(155, 77, 255, 0.45);
             margin-bottom: 20px;
         }
-
         .studio-name {
             font-size: 1.4rem;
             color: var(--accent);
@@ -124,7 +111,6 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-
         h1 {
             font-size: 3.9rem;
             font-weight: 900;
@@ -133,19 +119,16 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-
         .hero p {
             max-width: 720px;
             margin: 0 auto;
             font-size: 1.28rem;
             color: var(--text-light);
         }
-
         .highlight {
             color: var(--highlight);
             font-weight: 700;
         }
-
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -155,13 +138,11 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-
         .slider-section {
             width: 100%;
             max-width: 920px;
             margin: 0 auto 110px;
         }
-
         .slider-container {
             position: relative;
             height: 540px;
@@ -170,26 +151,22 @@
             border: 1px solid var(--border);
             overflow: hidden;
         }
-
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.6s ease-out;
         }
-
         .slide {
             min-width: 100%;
             height: 100%;
         }
-
         .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             cursor: zoom-in;
         }
-
         .slide-title {
             position: absolute;
             top: 30px;
@@ -206,7 +183,6 @@
             text-transform: uppercase;
             cursor: pointer;
         }
-
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -225,18 +201,15 @@
             justify-content: center;
             transition: all 0.3s;
         }
-
         .slider-btn:hover { background: var(--accent); }
         .prev-btn { left: 25px; }
         .next-btn { right: 25px; }
-
         .dots-container {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 28px;
         }
-
         .dot {
             width: 14px;
             height: 14px;
@@ -245,10 +218,57 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
         .dot.active-dot {
             background: var(--accent);
             box-shadow: 0 0 12px rgba(155, 77, 255, 0.6);
+        }
+
+        .social-section {
+            margin: 80px auto 100px;
+            max-width: 920px;
+            text-align: center;
+        }
+        .social-title {
+            font-size: 1.35rem;
+            color: var(--accent);
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .social-circles {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .social-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 3px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(155, 77, 255, 0.25);
+        }
+        .social-circle:hover {
+            transform: scale(1.08) translateY(-8px);
+            box-shadow: 0 0 35px rgba(155, 77, 255, 0.45);
+            border-color: var(--highlight);
+        }
+        .social-circle img {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 8px;
+        }
+        .social-circle span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-light);
         }
 
         .description-container {
@@ -258,7 +278,6 @@
             border-radius: 20px;
             padding: 32px;
         }
-
         .desc-title {
             color: var(--highlight);
             font-size: 1.4rem;
@@ -271,7 +290,13 @@
             margin: 0 auto 110px;
             padding-top: 60px;
         }
-
+        .faq-subtitle {
+            font-size: 1.6rem;
+            color: var(--highlight);
+            margin: 50px 0 25px 0;
+            text-align: center;
+            font-weight: 700;
+        }
         .faq-item {
             background: var(--card);
             border: 1px solid var(--border);
@@ -280,9 +305,7 @@
             overflow: hidden;
             transition: border-color 0.3s;
         }
-
         .faq-item:hover { border-color: var(--accent); }
-
         .faq-question {
             width: 100%;
             background: none;
@@ -300,31 +323,25 @@
             transition: color 0.3s;
             font-family: inherit;
         }
-
         .faq-question:hover { color: white; }
         .faq-question.open { color: var(--highlight); }
-
         .faq-arrow {
             font-size: 1.3rem;
             color: var(--accent);
             transition: transform 0.35s ease;
             flex-shrink: 0;
         }
-
         .faq-question.open .faq-arrow { transform: rotate(180deg); }
-
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.3s ease;
             padding: 0 30px;
         }
-
         .faq-answer.open {
             max-height: 300px;
             padding: 0 30px 24px;
         }
-
         .faq-answer p {
             color: var(--text-light);
             font-size: 1.05rem;
@@ -332,7 +349,6 @@
             border-top: 1px solid var(--border);
             padding-top: 18px;
         }
-
         .footer {
             text-align: center;
             padding: 60px 20px 40px;
@@ -341,26 +357,25 @@
             border-top: 1px solid var(--border);
             margin-top: 80px;
         }
-
         @media (max-width: 920px) {
             h1 { font-size: 2.8rem; }
             .nav-container { gap: 20px; }
             .nav-link { padding: 10px 24px; font-size: 1.05rem; }
             .slider-container { height: 380px; }
+            .social-circles { gap: 40px; }
+            .social-circle { width: 96px; height: 96px; }
+            .social-circle img { width: 46px; height: 46px; }
         }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="nav-container">
             <button class="nav-link active" onclick="showPage('main', this)">Главная</button>
-            <button class="nav-link" onclick="showPage('faq', this)">Вопросы</button>
+            <button class="nav-link" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
         </div>
     </nav>
-
     <main>
-
         <div class="page active" id="page-main">
             <div class="hero">
                 <div class="studio-header">
@@ -373,7 +388,6 @@
                     Верни старую «девятку» к жизни и выживи в глубинке 2009 года.
                 </p>
             </div>
-
             <div class="slider-section">
                 <div class="slider-container">
                     <div class="slide-title" id="mainSlideTitle" onclick="openFullscreen(slideIndex)">Ваз-2109</div>
@@ -388,7 +402,6 @@
                         <div class="slide"><img src="screenshots/ЯщикПива.jpg" alt="Ящик Пива" onclick="openFullscreen(5)"></div>
                     </div>
                 </div>
-
                 <div class="dots-container" id="dots">
                     <div class="dot active-dot" onclick="manualDotSlide(0)"></div>
                     <div class="dot" onclick="manualDotSlide(1)"></div>
@@ -397,10 +410,23 @@
                     <div class="dot" onclick="manualDotSlide(4)"></div>
                     <div class="dot" onclick="manualDotSlide(5)"></div>
                 </div>
-
                 <div class="description-container">
                     <span class="desc-title" id="descTitle">Ваз-2109</span>
                     <p class="desc-text" id="descText">Основной транспорт в игре. Капризная машина, часто ломается, проводка перегорает, детали быстро изнашиваются.</p>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <div class="social-title">Наши соц-сети</div>
+                <div class="social-circles">
+                    <a href="https://t.me/MSVgame" target="_blank" class="social-circle">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="Telegram">
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@koluchin666?is_from_webapp=1&sender_device=pc" target="_blank" class="social-circle">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/2048px-TikTok_logo.svg.png" alt="TikTok">
+                        <span>TikTok</span>
+                    </a>
                 </div>
             </div>
 
@@ -411,6 +437,8 @@
             <div class="faq-section">
                 <div class="section-title">Вопросы</div>
 
+                <div class="faq-subtitle">Об игре</div>
+                
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         Игра будет в Steam?
@@ -420,7 +448,6 @@
                         <p>Да, игра будет в Steam.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         Какой транспорт будет в игре?
@@ -430,7 +457,6 @@
                         <p>В игре будет: ВАЗ-2109, ГАЗель, мотоблок, трактор, и мб мотоцикл.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         Что такое MSV?
@@ -438,6 +464,45 @@
                     </button>
                     <div class="faq-answer">
                         <p>MSV — MySummerVillage. Проще говоря аббревиатура игры.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Про что игра?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        У игры есть сюжет?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p>
+                    </div>
+                </div>
+
+                <div class="faq-subtitle">Релиз и цена</div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Когда релиз?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Дата релиза ещё неизвестна.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Какая будет цена у игры?
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Цена будет 6–7 долларов. Это ещё не итоговая цена игры и она может меняться.</p>
                     </div>
                 </div>
 
@@ -450,31 +515,9 @@
                         <p>Игра разрабатывается с 12 февраля 2026 года, если учитывать то что проект уже третий раз переделывается — то уже 2 года.</p>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        Про что игра?
-                        <span class="faq-arrow">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        У игры есть сюжет?
-                        <span class="faq-arrow">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p>
-                    </div>
-                </div>
             </div>
-
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
-
     </main>
 
     <div class="fullscreen-overlay" id="fullscreenOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,8,20,0.98); z-index: 2000; align-items: center; justify-content: center; flex-direction: column;">
@@ -492,7 +535,6 @@
         let slideIndex = 0;
         const totalSlides = 6;
         let mainSliderTimer;
-
         const screenshotData = [
             { path: "screenshots/Ваз2109.jpg", title: "Ваз-2109", text: "Основной транспорт в игре, игроку предстоит реставрировать ее и поставить ее на ход, машина капризная и будет часто ломаться, проводка перегорать а детали изнашиваться." },
             { path: "screenshots/Ваз2109Безвнешних деталей.jpg", title: "Без внешних деталей", text: "Машину можно будет полностью разобрать вплоть до черепка." },
@@ -554,7 +596,6 @@
         }
 
         let currentFsIndex = 0;
-
         function openFullscreen(index) {
             currentFsIndex = index;
             document.getElementById('fullscreenImg').src = screenshotData[index].path;

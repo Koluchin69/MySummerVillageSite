@@ -61,7 +61,6 @@
             cursor: pointer;
             background: none;
             border: none;
-            font-family: 'Rajdhani', sans-serif;
         }
         .nav-link:hover, .nav-link.active {
             color: white;
@@ -119,7 +118,6 @@
         .hero-subtitle {
             max-width: 640px;
             margin: 0 auto 12px;
-            font-size: 1.05rem;
             color: var(--text-light);
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.15rem;
@@ -127,7 +125,7 @@
         }
         .highlight { color: var(--highlight); font-weight: 700; }
 
-        /* ─── CAR DIAGRAM SECTION ─── */
+        /* ─── CAR VIEWER SECTION ─── */
         .car-diagram-section {
             position: relative;
             width: 100%;
@@ -147,45 +145,90 @@
             opacity: 0.8;
         }
 
-        /* Car wrapper — relative container for SVG lines + image */
+        /* Viewer shell with side arrows */
+        .viewer-shell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .arrow-btn {
+            flex-shrink: 0;
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: rgba(155,77,255,0.12);
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s, border-color 0.25s, transform 0.15s;
+            z-index: 5;
+        }
+        .arrow-btn:hover {
+            background: rgba(255,107,53,0.18);
+            border-color: var(--highlight);
+            color: var(--highlight);
+            transform: scale(1.08);
+        }
+
+        /* Car wrapper */
         .car-wrapper {
+            flex: 1;
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 7;
             min-height: 200px;
         }
 
-        .car-image {
+        /* View label badge */
+        .view-label {
+            position: absolute;
+            top: 10px; left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(11, 8, 20, 0.8);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(155,77,255,0.35);
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        /* Car images — fade transition */
+        .car-view {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: contain;
             object-position: center;
-            filter: drop-shadow(0 10px 40px rgba(155,77,255,0.15));
+            opacity: 0;
+            transition: opacity 0.5s ease;
             pointer-events: none;
             user-select: none;
         }
+        .car-view.visible { opacity: 1; }
 
-        /* SVG overlay for lines */
-        .lines-svg {
+        /* Hotspot layers — fade per view */
+        .hotspot-layer {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: visible;
+            transition: opacity 0.4s ease;
+        }
+        .hotspot-layer.hidden {
+            opacity: 0;
             pointer-events: none;
         }
-        .callout-line {
-            stroke: var(--accent);
-            stroke-width: 1.5;
-            fill: none;
-            opacity: 0;
-            transition: opacity 0.4s ease, stroke 0.3s;
-            stroke-dasharray: 4 3;
-        }
-        .callout-line.visible { opacity: 0.7; }
-        .callout-line.active  { opacity: 1; stroke: var(--highlight); stroke-dasharray: none; }
 
         /* Hotspot dots */
         .hotspot {
@@ -233,31 +276,9 @@
             border-color: var(--highlight);
         }
 
-        /* Label badges that float near the callout endpoints */
-        .callout-label {
-            position: absolute;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: rgba(20, 16, 34, 0.9);
-            border: 1px solid var(--border);
-            padding: 3px 10px;
-            border-radius: 4px;
-            pointer-events: none;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.4s, color 0.3s, border-color 0.3s;
-            backdrop-filter: blur(4px);
-        }
-        .callout-label.visible { opacity: 1; }
-        .callout-label.active  { color: var(--highlight); border-color: rgba(255,107,53,0.5); }
-
         /* ─── INFO PANEL ─── */
         .info-panel {
-            margin-top: 10px;
+            margin-top: 14px;
             min-height: 130px;
             position: relative;
         }
@@ -321,6 +342,7 @@
         .info-card-tag {
             display: inline-block;
             margin-top: 12px;
+            margin-right: 6px;
             font-family: 'Rajdhani', sans-serif;
             font-size: 0.72rem;
             letter-spacing: 2px;
@@ -479,16 +501,15 @@
             .car-wrapper { aspect-ratio: 16 / 8; }
             .hotspot { width: 18px; height: 18px; }
             .hotspot::after { width: 18px; height: 18px; }
-            .callout-label { font-size: 0.6rem; padding: 2px 7px; }
             .info-card { padding: 20px 18px; }
             .info-card-title { font-size: 0.85rem; }
             .social-fixed { bottom: 15px; right: 15px; }
             .social-circle { width: 42px; height: 42px; }
             .social-circle img { width: 22px; height: 22px; }
             .car-diagram-section { margin-bottom: 40px; }
+            .arrow-btn { width: 32px; height: 32px; font-size: 15px; }
         }
         @media (max-width: 480px) {
-            .callout-label { display: none; }
             .info-panel { min-height: 110px; }
         }
     </style>
@@ -520,77 +541,77 @@
                 </p>
             </div>
 
-            <!-- CAR DIAGRAM -->
+            <!-- ══ CAR VIEWER ══ -->
             <div class="car-diagram-section">
                 <p class="diagram-title">▸ Нажми на элемент — узнай подробности ◂</p>
 
-                <div class="car-wrapper" id="carWrapper">
-                    <!-- SVG lines layer -->
-                    <svg class="lines-svg" id="linesSvg" viewBox="0 0 1000 437" preserveAspectRatio="xMidYMid meet">
-                        <!-- Lines drawn by JS -->
-                    </svg>
+                <div class="viewer-shell">
+                    <!-- Left arrow: side view -->
+                    <button class="arrow-btn" id="btnLeft" title="Вид сбоку">&#8592;</button>
 
-                    <!-- Car image -->
-                    <img src="Vas2109photo.png" alt="ВАЗ-2109" class="car-image" draggable="false">
+                    <div class="car-wrapper" id="carWrapper">
+                        <!-- View label -->
+                        <span class="view-label" id="viewLabel">Вид сбоку</span>
 
-                    <!-- HOTSPOTS (% positions relative to car-wrapper) -->
-                    <!-- Колеса (переднее) -->
-                    <div class="hotspot" id="hs-wheels-front" style="left:22%; top:82%;"
-                         data-id="wheels" data-label-x="10" data-label-y="10" onclick="selectHotspot('wheels')"></div>
+                        <!-- Image: side view -->
+                        <img class="car-view visible" id="imgSide"
+                             src="screenshots/Ваз2109.jpg" alt="ВАЗ-2109 вид сбоку" draggable="false">
 
-                    <!-- Колеса (заднее) -->
-                    <div class="hotspot" id="hs-wheels-rear" style="left:76%; top:82%;"
-                         data-id="wheels" onclick="selectHotspot('wheels')"></div>
+                        <!-- Image: hood view -->
+                        <img class="car-view" id="imgHood"
+                             src="Vas2109Frontphoto.jpg" alt="ВАЗ-2109 под капотом" draggable="false">
 
-                    <!-- Двигатель (капот) -->
-                    <div class="hotspot" id="hs-engine" style="left:13%; top:38%;"
-                         data-id="engine" onclick="selectHotspot('engine')"></div>
+                        <!-- HOTSPOTS: вид сбоку -->
+                        <div class="hotspot-layer" id="layerSide">
+                            <!-- Колёса -->
+                            <div class="hotspot" style="left:22%;top:82%;"
+                                 data-id="wheels" onclick="selectHotspot('wheels')"></div>
+                            <div class="hotspot" style="left:76%;top:82%;"
+                                 data-id="wheels" onclick="selectHotspot('wheels')"></div>
+                            <!-- Кузов -->
+                            <div class="hotspot" style="left:50%;top:28%;"
+                                 data-id="body" onclick="selectHotspot('body')"></div>
+                            <!-- Салон -->
+                            <div class="hotspot" style="left:48%;top:58%;"
+                                 data-id="interior" onclick="selectHotspot('interior')"></div>
+                        </div>
 
-                    <!-- Кузов -->
-                    <div class="hotspot" id="hs-body" style="left:50%; top:28%;"
-                         data-id="body" onclick="selectHotspot('body')"></div>
+                        <!-- HOTSPOTS: под капотом -->
+                        <div class="hotspot-layer hidden" id="layerHood">
+                            <!-- Двигатель -->
+                            <div class="hotspot" style="left:50%;top:52%;"
+                                 data-id="engine" onclick="selectHotspot('engine')"></div>
+                            <!-- Аккумулятор -->
+                            <div class="hotspot" style="left:76%;top:45%;"
+                                 data-id="battery" onclick="selectHotspot('battery')"></div>
+                            <!-- Воздушный фильтр -->
+                            <div class="hotspot" style="left:30%;top:30%;"
+                                 data-id="airfilter" onclick="selectHotspot('airfilter')"></div>
+                        </div>
+                    </div>
 
-                    <!-- Каркас -->
-                    <div class="hotspot" id="hs-frame" style="left:50%; top:62%;"
-                         data-id="frame" onclick="selectHotspot('frame')"></div>
-
-                    <!-- Floating labels (placed by JS) -->
-                    <div class="callout-label" id="lbl-wheels" style="left:2%; top:5%;">Колёса</div>
-                    <div class="callout-label" id="lbl-engine" style="left:1%; top:70%;">Двигатель</div>
-                    <div class="callout-label" id="lbl-body" style="left:38%; top:2%;">Кузов</div>
-                    <div class="callout-label" id="lbl-frame" style="left:38%; top:88%;">Каркас</div>
+                    <!-- Right arrow: hood view -->
+                    <button class="arrow-btn" id="btnRight" title="Под капотом">&#8594;</button>
                 </div>
 
                 <!-- INFO PANEL -->
                 <div class="info-panel">
-                    <div class="info-default" id="infoDefault">▲ Нажми на точку, чтобы узнать подробности</div>
+                    <div class="info-default" id="infoDefault">&#9650; Нажми на точку, чтобы узнать подробности</div>
 
+                    <!-- Вид сбоку: карточки -->
                     <div class="info-card" id="card-wheels">
                         <div class="info-card-header">
                             <span class="info-icon">🛞</span>
                             <span class="info-card-title">Колёса и шины</span>
                         </div>
                         <p class="info-card-text">
-                            Колёса изнашиваются со временем и могут лопнуть прямо в дороге. В игре будет выбор
-                            различных видов покрышек и дисков — от простых штамповок до литья.
-                            Следи за давлением, иначе поездка закончится раньше времени.
+                            Покрышки изнашиваются по мере езды и могут лопнуть прямо на ходу.
+                            В игре доступны разные варианты: от штампованных дисков с дешёвой резиной
+                            до литья с качественными шинами. Следи за давлением, иначе поездка
+                            закончится раньше, чем планировал.
                         </p>
                         <span class="info-card-tag">Механика износа</span>
                         <span class="info-card-tag">Кастомизация</span>
-                    </div>
-
-                    <div class="info-card" id="card-engine">
-                        <div class="info-card-header">
-                            <span class="info-icon">🔧</span>
-                            <span class="info-card-title">Двигатель</span>
-                        </div>
-                        <p class="info-card-text">
-                            За два года простоя мотор покрылся грязью и ржавчиной. Почти не осталось живых
-                            деталей: жидкости вытекли, проводка сгнила. Разборка — до последнего болта,
-                            замена прокладок, масла, охлаждайки. Детальная симуляция каждого узла.
-                        </p>
-                        <span class="info-card-tag">Полная разборка</span>
-                        <span class="info-card-tag">Замена жидкостей</span>
                     </div>
 
                     <div class="info-card" id="card-body">
@@ -599,29 +620,77 @@
                             <span class="info-card-title">Кузов</span>
                         </div>
                         <p class="info-card-text">
-                            Два года под открытым небом даром не прошли. Кузов покрыт рыжиками — очагами
-                            ржавчины по порогам, арках и дверях. Зачищай, грунтуй, крась. Машина может
-                            выглядеть как новая — если постараешься.
+                            Два года под открытым небом не прошли даром. По порогам, аркам и дверям
+                            расползлась ржавчина. Процесс восстановления идёт от зачистки пятен до
+                            финального лака: зачищай, грунтуй, крась. При должном старании машина
+                            будет выглядеть как новая.
                         </p>
                         <span class="info-card-tag">Ржавчина</span>
                         <span class="info-card-tag">Покраска</span>
                     </div>
 
-                    <div class="info-card" id="card-frame">
+                    <div class="info-card" id="card-interior">
                         <div class="info-card-header">
-                            <span class="info-icon">🏗️</span>
-                            <span class="info-card-title">Каркас</span>
+                            <span class="info-icon">🎨</span>
+                            <span class="info-card-title">Салон</span>
                         </div>
                         <p class="info-card-text">
-                            Машину можно разобрать полностью — до голого металла, до черепка. Снять каждую
-                            деталь интерьера, панели, обшивку. Это основа всей механики реставрации:
-                            ничего лишнего, только железо.
+                            Внутри всё разобрано и запущено. Обшивка потрескалась, сиденья проседают,
+                            с потолка свисает ткань. Восстановление идёт поэтапно: панели, обивка,
+                            ковролин. Можно оставить всё в стоке или слегка освежить под свой вкус.
+                        </p>
+                        <span class="info-card-tag">Обивка</span>
+                        <span class="info-card-tag">Интерьер</span>
+                    </div>
+
+                    <!-- Под капотом: карточки -->
+                    <div class="info-card" id="card-engine">
+                        <div class="info-card-header">
+                            <span class="info-icon">🔧</span>
+                            <span class="info-card-title">Двигатель</span>
+                        </div>
+                        <p class="info-card-text">
+                            Мотор частично разобран. Видно, что отец главного героя пытался его
+                            запустить, но безуспешно: болты откручены, часть патрубков снята, под
+                            блоком старые потёки масла. Жидкости вытекли, проводка задубела.
+                            Предстоит разобрать до последнего болта, заменить прокладки, залить всё свежее.
                         </p>
                         <span class="info-card-tag">Полная разборка</span>
-                        <span class="info-card-tag">До черепка</span>
+                        <span class="info-card-tag">Замена жидкостей</span>
+                    </div>
+
+                    <div class="info-card" id="card-battery">
+                        <div class="info-card-header">
+                            <span class="info-icon">⚡</span>
+                            <span class="info-card-title">Аккумулятор</span>
+                        </div>
+                        <p class="info-card-text">
+                            В игре представлены разные модели: от бюджетных безымянных банок до
+                            надёжных брендовых АКБ. Дешёвый сядет быстро и в мороз подведёт,
+                            дорогой прослужит несколько игровых сезонов. Выбор зависит от кошелька
+                            и планов на машину.
+                        </p>
+                        <span class="info-card-tag">Качество vs цена</span>
+                        <span class="info-card-tag">Срок службы</span>
+                    </div>
+
+                    <div class="info-card" id="card-airfilter">
+                        <div class="info-card-header">
+                            <span class="info-icon">🌀</span>
+                            <span class="info-card-title">Воздушный фильтр</span>
+                        </div>
+                        <p class="info-card-text">
+                            Фильтр забит пылью и мусором за годы простоя. Требует регулярного
+                            обслуживания: при лёгком загрязнении достаточно продуть и поставить
+                            обратно, при сильном придётся менять полностью. Грязный фильтр тянет
+                            мощность вниз и увеличивает расход топлива.
+                        </p>
+                        <span class="info-card-tag">Обслуживание</span>
+                        <span class="info-card-tag">Замена</span>
                     </div>
                 </div>
             </div>
+            <!-- ══ END CAR VIEWER ══ -->
 
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
@@ -718,36 +787,54 @@
             if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
         }
 
-        // ── Hotspot / info panel ──
+        // ── Car viewer state ──
+        let curView = 0; // 0 = side, 1 = hood
         let currentHotspot = null;
 
+        const imgSide    = document.getElementById('imgSide');
+        const imgHood    = document.getElementById('imgHood');
+        const layerSide  = document.getElementById('layerSide');
+        const layerHood  = document.getElementById('layerHood');
+        const viewLabel  = document.getElementById('viewLabel');
+        const infoDefault = document.getElementById('infoDefault');
+
+        const VIEW_LABELS = ['Вид сбоку', 'Под капотом'];
+
+        function switchView(dir) {
+            curView = (curView + dir + 2) % 2;
+
+            // Swap images
+            imgSide.classList.toggle('visible', curView === 0);
+            imgHood.classList.toggle('visible', curView === 1);
+
+            // Swap hotspot layers
+            layerSide.classList.toggle('hidden', curView !== 0);
+            layerHood.classList.toggle('hidden', curView !== 1);
+
+            // Update label
+            viewLabel.textContent = VIEW_LABELS[curView];
+
+            // Reset card on view switch
+            resetCard();
+        }
+
+        document.getElementById('btnLeft').addEventListener('click', () => switchView(-1));
+        document.getElementById('btnRight').addEventListener('click', () => switchView(1));
+
+        // ── Hotspot / info panel ──
         function selectHotspot(id) {
-            // Toggle off if same
-            if (currentHotspot === id) {
-                currentHotspot = null;
-                document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('active'));
-                document.querySelectorAll('.info-card').forEach(c => c.classList.remove('active'));
-                document.getElementById('infoDefault').classList.remove('hidden');
-                updateLines(null);
-                return;
-            }
+            if (currentHotspot === id) { resetCard(); return; }
             currentHotspot = id;
 
-            // Deactivate all
             document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('active'));
             document.querySelectorAll('.info-card').forEach(c => c.classList.remove('active'));
 
-            // Activate matching hotspots
             document.querySelectorAll(`.hotspot[data-id="${id}"]`).forEach(h => h.classList.add('active'));
 
-            // Show card
             const card = document.getElementById('card-' + id);
             if (card) card.classList.add('active');
-            document.getElementById('infoDefault').classList.add('hidden');
+            infoDefault.classList.add('hidden');
 
-            updateLines(id);
-
-            // Scroll to info panel on mobile
             if (window.innerWidth < 700) {
                 setTimeout(() => {
                     document.querySelector('.info-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -755,72 +842,12 @@
             }
         }
 
-        // ── SVG callout lines ──
-        // Hotspot positions in % (left, top) of car-wrapper
-        // SVG viewBox 1000x437 — convert % to viewBox coords
-        const HOTSPOTS_DATA = {
-            'wheels': [
-                { hx: 220, hy: 358 }, // front wheel
-                { hx: 760, hy: 358 }  // rear wheel
-            ],
-            'engine': [{ hx: 130, hy: 166 }],
-            'body':   [{ hx: 500, hy: 122 }],
-            'frame':  [{ hx: 500, hy: 270 }]
-        };
-
-        // Label endpoints (where the label floats in viewBox coords)
-        const LABEL_ENDPOINTS = {
-            'wheels': { lx: 95,  ly: 44 },
-            'engine': { lx: 50,  ly: 355 },
-            'body':   { lx: 380, ly: 14 },
-            'frame':  { lx: 380, ly: 410 }
-        };
-
-        function updateLines(activeId) {
-            const svg = document.getElementById('linesSvg');
-            svg.innerHTML = '';
-
-            const ids = ['wheels','engine','body','frame'];
-            ids.forEach(id => {
-                const isActive = id === activeId;
-                const isVisible = true; // always show all lines
-                const ep = LABEL_ENDPOINTS[id];
-                const points = HOTSPOTS_DATA[id];
-
-                if (!points || !ep) return;
-
-                points.forEach(pt => {
-                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    line.setAttribute('x1', pt.hx);
-                    line.setAttribute('y1', pt.hy);
-                    line.setAttribute('x2', ep.lx);
-                    line.setAttribute('y2', ep.ly);
-                    line.setAttribute('class', 'callout-line' + (isActive ? ' active visible' : ' visible'));
-                    svg.appendChild(line);
-
-                    // Dot at hotspot end
-                    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    dot.setAttribute('cx', ep.lx);
-                    dot.setAttribute('cy', ep.ly);
-                    dot.setAttribute('r', 3);
-                    dot.setAttribute('fill', isActive ? 'var(--highlight)' : 'var(--accent)');
-                    dot.setAttribute('opacity', '0.8');
-                    svg.appendChild(dot);
-                });
-
-                // Update label class
-                const lbl = document.getElementById('lbl-' + id);
-                if (lbl) {
-                    lbl.classList.add('visible');
-                    lbl.classList.toggle('active', isActive);
-                }
-            });
+        function resetCard() {
+            currentHotspot = null;
+            document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('active'));
+            document.querySelectorAll('.info-card').forEach(c => c.classList.remove('active'));
+            infoDefault.classList.remove('hidden');
         }
-
-        // Show all lines on load
-        window.addEventListener('load', () => {
-            updateLines(null);
-        });
     </script>
 </body>
 </html>

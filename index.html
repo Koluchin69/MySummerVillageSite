@@ -246,6 +246,140 @@
                 radial-gradient(ellipse 50% 40% at 75% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
         }
         main { position: relative; z-index: 1; }
+        .donors-section {
+            max-width: 700px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        .donors-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .donors-desc {
+            text-align: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            color: #5a4880;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+        .donor-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 24px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .donor-row::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #ffd700, #ffaa00);
+        }
+        .donor-rank {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #ffd700;
+            min-width: 30px;
+            text-align: center;
+            text-shadow: 0 0 12px rgba(255,215,0,0.5);
+        }
+        .donor-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 1px;
+            flex: 1;
+        }
+        .donor-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.4);
+        }
+        .donate-block {
+            max-width: 700px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .donate-block-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .donate-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            transition: border-color 0.3s;
+        }
+        .donate-card:hover { border-color: var(--accent); }
+        .donate-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+        .donate-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: color 0.2s;
+            user-select: all;
+        }
+        .donate-number:hover { color: var(--highlight); }
+        .donate-copy-btn {
+            background: rgba(155,77,255,0.12);
+            border: 1px solid rgba(155,77,255,0.3);
+            color: var(--accent);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .donate-copy-btn:hover {
+            background: rgba(255,107,53,0.15);
+            border-color: var(--highlight);
+            color: var(--highlight);
+        }
+        .donate-copied {
+            color: #4caf50;
+            border-color: #4caf50;
+            background: rgba(76,175,80,0.1);
+        }
         @media (max-width: 700px) {
             h1 { font-size: 1.8rem; letter-spacing: 2px; }
             .nav-container { gap: 8px; }
@@ -280,6 +414,25 @@
                     Верни старую «девятку» к жизни. Выживи в 2009 году.
                 </p>
             </div>
+            <div class="donors-section">
+                <div class="donors-title">Топ донатеров</div>
+                <div class="donors-desc">Люди, которые поддержали разработку</div>
+                <div class="donor-row">
+                    <span class="donor-rank">#1</span>
+                    <span class="donor-name">ChernyMalchik</span>
+                    <span class="donor-amount">500 ₽</span>
+                </div>
+            </div>
+
+            <div class="donate-block">
+                <div class="donate-block-title">Поддержать разработку</div>
+                <div class="donate-card">
+                    <span class="donate-label">Kaspi KZ:</span>
+                    <span class="donate-number" id="kaspiNum">4400430374454202</span>
+                    <button class="donate-copy-btn" id="copyBtn" onclick="copyKaspi()">Копировать</button>
+                </div>
+            </div>
+
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
@@ -361,6 +514,18 @@
             document.getElementById('page-' + pageId).classList.add('active');
             navEl.classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        function copyKaspi() {
+            navigator.clipboard.writeText('4400430374454202').then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = 'Скопировано!';
+                btn.classList.add('donate-copied');
+                setTimeout(() => {
+                    btn.textContent = 'Копировать';
+                    btn.classList.remove('donate-copied');
+                }, 2000);
+            });
         }
 
         function toggleFaq(btn) {

@@ -346,40 +346,16 @@
             color: var(--text-light);
             letter-spacing: 1px;
         }
-        .donate-number {
+        .donate-link {
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
             font-weight: 700;
-            color: var(--text);
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: color 0.2s;
-            user-select: all;
-        }
-        .donate-number:hover { color: var(--highlight); }
-        .donate-copy-btn {
-            background: rgba(155,77,255,0.12);
-            border: 1px solid rgba(155,77,255,0.3);
             color: var(--accent);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.8rem;
             letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.25s;
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        .donate-copy-btn:hover {
-            background: rgba(255,107,53,0.15);
-            border-color: var(--highlight);
-            color: var(--highlight);
-        }
-        .donate-copied {
-            color: #4caf50;
-            border-color: #4caf50;
-            background: rgba(76,175,80,0.1);
-        }
+        .donate-link:hover { color: var(--highlight); }
         @media (max-width: 700px) {
             h1 { font-size: 1.8rem; letter-spacing: 2px; }
             .nav-container { gap: 8px; }
@@ -422,14 +398,18 @@
                     <span class="donor-name">ChernyMalchik</span>
                     <span class="donor-amount">500 ₽</span>
                 </div>
+                <div class="donor-row">
+                    <span class="donor-rank">#2</span>
+                    <span class="donor-name">Максим Onyx_forever</span>
+                    <span class="donor-amount">450 ₽</span>
+                </div>
             </div>
 
             <div class="donate-block">
                 <div class="donate-block-title">Поддержать разработку</div>
                 <div class="donate-card">
-                    <span class="donate-label">Kaspi KZ:</span>
-                    <span class="donate-number" id="kaspiNum">4400430374454202</span>
-                    <button class="donate-copy-btn" id="copyBtn" onclick="copyKaspi()">Копировать</button>
+                    <span class="donate-label">Boosty:</span>
+                    <a href="https://boosty.to/koluchin6/donate" target="_blank" class="donate-link">Перейти к оплате</a>
                 </div>
             </div>
 
@@ -514,18 +494,6 @@
             document.getElementById('page-' + pageId).classList.add('active');
             navEl.classList.add('active');
             window.scrollTo(0, 0);
-        }
-
-        function copyKaspi() {
-            navigator.clipboard.writeText('4400430374454202').then(() => {
-                const btn = document.getElementById('copyBtn');
-                btn.textContent = 'Скопировано!';
-                btn.classList.add('donate-copied');
-                setTimeout(() => {
-                    btn.textContent = 'Копировать';
-                    btn.classList.remove('donate-copied');
-                }, 2000);
-            });
         }
 
         function toggleFaq(btn) {

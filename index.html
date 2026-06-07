@@ -244,13 +244,14 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 14px rgba(155,77,255,0.2);
+            overflow: hidden;
         }
         .social-circle:hover {
             transform: scale(1.12);
             border-color: var(--highlight);
             box-shadow: 0 0 22px rgba(255,107,53,0.4);
         }
-        .social-circle img { width: 26px; height: 26px; }
+        .social-circle img { width: 100%; height: 100%; object-fit: cover; }
         .footer {
             text-align: center;
             padding: 50px 20px 35px;
@@ -500,7 +501,6 @@
             .beta-btn { font-size: 0.85rem; padding: 16px 20px; }
             .social-fixed { bottom: 15px; right: 15px; gap: 10px; }
             .social-circle { width: 44px; height: 44px; }
-            .social-circle img { width: 22px; height: 22px; }
         }
     </style>
 </head>
@@ -648,14 +648,14 @@
     </main>
 
     <div class="social-fixed">
+        <a href="https://t.me/MSVgame" target="_blank" class="social-circle">
+            <img src="tglogo.png?v=2" alt="Telegram">
+        </a>
         <a href="https://www.youtube.com/@Koluchin6_Studio" target="_blank" class="social-circle">
             <img src="youtubelogo.png?v=2" alt="YouTube">
         </a>
-        <a href="https://t.me/MSVgame" target="_blank" class="social-circle">
-            <img src="tglogo.png" alt="Telegram">
-        </a>
         <a href="https://www.tiktok.com/@koluchin666?is_from_webapp=1&sender_device=pc" target="_blank" class="social-circle">
-            <img src="ttlogo.png" alt="TikTok">
+            <img src="ttlogo.png?v=2" alt="TikTok">
         </a>
     </div>
 

@@ -278,6 +278,227 @@
                 radial-gradient(ellipse 60% 50% at 25% 15%, rgba(155, 77, 255, 0.14) 0%, transparent 70%),
                 radial-gradient(ellipse 50% 40% at 75% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
         }
+
+        .screenshots-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        .screenshots-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            user-select: none;
+        }
+        .slider-track-outer {
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+        .slider-slide {
+            min-width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+        .slider-slide img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            border-radius: 18px;
+            pointer-events: none;
+        }
+        .slider-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            background: linear-gradient(to top, rgba(11,8,20,0.5) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(11,8,20,0.75);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            backdrop-filter: blur(8px);
+        }
+        .slider-btn:hover {
+            background: rgba(155,77,255,0.35);
+            border-color: var(--accent);
+            box-shadow: 0 0 16px rgba(155,77,255,0.4);
+            color: white;
+        }
+        .slider-btn-prev { left: 12px; }
+        .slider-btn-next { right: 12px; }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            padding: 0;
+        }
+        .slider-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(155,77,255,0.6);
+            transform: scale(1.3);
+        }
+        .slider-counter {
+            position: absolute;
+            bottom: 14px;
+            right: 18px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-track-outer {
+            overflow: hidden;
+            width: 90vw;
+            max-width: 1100px;
+            max-height: 85vh;
+            border-radius: 14px;
+        }
+        .lightbox-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+        .lightbox-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-slide img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            display: block;
+            pointer-events: none;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            background: rgba(11,8,20,0.85);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.3rem;
+            z-index: 10001;
+            transition: all 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,107,53,0.3);
+            border-color: var(--highlight);
+            color: white;
+        }
+        .lightbox-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(11,8,20,0.8);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.3rem;
+            z-index: 10001;
+            transition: all 0.2s;
+            backdrop-filter: blur(8px);
+        }
+        .lightbox-btn:hover {
+            background: rgba(155,77,255,0.35);
+            border-color: var(--accent);
+            color: white;
+        }
+        .lightbox-btn-prev { left: 16px; }
+        .lightbox-btn-next { right: 16px; }
+        .lightbox-counter {
+            position: fixed;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 2px;
+            z-index: 10001;
+        }
+
         .donors-section {
             width: 100%;
             max-width: 700px;
@@ -508,6 +729,11 @@
             .beta-btn { font-size: 0.85rem; padding: 16px 20px; }
             .social-fixed { bottom: 15px; right: 15px; gap: 10px; }
             .social-circle { width: 44px; height: 44px; }
+            .slider-slide img { height: 220px; }
+            .slider-btn { width: 34px; height: 34px; font-size: 0.85rem; }
+            .lightbox-btn { width: 40px; height: 40px; font-size: 1rem; }
+            .lightbox-btn-prev { left: 6px; }
+            .lightbox-btn-next { right: 6px; }
         }
     </style>
 </head>
@@ -534,6 +760,45 @@
                     Игра про жизнь в деревне и реставрацию старого <span class="highlight">ВАЗ-2109</span>, погрузись в глубинку деревни и поставь на колеса автомобиль своего отца
                 </p>
             </div>
+
+            <div class="screenshots-section">
+                <div class="screenshots-title">Скриншоты</div>
+                <div class="slider-wrapper">
+                    <div class="slider-track-outer">
+                        <div class="slider-track" id="sliderTrack">
+                            <div class="slider-slide" onclick="openLightbox(0)">
+                                <img src="Images/Image1.jpg" alt="Screenshot 1">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(1)">
+                                <img src="Images/Image2.jpg" alt="Screenshot 2">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(2)">
+                                <img src="Images/Image3.jpg" alt="Screenshot 3">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(3)">
+                                <img src="Images/Image4.jpg" alt="Screenshot 4">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(4)">
+                                <img src="Images/Image5.png" alt="Screenshot 5">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(5)">
+                                <img src="Images/Image6.png" alt="Screenshot 6">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(6)">
+                                <img src="Images/Image7.png" alt="Screenshot 7">
+                            </div>
+                            <div class="slider-slide" onclick="openLightbox(7)">
+                                <img src="Images/Image8.png" alt="Screenshot 8">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-btn slider-btn-prev" onclick="sliderMove(-1)">&#8592;</button>
+                    <button class="slider-btn slider-btn-next" onclick="sliderMove(1)">&#8594;</button>
+                    <div class="slider-counter"><span id="sliderCur">1</span> / <span id="sliderTotal">8</span></div>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+
             <div class="donors-section">
                 <div class="donors-title">Топ донатеров</div>
                 <div class="donors-desc">Люди, которые поддержали разработку</div>
@@ -666,7 +931,128 @@
         </a>
     </div>
 
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-inner">
+            <div class="lightbox-track-outer">
+                <div class="lightbox-track" id="lightboxTrack">
+                    <div class="lightbox-slide"><img src="Images/Image1.jpg" alt="Screenshot 1"></div>
+                    <div class="lightbox-slide"><img src="Images/Image2.jpg" alt="Screenshot 2"></div>
+                    <div class="lightbox-slide"><img src="Images/Image3.jpg" alt="Screenshot 3"></div>
+                    <div class="lightbox-slide"><img src="Images/Image4.jpg" alt="Screenshot 4"></div>
+                    <div class="lightbox-slide"><img src="Images/Image5.png" alt="Screenshot 5"></div>
+                    <div class="lightbox-slide"><img src="Images/Image6.png" alt="Screenshot 6"></div>
+                    <div class="lightbox-slide"><img src="Images/Image7.png" alt="Screenshot 7"></div>
+                    <div class="lightbox-slide"><img src="Images/Image8.png" alt="Screenshot 8"></div>
+                </div>
+            </div>
+            <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+            <button class="lightbox-btn lightbox-btn-prev" onclick="lightboxMove(-1)">&#8592;</button>
+            <button class="lightbox-btn lightbox-btn-next" onclick="lightboxMove(1)">&#8594;</button>
+            <div class="lightbox-counter"><span id="lbCur">1</span> / <span id="lbTotal">8</span></div>
+        </div>
+    </div>
+
     <script>
+        const TOTAL = 8;
+        let sliderIdx = 0;
+        let lbIdx = 0;
+        let autoTimer = null;
+        let sliderTouchStartX = null;
+        let lbTouchStartX = null;
+
+        const sliderTrack = document.getElementById('sliderTrack');
+        const sliderDotsEl = document.getElementById('sliderDots');
+        const sliderCurEl = document.getElementById('sliderCur');
+        const lightboxEl = document.getElementById('lightbox');
+        const lightboxTrack = document.getElementById('lightboxTrack');
+        const lbCurEl = document.getElementById('lbCur');
+
+        document.getElementById('sliderTotal').textContent = TOTAL;
+        document.getElementById('lbTotal').textContent = TOTAL;
+
+        for (let i = 0; i < TOTAL; i++) {
+            const d = document.createElement('button');
+            d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            d.onclick = () => goSlider(i);
+            sliderDotsEl.appendChild(d);
+        }
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${sliderIdx * 100}%)`;
+            sliderCurEl.textContent = sliderIdx + 1;
+            document.querySelectorAll('.slider-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === sliderIdx);
+            });
+        }
+
+        function goSlider(idx) {
+            sliderIdx = (idx + TOTAL) % TOTAL;
+            updateSlider();
+        }
+
+        function sliderMove(dir) {
+            goSlider(sliderIdx + dir);
+            resetAuto();
+        }
+
+        function resetAuto() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(() => goSlider(sliderIdx + 1), 4000);
+        }
+
+        autoTimer = setInterval(() => goSlider(sliderIdx + 1), 4000);
+
+        const sliderOuter = document.querySelector('.slider-track-outer');
+        sliderOuter.addEventListener('touchstart', e => { sliderTouchStartX = e.touches[0].clientX; }, { passive: true });
+        sliderOuter.addEventListener('touchend', e => {
+            if (sliderTouchStartX === null) return;
+            const dx = e.changedTouches[0].clientX - sliderTouchStartX;
+            if (Math.abs(dx) > 40) { sliderMove(dx < 0 ? 1 : -1); }
+            sliderTouchStartX = null;
+        });
+
+        function openLightbox(idx) {
+            lbIdx = idx;
+            lightboxEl.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            updateLightbox();
+        }
+
+        function closeLightbox() {
+            lightboxEl.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            lightboxTrack.style.transform = `translateX(-${lbIdx * 100}%)`;
+            lbCurEl.textContent = lbIdx + 1;
+        }
+
+        function lightboxMove(dir) {
+            lbIdx = (lbIdx + dir + TOTAL) % TOTAL;
+            updateLightbox();
+        }
+
+        lightboxEl.addEventListener('click', e => {
+            if (e.target === lightboxEl || e.target.closest('.lightbox-inner') === lightboxEl.querySelector('.lightbox-inner') && e.target === e.currentTarget) return;
+            if (e.target === lightboxEl) closeLightbox();
+        });
+
+        lightboxEl.addEventListener('touchstart', e => { lbTouchStartX = e.touches[0].clientX; }, { passive: true });
+        lightboxEl.addEventListener('touchend', e => {
+            if (lbTouchStartX === null) return;
+            const dx = e.changedTouches[0].clientX - lbTouchStartX;
+            if (Math.abs(dx) > 40) { lightboxMove(dx < 0 ? 1 : -1); }
+            lbTouchStartX = null;
+        });
+
+        document.addEventListener('keydown', e => {
+            if (!lightboxEl.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') lightboxMove(-1);
+            if (e.key === 'ArrowRight') lightboxMove(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+
         function showPage(pageId, navEl) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));

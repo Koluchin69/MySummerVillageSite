@@ -743,7 +743,7 @@
     <nav>
         <div class="nav-container">
             <button class="nav-link active" onclick="showPage('main', this)">Главная</button>
-            <button class="nav-link nav-beta" onclick="showPage('beta', this)">Бета-тест</button>
+            <a href="https://boosty.to/koluchin6/donate" target="_blank" class="nav-link nav-beta">Бета-тест</a>
             <button class="nav-link" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
         </div>
     </nav>
@@ -822,38 +822,6 @@
                 </div>
             </div>
 
-            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
-        </div>
-
-        <div class="page" id="page-beta">
-            <div class="beta-container">
-                <h2 class="beta-title">Бета-тест</h2>
-                <p class="beta-subtitle">
-                    <span class="beta-orange">25 июля</span> будет бета-тест альфа билда MySummerVillage, и ты можешь принять участие по цене <span class="beta-orange">250 рублей</span>!
-                </p>
-                
-                <div class="timer-title">До конца набора в тестеры</div>
-                <div class="timer-display">
-                    <div class="timer-segment">
-                        <span class="timer-number" id="days">00</span>
-                        <span class="timer-label">дней</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="hours">00</span>
-                        <span class="timer-label">часов</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="minutes">00</span>
-                        <span class="timer-label">минут</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="seconds">00</span>
-                        <span class="timer-label">секунд</span>
-                    </div>
-                </div>
-
-                <a href="https://boosty.to/koluchin6/donate" target="_blank" class="beta-btn">приобрести пропуск в бета тест</a>
-            </div>
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
@@ -1034,7 +1002,6 @@
         }
 
         lightboxEl.addEventListener('click', e => {
-            if (e.target === lightboxEl || e.target.closest('.lightbox-inner') === lightboxEl.querySelector('.lightbox-inner') && e.target === e.currentTarget) return;
             if (e.target === lightboxEl) closeLightbox();
         });
 
@@ -1068,35 +1035,6 @@
             document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
             if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
         }
-
-        const targetDate = new Date('2026-07-25T00:00:00').getTime();
-
-        function updateTimer() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference < 0) {
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-                clearInterval(timerInterval);
-                return;
-            }
-
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
-            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
-            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
-            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
-        }
-
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();
     </script>
 </body>
 </html>

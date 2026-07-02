@@ -837,11 +837,31 @@
 
         <div class="page" id="page-beta">
             <div class="beta-container">
-                <div class="beta-title">Бета-тест</div>
-                <p class="beta-subtitle">
-                    Хочешь одним из первых поиграть в <span class="beta-orange">MySummerVillage</span>? Поддержи разработку на Boosty и получи доступ к бета-версии игры.
-                </p>
-                <a href="https://boosty.to/koluchin6/donate" target="_blank" class="beta-btn">Перейти на Boosty</a>
+                <div class="beta-title">
+                    Закрытый бета-тест MySummerVillage начнется <span class="beta-orange">25</span> июля! Успей приобрести <span class="beta-orange">бета-тест</span> за 250 рублей до начала!
+                </div>
+
+                <div class="timer-title">До закрытого бета-теста осталось</div>
+                <div class="timer-display">
+                    <div class="timer-segment">
+                        <span class="timer-number" id="timerDays">00</span>
+                        <span class="timer-label">Дней</span>
+                    </div>
+                    <div class="timer-segment">
+                        <span class="timer-number" id="timerHours">00</span>
+                        <span class="timer-label">Часов</span>
+                    </div>
+                    <div class="timer-segment">
+                        <span class="timer-number" id="timerMinutes">00</span>
+                        <span class="timer-label">Минут</span>
+                    </div>
+                    <div class="timer-segment">
+                        <span class="timer-number" id="timerSeconds">00</span>
+                        <span class="timer-label">Секунд</span>
+                    </div>
+                </div>
+
+                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn">Приобрести бета-тест</a>
             </div>
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
@@ -1056,6 +1076,41 @@
             document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
             if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
         }
+
+        const betaTargetDate = new Date('2026-07-25T00:00:00');
+
+        function updateBetaTimer() {
+            const now = new Date();
+            const diff = betaTargetDate - now;
+
+            const daysEl = document.getElementById('timerDays');
+            const hoursEl = document.getElementById('timerHours');
+            const minutesEl = document.getElementById('timerMinutes');
+            const secondsEl = document.getElementById('timerSeconds');
+
+            if (!daysEl) return;
+
+            if (diff <= 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateBetaTimer();
+        setInterval(updateBetaTimer, 1000);
     </script>
 </body>
 </html>

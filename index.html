@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="MySummerVillage — игра про life в деревне и детальный ремонт ВАЗ-2109">
     <title>MySummerVillage — жизнь в деревне и ремонт ВАЗ-2109</title>
+    <link rel="icon" type="image/jpeg" href="Koluchin6Studio Logo.jpg">
+    <link rel="apple-touch-icon" href="Koluchin6Studio Logo.jpg">
     <script data-goatcounter="https://koluchin6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -40,6 +42,13 @@
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 16px 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+        nav.scrolled {
+            background: rgba(11, 8, 20, 0.72);
+            backdrop-filter: blur(22px);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+            padding: 11px 0;
         }
         .nav-container {
             width: 100%;
@@ -231,8 +240,25 @@
             font-size: 1.05rem;
             color: var(--text-light);
         }
-        .contact-hint a { color: var(--accent); text-decoration: none; font-weight: 700; }
-        .contact-hint a:hover { color: var(--highlight); text-decoration: underline; }
+        .contact-hint .tgk-btn {
+            display: inline-block;
+            margin-left: 6px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 22px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #9b4dff, #ff6b35);
+            box-shadow: 0 0 16px rgba(155, 77, 255, 0.4);
+            transition: all 0.25s ease;
+        }
+        .contact-hint .tgk-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 26px rgba(255, 107, 53, 0.55);
+        }
         .social-fixed {
             position: fixed;
             bottom: 25px; right: 25px;
@@ -660,6 +686,36 @@
             color: var(--highlight);
             font-weight: 700;
         }
+        .beta-perks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto 40px;
+            padding: 0 10px;
+            text-align: left;
+        }
+        .beta-perks li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 0.3px;
+            transition: border-color 0.3s;
+        }
+        .beta-perks li:hover { border-color: var(--highlight); }
+        .beta-perks li svg {
+            flex-shrink: 0;
+            color: var(--highlight);
+        }
         .timer-title {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.2rem;
@@ -890,6 +946,21 @@
                     </div>
                 </div>
 
+                <ul class="beta-perks">
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Доступ к закрытому тестированию MSV
+                    </li>
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Доступ к ТГК с эксклюзивными новостями
+                    </li>
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Упоминание в ТГК
+                    </li>
+                </ul>
+
                 <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn">Приобрести бета-тест</a>
             </div>
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
@@ -964,7 +1035,7 @@
                 </div>
 
                 <div class="contact-hint">
-                    Не нашёл ответ? Задай вопрос в чате <a href="https://t.me/MSVgame" target="_blank">ТГК</a>
+                    Не нашёл ответ? Задай вопрос в чате <a href="https://t.me/MSVgame" target="_blank" class="tgk-btn">ТГК</a>
                 </div>
             </div>
             <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
@@ -1160,6 +1231,14 @@
 
         updateBetaTimer();
         setInterval(updateBetaTimer, 1000);
+
+        const navEl = document.querySelector('nav');
+        function handleNavScroll() {
+            if (window.scrollY > 20) navEl.classList.add('scrolled');
+            else navEl.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', handleNavScroll, { passive: true });
+        handleNavScroll();
     </script>
 </body>
 </html>

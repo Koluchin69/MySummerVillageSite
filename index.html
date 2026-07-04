@@ -23,19 +23,6 @@
             --grad-a: #9b4dff;
             --grad-b: #ff6b35;
         }
-        body.garage-mode {
-            --bg: #17110c;
-            --card: #241a12;
-            --accent: #c9772f;
-            --highlight: #9aa5ad;
-            --border: #4a3624;
-            --text: #ecdfc9;
-            --text-light: #c2ac8e;
-            --highlight-glow: 154,165,173;
-            --accent-glow: 201,119,47;
-            --grad-a: #c9772f;
-            --grad-b: #7d8891;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
             width: 100%;
@@ -81,16 +68,26 @@
             padding: 11px 0;
         }
         .nav-container {
+            position: relative;
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            min-height: 40px;
             padding: 0 15px;
         }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
         .lang-switch {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             gap: 4px;
             background: rgba(255,255,255,0.04);
@@ -174,10 +171,7 @@
             border: 3px solid var(--accent);
             box-shadow: 0 0 30px rgba(var(--accent-glow), 0.5);
             margin-bottom: 12px;
-            cursor: pointer;
-            transition: box-shadow 0.4s ease, transform 0.3s ease;
         }
-        .studio-logo:hover { transform: scale(1.05); }
         .studio-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
@@ -211,13 +205,11 @@
             letter-spacing: 0.3px;
             padding: 0 10px;
         }
-        body.garage-mode .hero-subtitle { color: var(--text-light); }
         .highlight {
             color: var(--highlight-solid, #ff8a5c);
             font-weight: 700;
             text-shadow: 0 0 16px rgba(var(--highlight-glow), 0.5);
         }
-        body.garage-mode .highlight { color: var(--highlight); }
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -843,9 +835,10 @@
         }
         @media (max-width: 700px) {
             nav { padding: 10px 0; }
-            .nav-container { gap: 5px; padding: 0 8px; justify-content: space-around; flex-wrap: wrap; }
+            .nav-container { padding: 0 8px; min-height: 34px; }
+            .nav-links { gap: 5px; flex-wrap: wrap; justify-content: center; }
             .nav-link { padding: 8px 10px; font-size: 0.72rem; letter-spacing: 1px; }
-            .lang-btn { padding: 5px 10px; font-size: 0.7rem; }
+            .lang-switch { position: static; transform: none; margin-left: 8px; }
             main { padding-left: 12px; padding-right: 12px; padding-top: 65px; }
             .hero { padding: 40px 0 40px; }
             h1 { letter-spacing: 1px; padding: 0; }
@@ -875,9 +868,11 @@
 
     <nav>
         <div class="nav-container">
-            <button class="nav-link active" data-i18n="nav_main" onclick="showPage('main', this)">Главная</button>
-            <button class="nav-link nav-beta" data-i18n="nav_beta" onclick="showPage('beta', this)">Бета-тест</button>
-            <button class="nav-link" data-i18n="nav_faq" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
+            <div class="nav-links">
+                <button class="nav-link active" data-i18n="nav_main" onclick="showPage('main', this)">Главная</button>
+                <button class="nav-link nav-beta" data-i18n="nav_beta" onclick="showPage('beta', this)">Бета-тест</button>
+                <button class="nav-link" data-i18n="nav_faq" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
+            </div>
             <div class="lang-switch">
                 <button class="lang-btn active" id="langRu" onclick="setLanguage('ru')">RU</button>
                 <button class="lang-btn" id="langEn" onclick="setLanguage('en')">EN</button>
@@ -889,7 +884,7 @@
         <div class="page active" id="page-main">
             <div class="hero">
                 <div class="studio-header">
-                    <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio" class="studio-logo" onclick="toggleGarageMode()" title="?">
+                    <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio" class="studio-logo">
                     <span class="studio-name">Koluchin6Studio</span>
                 </div>
                 <h1>MySummerVillage</h1>
@@ -1309,7 +1304,6 @@
         window.addEventListener('scroll', handleNavScroll, { passive: true });
         handleNavScroll();
 
-        /* ---------- Scroll reveal animations ---------- */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
@@ -1320,21 +1314,6 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        /* ---------- Garage mode easter egg ---------- */
-        function toggleGarageMode() {
-            document.body.classList.toggle('garage-mode');
-            const isGarage = document.body.classList.contains('garage-mode');
-            try { localStorage.setItem('msv_garage_mode', isGarage ? '1' : '0'); } catch (e) {}
-        }
-        (function initGarageMode() {
-            try {
-                if (localStorage.getItem('msv_garage_mode') === '1') {
-                    document.body.classList.add('garage-mode');
-                }
-            } catch (e) {}
-        })();
-
-        /* ---------- Multilingual (RU / EN) ---------- */
         const translations = {
             nav_main: { ru: 'Главная', en: 'Home' },
             nav_beta: { ru: 'Бета-тест', en: 'Beta Test' },

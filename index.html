@@ -131,15 +131,21 @@
             padding: 0 10px;
         }
         .hero-subtitle {
-            max-width: 640px;
+            max-width: 680px;
             margin: 0 auto 12px;
-            color: var(--text-light);
+            color: #d6c9f5;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
+            font-size: 1.35rem;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
             padding: 0 10px;
         }
-        .highlight { color: var(--highlight); font-weight: 700; }
+        .highlight {
+            color: #ff8a5c;
+            font-weight: 700;
+            text-shadow: 0 0 16px rgba(255, 138, 92, 0.5);
+        }
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -278,7 +284,19 @@
             z-index: 0;
             background-image:
                 radial-gradient(ellipse 60% 50% at 25% 15%, rgba(155, 77, 255, 0.14) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 75% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+                radial-gradient(ellipse 50% 40% at 75% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 70%),
+                repeating-linear-gradient(0deg, rgba(155,77,255,0.05) 0px, rgba(155,77,255,0.05) 1px, transparent 1px, transparent 64px),
+                repeating-linear-gradient(90deg, rgba(155,77,255,0.05) 0px, rgba(155,77,255,0.05) 1px, transparent 1px, transparent 64px);
+            background-position: 0 0, 0 0, 0 0, 0 0;
+        }
+        .bg-ambient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+            background-image:
+                radial-gradient(circle 3px at 32px 32px, rgba(155,77,255,0.18) 0%, transparent 100%);
+            background-size: 64px 64px;
         }
 
         .screenshots-section {
@@ -513,11 +531,22 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
             font-weight: 900;
-            color: #ffd700;
-            min-width: 30px;
+            color: var(--text-light);
+            min-width: 40px;
             text-align: center;
-            text-shadow: 0 0 12px rgba(255,215,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .donor-medal {
+            width: 34px;
+            height: 34px;
+            display: block;
+            filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
+        }
+        .medal-gold { color: #ffd700; filter: drop-shadow(0 0 8px rgba(255,215,0,0.6)); }
+        .medal-silver { color: #d7dbe0; filter: drop-shadow(0 0 8px rgba(215,219,224,0.5)); }
+        .medal-bronze { color: #cd7f32; filter: drop-shadow(0 0 8px rgba(205,127,50,0.5)); }
         .donor-name {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.15rem;
@@ -554,31 +583,45 @@
         .donate-card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 22px 28px;
+            border-radius: 50px;
+            padding: 14px 14px 14px 28px;
             display: inline-flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
             transition: border-color 0.3s;
             max-width: 100%;
         }
         .donate-card:hover { border-color: var(--accent); }
         .donate-label {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-light);
             letter-spacing: 1px;
         }
         .donate-link {
+            display: inline-block;
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-weight: 900;
+            color: white;
             letter-spacing: 2px;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: color 0.2s;
+            padding: 14px 34px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff6b35, #9b4dff);
+            box-shadow: 0 0 22px rgba(255, 107, 53, 0.45);
+            transition: all 0.3s ease;
+            animation: donatePulse 2.6s ease-in-out infinite;
         }
-        .donate-link:hover { color: var(--highlight); }
+        .donate-link:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 34px rgba(255, 107, 53, 0.7), 0 0 20px rgba(155, 77, 255, 0.5);
+        }
+        @keyframes donatePulse {
+            0%, 100% { box-shadow: 0 0 22px rgba(255, 107, 53, 0.45); }
+            50% { box-shadow: 0 0 34px rgba(255, 107, 53, 0.7), 0 0 16px rgba(155, 77, 255, 0.4); }
+        }
 
         .beta-container {
             width: 100%;
@@ -685,7 +728,7 @@
             main { padding-left: 12px; padding-right: 12px; padding-top: 65px; }
             .hero { padding: 40px 0 40px; }
             h1 { letter-spacing: 1px; padding: 0; }
-            .hero-subtitle { font-size: 0.95rem; padding: 0; }
+            .hero-subtitle { font-size: 1.05rem; padding: 0; }
             .faq-question { padding: 16px 20px; font-size: 0.95rem; }
             .faq-answer { padding: 0 20px; }
             .faq-answer.open { padding: 0 20px 16px; }
@@ -770,17 +813,33 @@
                 <div class="donors-title">Топ донатеров</div>
                 <div class="donors-desc">Люди, которые поддержали разработку</div>
                 <div class="donor-row">
-                    <span class="donor-rank">#1</span>
+                    <span class="donor-rank">
+                        <svg class="donor-medal medal-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="currentColor"/>
+                            <circle cx="12" cy="15" r="7" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 11.5V18.5M9 15H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                     <span class="donor-name">ChernyMalchik</span>
                     <span class="donor-amount">500 ₽</span>
                 </div>
                 <div class="donor-row">
-                    <span class="donor-rank">#2</span>
+                    <span class="donor-rank">
+                        <svg class="donor-medal medal-silver" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                     <span class="donor-name">Melki</span>
                     <span class="donor-amount">500 ₽</span>
                 </div>
                 <div class="donor-row">
-                    <span class="donor-rank">#3</span>
+                    <span class="donor-rank">
+                        <svg class="donor-medal medal-bronze" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="12" cy="13" r="3" fill="currentColor"/>
+                        </svg>
+                    </span>
                     <span class="donor-name">Максим Onyx_forever</span>
                     <span class="donor-amount">450 ₽</span>
                 </div>

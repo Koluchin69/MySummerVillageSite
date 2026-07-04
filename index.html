@@ -217,6 +217,8 @@
             border-top: 1px solid var(--border);
             padding-top: 16px;
         }
+        .faq-answer p a { color: var(--accent); text-decoration: none; font-weight: 700; }
+        .faq-answer p a:hover { color: var(--highlight); text-decoration: underline; }
         .contact-hint {
             text-align: center;
             margin-top: 60px;
@@ -858,10 +860,6 @@
 
                 <div class="faq-subtitle">Об игре</div>
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Игра будет в Steam? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Да, игра будет в Steam.</p></div>
-                </div>
-                <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Какой транспорт будет в игре? <span class="faq-arrow">▼</span></button>
                     <div class="faq-answer"><p>В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.</p></div>
                 </div>
@@ -877,8 +875,20 @@
                     <button class="faq-question" onclick="toggleFaq(this)">У игры есть сюжет? <span class="faq-arrow">▼</span></button>
                     <div class="faq-answer"><p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p></div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">Где и когда происходят события игры? <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p>События игры происходят в Казахстане в 2009 году.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">Что будет представлять из себя карта? <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p>Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.</p></div>
+                </div>
 
                 <div class="faq-subtitle">Релиз и цена</div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">Релиз игры будет в Steam? <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p>Да, релиз игры будет на площадке Steam.</p></div>
+                </div>
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Когда релиз? <span class="faq-arrow">▼</span></button>
                     <div class="faq-answer"><p>Дата релиза ещё неизвестна.</p></div>
@@ -904,6 +914,11 @@
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Сколько разрабатывается игра? <span class="faq-arrow">▼</span></button>
                     <div class="faq-answer"><p>Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">Как связаться с разработчиком? <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p>Написать разработчику можно в Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.</p></div>
                 </div>
 
                 <div class="contact-hint">

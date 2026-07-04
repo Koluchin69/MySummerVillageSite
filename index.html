@@ -18,6 +18,23 @@
             --border: #2a1f4d;
             --text: #e0d4ff;
             --text-light: #b8a8e0;
+            --highlight-glow: 255,107,53;
+            --accent-glow: 155,77,255;
+            --grad-a: #9b4dff;
+            --grad-b: #ff6b35;
+        }
+        body.garage-mode {
+            --bg: #17110c;
+            --card: #241a12;
+            --accent: #c9772f;
+            --highlight: #9aa5ad;
+            --border: #4a3624;
+            --text: #ecdfc9;
+            --text-light: #c2ac8e;
+            --highlight-glow: 154,165,173;
+            --accent-glow: 201,119,47;
+            --grad-a: #c9772f;
+            --grad-b: #7d8891;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
@@ -32,6 +49,19 @@
             color: var(--text);
             line-height: 1.7;
             min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
         }
         nav {
             position: fixed;
@@ -56,8 +86,35 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 40px;
             padding: 0 15px;
+        }
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 4px;
+        }
+        .lang-btn {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .lang-btn.active {
+            color: white;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(var(--accent-glow), 0.5);
         }
         .nav-link {
             color: #c4b0ff;
@@ -115,9 +172,12 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 0 0 30px rgba(155, 77, 255, 0.5);
+            box-shadow: 0 0 30px rgba(var(--accent-glow), 0.5);
             margin-bottom: 12px;
+            cursor: pointer;
+            transition: box-shadow 0.4s ease, transform 0.3s ease;
         }
+        .studio-logo:hover { transform: scale(1.05); }
         .studio-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
@@ -134,10 +194,11 @@
             margin: 16px 0 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 40px rgba(155,77,255,0.4);
+            text-shadow: 0 0 40px rgba(var(--accent-glow), 0.4);
             width: 100%;
             word-wrap: break-word;
             padding: 0 10px;
+            transition: text-shadow 0.5s ease;
         }
         .hero-subtitle {
             max-width: 680px;
@@ -150,11 +211,13 @@
             letter-spacing: 0.3px;
             padding: 0 10px;
         }
+        body.garage-mode .hero-subtitle { color: var(--text-light); }
         .highlight {
-            color: #ff8a5c;
+            color: var(--highlight-solid, #ff8a5c);
             font-weight: 700;
-            text-shadow: 0 0 16px rgba(255, 138, 92, 0.5);
+            text-shadow: 0 0 16px rgba(var(--highlight-glow), 0.5);
         }
+        body.garage-mode .highlight { color: var(--highlight); }
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -251,13 +314,13 @@
             text-decoration: none;
             padding: 8px 22px;
             border-radius: 50px;
-            background: linear-gradient(135deg, #9b4dff, #ff6b35);
-            box-shadow: 0 0 16px rgba(155, 77, 255, 0.4);
+            background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+            box-shadow: 0 0 16px rgba(var(--accent-glow), 0.4);
             transition: all 0.25s ease;
         }
         .contact-hint .tgk-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 26px rgba(255, 107, 53, 0.55);
+            box-shadow: 0 0 26px rgba(var(--highlight-glow), 0.55);
         }
         .social-fixed {
             position: fixed;
@@ -308,11 +371,12 @@
             inset: 0;
             pointer-events: none;
             z-index: 0;
+            transition: background 0.5s ease;
             background-image:
-                radial-gradient(ellipse 60% 50% at 25% 15%, rgba(155, 77, 255, 0.14) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 75% 85%, rgba(255, 107, 53, 0.08) 0%, transparent 70%),
-                repeating-linear-gradient(0deg, rgba(155,77,255,0.05) 0px, rgba(155,77,255,0.05) 1px, transparent 1px, transparent 64px),
-                repeating-linear-gradient(90deg, rgba(155,77,255,0.05) 0px, rgba(155,77,255,0.05) 1px, transparent 1px, transparent 64px);
+                radial-gradient(ellipse 60% 50% at 25% 15%, rgba(var(--accent-glow), 0.14) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 75% 85%, rgba(var(--highlight-glow), 0.08) 0%, transparent 70%),
+                repeating-linear-gradient(0deg, rgba(var(--accent-glow),0.05) 0px, rgba(var(--accent-glow),0.05) 1px, transparent 1px, transparent 64px),
+                repeating-linear-gradient(90deg, rgba(var(--accent-glow),0.05) 0px, rgba(var(--accent-glow),0.05) 1px, transparent 1px, transparent 64px);
             background-position: 0 0, 0 0, 0 0, 0 0;
         }
         .bg-ambient::before {
@@ -321,7 +385,7 @@
             inset: 0;
             opacity: 0.5;
             background-image:
-                radial-gradient(circle 3px at 32px 32px, rgba(155,77,255,0.18) 0%, transparent 100%);
+                radial-gradient(circle 3px at 32px 32px, rgba(var(--accent-glow),0.18) 0%, transparent 100%);
             background-size: 64px 64px;
         }
 
@@ -635,18 +699,18 @@
             text-decoration: none;
             padding: 14px 34px;
             border-radius: 50px;
-            background: linear-gradient(135deg, #ff6b35, #9b4dff);
-            box-shadow: 0 0 22px rgba(255, 107, 53, 0.45);
+            background: linear-gradient(135deg, var(--grad-b), var(--grad-a));
+            box-shadow: 0 0 22px rgba(var(--highlight-glow), 0.45);
             transition: all 0.3s ease;
             animation: donatePulse 2.6s ease-in-out infinite;
         }
         .donate-link:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 0 34px rgba(255, 107, 53, 0.7), 0 0 20px rgba(155, 77, 255, 0.5);
+            box-shadow: 0 0 34px rgba(var(--highlight-glow), 0.7), 0 0 20px rgba(var(--accent-glow), 0.5);
         }
         @keyframes donatePulse {
-            0%, 100% { box-shadow: 0 0 22px rgba(255, 107, 53, 0.45); }
-            50% { box-shadow: 0 0 34px rgba(255, 107, 53, 0.7), 0 0 16px rgba(155, 77, 255, 0.4); }
+            0%, 100% { box-shadow: 0 0 22px rgba(var(--highlight-glow), 0.45); }
+            50% { box-shadow: 0 0 34px rgba(var(--highlight-glow), 0.7), 0 0 16px rgba(var(--accent-glow), 0.4); }
         }
 
         .beta-container {
@@ -763,24 +827,25 @@
             font-size: 1.1rem;
             font-weight: 900;
             color: white;
-            background: linear-gradient(135deg, #9b4dff, #ff6b35);
+            background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
             padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.3s;
-            box-shadow: 0 0 30px rgba(155, 77, 255, 0.3);
+            box-shadow: 0 0 30px rgba(var(--accent-glow), 0.3);
             max-width: 90%;
         }
         .beta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
+            box-shadow: 0 0 40px rgba(var(--highlight-glow), 0.5);
         }
         @media (max-width: 700px) {
             nav { padding: 10px 0; }
-            .nav-container { gap: 5px; padding: 0 8px; justify-content: space-around; }
+            .nav-container { gap: 5px; padding: 0 8px; justify-content: space-around; flex-wrap: wrap; }
             .nav-link { padding: 8px 10px; font-size: 0.72rem; letter-spacing: 1px; }
+            .lang-btn { padding: 5px 10px; font-size: 0.7rem; }
             main { padding-left: 12px; padding-right: 12px; padding-top: 65px; }
             .hero { padding: 40px 0 40px; }
             h1 { letter-spacing: 1px; padding: 0; }
@@ -810,9 +875,13 @@
 
     <nav>
         <div class="nav-container">
-            <button class="nav-link active" onclick="showPage('main', this)">Главная</button>
-            <button class="nav-link nav-beta" onclick="showPage('beta', this)">Бета-тест</button>
-            <button class="nav-link" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
+            <button class="nav-link active" data-i18n="nav_main" onclick="showPage('main', this)">Главная</button>
+            <button class="nav-link nav-beta" data-i18n="nav_beta" onclick="showPage('beta', this)">Бета-тест</button>
+            <button class="nav-link" data-i18n="nav_faq" onclick="showPage('faq', this)">Вопросы (FAQ)</button>
+            <div class="lang-switch">
+                <button class="lang-btn active" id="langRu" onclick="setLanguage('ru')">RU</button>
+                <button class="lang-btn" id="langEn" onclick="setLanguage('en')">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -820,17 +889,17 @@
         <div class="page active" id="page-main">
             <div class="hero">
                 <div class="studio-header">
-                    <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio" class="studio-logo">
+                    <img src="Koluchin6Studio Logo.jpg" alt="Koluchin6Studio" class="studio-logo" onclick="toggleGarageMode()" title="?">
                     <span class="studio-name">Koluchin6Studio</span>
                 </div>
                 <h1>MySummerVillage</h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-i18n="hero_subtitle">
                     Игра про жизнь в деревне и реставрацию старого <span class="highlight">ВАЗ-2109</span>, погрузись в глубинку деревни и поставь на колеса автомобиль своего отца
                 </p>
             </div>
 
-            <div class="screenshots-section">
-                <div class="screenshots-title">Скриншоты</div>
+            <div class="screenshots-section reveal">
+                <div class="screenshots-title" data-i18n="screenshots_title">Скриншоты</div>
                 <div class="slider-wrapper">
                     <div class="slider-track-outer">
                         <div class="slider-track" id="sliderTrack">
@@ -865,10 +934,10 @@
                 <div class="slider-dots" id="sliderDots"></div>
             </div>
 
-            <div class="donors-section">
-                <div class="donors-title">Топ донатеров</div>
-                <div class="donors-desc">Люди, которые поддержали разработку</div>
-                <div class="donor-row">
+            <div class="donors-section reveal">
+                <div class="donors-title" data-i18n="donors_title">Топ донатеров</div>
+                <div class="donors-desc" data-i18n="donors_desc">Люди, которые поддержали разработку</div>
+                <div class="donor-row reveal">
                     <span class="donor-rank">
                         <svg class="donor-medal medal-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="currentColor"/>
@@ -879,7 +948,7 @@
                     <span class="donor-name">ChernyMalchik</span>
                     <span class="donor-amount">500 ₽</span>
                 </div>
-                <div class="donor-row">
+                <div class="donor-row reveal">
                     <span class="donor-rank">
                         <svg class="donor-medal medal-silver" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
@@ -889,7 +958,7 @@
                     <span class="donor-name">Melki</span>
                     <span class="donor-amount">500 ₽</span>
                 </div>
-                <div class="donor-row">
+                <div class="donor-row reveal">
                     <span class="donor-rank">
                         <svg class="donor-medal medal-bronze" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
@@ -899,146 +968,146 @@
                     <span class="donor-name">Максим Onyx_forever</span>
                     <span class="donor-amount">450 ₽</span>
                 </div>
-                <div class="donor-row">
+                <div class="donor-row reveal">
                     <span class="donor-rank">#4</span>
                     <span class="donor-name">Byalew</span>
                     <span class="donor-amount">350 ₽</span>
                 </div>
             </div>
 
-            <div class="donate-block">
-                <div class="donate-block-title">Поддержать разработку</div>
+            <div class="donate-block reveal">
+                <div class="donate-block-title" data-i18n="donate_title">Поддержать разработку</div>
                 <div class="donate-card">
                     <span class="donate-label">Boosty:</span>
-                    <a href="https://boosty.to/koluchin6/donate" target="_blank" class="donate-link">Поддержать</a>
+                    <a href="https://boosty.to/koluchin6/donate" target="_blank" class="donate-link" data-i18n="donate_btn">Поддержать</a>
                 </div>
             </div>
 
-            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
+            <div class="footer" data-i18n="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
         <div class="page" id="page-beta">
             <div class="beta-container">
-                <div class="beta-title">
-                    <span class="beta-line">Закрытый бета-тест MySummerVillage</span>
-                    <span class="beta-line">начнется <span class="beta-orange">25</span> июля!</span>
-                    <span class="beta-line">Успей приобрести <span class="beta-orange">бета-тест</span></span>
-                    <span class="beta-line">за <span class="beta-orange">250</span> рублей до начала!</span>
+                <div class="beta-title reveal">
+                    <span class="beta-line" data-i18n="beta_line1">Закрытый бета-тест MySummerVillage</span>
+                    <span class="beta-line" data-i18n="beta_line2">начнется <span class="beta-orange">25</span> июля!</span>
+                    <span class="beta-line" data-i18n="beta_line3">Успей приобрести <span class="beta-orange">бета-тест</span></span>
+                    <span class="beta-line" data-i18n="beta_line4">за <span class="beta-orange">250</span> рублей до начала!</span>
                 </div>
 
-                <div class="timer-title">До закрытого бета-теста осталось</div>
-                <div class="timer-display">
+                <div class="timer-title reveal" data-i18n="timer_title">До закрытого бета-теста осталось</div>
+                <div class="timer-display reveal">
                     <div class="timer-segment">
                         <span class="timer-number" id="timerDays">00</span>
-                        <span class="timer-label">Дней</span>
+                        <span class="timer-label" data-i18n="timer_days">Дней</span>
                     </div>
                     <div class="timer-segment">
                         <span class="timer-number" id="timerHours">00</span>
-                        <span class="timer-label">Часов</span>
+                        <span class="timer-label" data-i18n="timer_hours">Часов</span>
                     </div>
                     <div class="timer-segment">
                         <span class="timer-number" id="timerMinutes">00</span>
-                        <span class="timer-label">Минут</span>
+                        <span class="timer-label" data-i18n="timer_minutes">Минут</span>
                     </div>
                     <div class="timer-segment">
                         <span class="timer-number" id="timerSeconds">00</span>
-                        <span class="timer-label">Секунд</span>
+                        <span class="timer-label" data-i18n="timer_seconds">Секунд</span>
                     </div>
                 </div>
 
-                <ul class="beta-perks">
+                <ul class="beta-perks reveal">
                     <li>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Доступ к закрытому тестированию MSV
+                        <span data-i18n="perk1">Доступ к закрытому тестированию MSV</span>
                     </li>
                     <li>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Доступ к ТГК с эксклюзивными новостями
+                        <span data-i18n="perk2">Доступ к ТГК с эксклюзивными новостями</span>
                     </li>
                     <li>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Упоминание в ТГК
+                        <span data-i18n="perk3">Упоминание в ТГК</span>
                     </li>
                 </ul>
 
-                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn">Приобрести бета-тест</a>
+                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn reveal" data-i18n="beta_btn">Приобрести бета-тест</a>
             </div>
-            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
+            <div class="footer" data-i18n="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
 
         <div class="page" id="page-faq">
             <div class="faq-section">
-                <div class="section-title">Частые вопросы</div>
+                <div class="section-title" data-i18n="faq_title">Частые вопросы</div>
 
-                <div class="faq-subtitle">Об игре</div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Какой транспорт будет в игре? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.</p></div>
+                <div class="faq-subtitle reveal" data-i18n="faq_sub1">Об игре</div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q1">Какой транспорт будет в игре?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a1">В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Что такое MSV? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>MSV — MySummerVillage. Аббревиатура игры.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q2">Что такое MSV?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a2">MSV — MySummerVillage. Аббревиатура игры.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Про что игра? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q3">Про что игра?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a3">MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">У игры есть сюжет? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q4">У игры есть сюжет?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a4">У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Где и когда происходят события игры? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>События игры происходят в Казахстане в 2009 году.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q5">Где и когда происходят события игры?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a5">События игры происходят в Казахстане в 2009 году.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Что будет представлять из себя карта? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.</p></div>
-                </div>
-
-                <div class="faq-subtitle">Релиз и цена</div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Релиз игры будет в Steam? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Да, релиз игры будет на площадке Steam.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Когда релиз? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Дата релиза ещё неизвестна.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Какая будет цена у игры? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q6">Что будет представлять из себя карта?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a6">Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.</p></div>
                 </div>
 
-                <div class="faq-subtitle">Разработка</div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Будет на телефоны? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Нет, игра разрабатывается только для ПК устройств.</p></div>
+                <div class="faq-subtitle reveal" data-i18n="faq_sub2">Релиз и цена</div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q7">Релиз игры будет в Steam?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a7">Да, релиз игры будет на площадке Steam.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Сколько людей разрабатывает игру? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>У игры всего 1 разработчик.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q8">Когда релиз?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a8">Дата релиза ещё неизвестна.</p></div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Какая студия занимается разработкой? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Сколько разрабатывается игра? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q9">Какая будет цена у игры?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a9">Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
                 </div>
 
-                <div class="faq-subtitle">Прочее</div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Как связаться с разработчиком? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Написать разработчику можно в Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.</p></div>
+                <div class="faq-subtitle reveal" data-i18n="faq_sub3">Разработка</div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q10">Будет на телефоны?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a10">Нет, игра разрабатывается только для ПК устройств.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q11">Сколько людей разрабатывает игру?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a11">У игры всего 1 разработчик.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q12">Какая студия занимается разработкой?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a12">Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q13">Сколько разрабатывается игра?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a13">Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
                 </div>
 
-                <div class="contact-hint">
-                    Не нашёл ответ? Задай вопрос в чате <a href="https://t.me/MSVgame" target="_blank" class="tgk-btn">ТГК</a>
+                <div class="faq-subtitle reveal" data-i18n="faq_sub4">Прочее</div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q14">Как связаться с разработчиком?</span> <span class="faq-arrow">▼</span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a14">Написать разработчику можно в Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.</p></div>
+                </div>
+
+                <div class="contact-hint reveal">
+                    <span data-i18n="contact_hint">Не нашёл ответ? Задай вопрос в чате</span> <a href="https://t.me/MSVgame" target="_blank" class="tgk-btn" data-i18n="contact_btn">ТГК</a>
                 </div>
             </div>
-            <div class="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
+            <div class="footer" data-i18n="footer">© 2026 Koluchin6Studio. Все права защищены.</div>
         </div>
     </main>
 
@@ -1239,6 +1308,115 @@
         }
         window.addEventListener('scroll', handleNavScroll, { passive: true });
         handleNavScroll();
+
+        /* ---------- Scroll reveal animations ---------- */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 60);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ---------- Garage mode easter egg ---------- */
+        function toggleGarageMode() {
+            document.body.classList.toggle('garage-mode');
+            const isGarage = document.body.classList.contains('garage-mode');
+            try { localStorage.setItem('msv_garage_mode', isGarage ? '1' : '0'); } catch (e) {}
+        }
+        (function initGarageMode() {
+            try {
+                if (localStorage.getItem('msv_garage_mode') === '1') {
+                    document.body.classList.add('garage-mode');
+                }
+            } catch (e) {}
+        })();
+
+        /* ---------- Multilingual (RU / EN) ---------- */
+        const translations = {
+            nav_main: { ru: 'Главная', en: 'Home' },
+            nav_beta: { ru: 'Бета-тест', en: 'Beta Test' },
+            nav_faq: { ru: 'Вопросы (FAQ)', en: 'FAQ' },
+            hero_subtitle: {
+                ru: 'Игра про жизнь в деревне и реставрацию старого <span class="highlight">ВАЗ-2109</span>, погрузись в глубинку деревни и поставь на колеса автомобиль своего отца',
+                en: 'A game about village life and restoring an old <span class="highlight">VAZ-2109</span> — dive into rural life and get your father\'s car back on the road'
+            },
+            screenshots_title: { ru: 'Скриншоты', en: 'Screenshots' },
+            donors_title: { ru: 'Топ донатеров', en: 'Top Donors' },
+            donors_desc: { ru: 'Люди, которые поддержали разработку', en: 'People who supported the development' },
+            donate_title: { ru: 'Поддержать разработку', en: 'Support Development' },
+            donate_btn: { ru: 'Поддержать', en: 'Support' },
+            footer: { ru: '© 2026 Koluchin6Studio. Все права защищены.', en: '© 2026 Koluchin6Studio. All rights reserved.' },
+            beta_line1: { ru: 'Закрытый бета-тест MySummerVillage', en: 'Closed beta test of MySummerVillage' },
+            beta_line2: { ru: 'начнется <span class="beta-orange">25</span> июля!', en: 'starts July <span class="beta-orange">25</span>!' },
+            beta_line3: { ru: 'Успей приобрести <span class="beta-orange">бета-тест</span>', en: 'Get the <span class="beta-orange">beta test</span> now' },
+            beta_line4: { ru: 'за <span class="beta-orange">250</span> рублей до начала!', en: 'for <span class="beta-orange">250</span> RUB before it starts!' },
+            timer_title: { ru: 'До закрытого бета-теста осталось', en: 'Time left until closed beta' },
+            timer_days: { ru: 'Дней', en: 'Days' },
+            timer_hours: { ru: 'Часов', en: 'Hours' },
+            timer_minutes: { ru: 'Минут', en: 'Minutes' },
+            timer_seconds: { ru: 'Секунд', en: 'Seconds' },
+            perk1: { ru: 'Доступ к закрытому тестированию MSV', en: 'Access to MSV closed testing' },
+            perk2: { ru: 'Доступ к ТГК с эксклюзивными новостями', en: 'Access to the Telegram channel with exclusive news' },
+            perk3: { ru: 'Упоминание в ТГК', en: 'A shout-out in the Telegram channel' },
+            beta_btn: { ru: 'Приобрести бета-тест', en: 'Get Beta Access' },
+            faq_title: { ru: 'Частые вопросы', en: 'Frequently Asked Questions' },
+            faq_sub1: { ru: 'Об игре', en: 'About the Game' },
+            faq_sub2: { ru: 'Релиз и цена', en: 'Release & Price' },
+            faq_sub3: { ru: 'Разработка', en: 'Development' },
+            faq_sub4: { ru: 'Прочее', en: 'Other' },
+            faq_q1: { ru: 'Какой транспорт будет в игре?', en: 'What vehicles will be in the game?' },
+            faq_a1: { ru: 'В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.', en: 'The game will feature: VAZ-2109, GAZ-3302, MTZ-80, IZH-Planeta 2, and a walk-behind tractor.' },
+            faq_q2: { ru: 'Что такое MSV?', en: 'What does MSV mean?' },
+            faq_a2: { ru: 'MSV — MySummerVillage. Аббревиатура игры.', en: 'MSV stands for MySummerVillage — the game\'s abbreviation.' },
+            faq_q3: { ru: 'Про что игра?', en: 'What is the game about?' },
+            faq_a3: { ru: 'MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.', en: 'MySummerVillage is a game about village life in the Kazakh countryside and rebuilding a VAZ-2109. The player restores an old "Devyatka" that has been sitting idle in the yard for 2 years.' },
+            faq_q4: { ru: 'У игры есть сюжет?', en: 'Does the game have a story?' },
+            faq_a4: { ru: 'У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.', en: 'The game has a story and lore, but details won\'t be revealed to avoid spoilers.' },
+            faq_q5: { ru: 'Где и когда происходят события игры?', en: 'Where and when does the game take place?' },
+            faq_a5: { ru: 'События игры происходят в Казахстане в 2009 году.', en: 'The game is set in Kazakhstan in 2009.' },
+            faq_q6: { ru: 'Что будет представлять из себя карта?', en: 'What will the map look like?' },
+            faq_a6: { ru: 'Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.', en: 'The map will include the main village "Zarechnoye" and the town "Kievka", along with a lake and many other interesting locations.' },
+            faq_q7: { ru: 'Релиз игры будет в Steam?', en: 'Will the game release on Steam?' },
+            faq_a7: { ru: 'Да, релиз игры будет на площадке Steam.', en: 'Yes, the game will release on Steam.' },
+            faq_q8: { ru: 'Когда релиз?', en: 'When is the release?' },
+            faq_a8: { ru: 'Дата релиза ещё неизвестна.', en: 'The release date is not yet known.' },
+            faq_q9: { ru: 'Какая будет цена у игры?', en: 'What will the game cost?' },
+            faq_a9: { ru: 'Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.', en: 'The price will be 450 RUB or less. This is not final and may change.' },
+            faq_q10: { ru: 'Будет на телефоны?', en: 'Will it be on mobile?' },
+            faq_a10: { ru: 'Нет, игра разрабатывается только для ПК устройств.', en: 'No, the game is being developed for PC only.' },
+            faq_q11: { ru: 'Сколько людей разрабатывает игру?', en: 'How many people are developing the game?' },
+            faq_a11: { ru: 'У игры всего 1 разработчик.', en: 'The game has just 1 developer.' },
+            faq_q12: { ru: 'Какая студия занимается разработкой?', en: 'Which studio is developing the game?' },
+            faq_a12: { ru: 'Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.', en: 'The game is developed by the indie studio Koluchin6Studio, currently a one-person team.' },
+            faq_q13: { ru: 'Сколько разрабатывается игра?', en: 'How long has the game been in development?' },
+            faq_a13: { ru: 'Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.', en: 'The game has been in development since February 12, 2026. Counting the fact that the project has been reworked for the third time — it\'s actually been 2 years.' },
+            faq_q14: { ru: 'Как связаться с разработчиком?', en: 'How can I contact the developer?' },
+            faq_a14: { ru: 'Написать разработчику можно в Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.', en: 'You can message the developer on Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.' },
+            contact_hint: { ru: 'Не нашёл ответ? Задай вопрос в чате', en: 'Didn\'t find an answer? Ask in the chat' },
+            contact_btn: { ru: 'ТГК', en: 'Telegram' }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
+                }
+            });
+            document.getElementById('langRu').classList.toggle('active', lang === 'ru');
+            document.getElementById('langEn').classList.toggle('active', lang === 'en');
+            document.documentElement.lang = lang;
+            try { localStorage.setItem('msv_lang', lang); } catch (e) {}
+        }
+
+        (function initLanguage() {
+            let saved = 'ru';
+            try { saved = localStorage.getItem('msv_lang') || 'ru'; } catch (e) {}
+            if (saved === 'en') setLanguage('en');
+        })();
     </script>
 </body>
 </html>

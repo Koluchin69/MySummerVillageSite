@@ -1248,9 +1248,21 @@
         function showPage(pageId, navEl) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
-            document.getElementById('page-' + pageId).classList.add('active');
+            const page = document.getElementById('page-' + pageId);
+            page.classList.add('active');
             navEl.classList.add('active');
             window.scrollTo(0, 0);
+            replayReveal(page);
+        }
+
+        function replayReveal(container) {
+            const items = container.querySelectorAll('.reveal');
+            items.forEach(el => {
+                revealObserver.unobserve(el);
+                el.classList.remove('visible');
+            });
+            void container.offsetWidth;
+            items.forEach(el => revealObserver.observe(el));
         }
 
         function toggleFaq(btn) {

@@ -481,7 +481,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             font-weight: 900;
-            color: var(--accent);
+            color: var(--highlight);
             letter-spacing: 4px;
             text-transform: uppercase;
             text-align: center;
@@ -504,10 +504,16 @@
             border-radius: 14px;
             padding: 18px 24px;
             margin-bottom: 10px;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             width: 100%;
+            cursor: default;
+        }
+        .donor-row:hover {
+            transform: translateX(8px) scale(1.02);
+            border-color: var(--highlight);
+            box-shadow: 0 0 22px rgba(255,107,53,0.35);
         }
         .donor-row::before {
             content: '';
@@ -627,7 +633,7 @@
         .timer-title {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.2rem;
-            color: var(--accent);
+            color: var(--highlight);
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 700;
@@ -818,7 +824,7 @@
                     <span class="beta-line">Закрытый бета-тест MySummerVillage</span>
                     <span class="beta-line">начнется <span class="beta-orange">25</span> июля!</span>
                     <span class="beta-line">Успей приобрести <span class="beta-orange">бета-тест</span></span>
-                    <span class="beta-line">за 250 рублей до начала!</span>
+                    <span class="beta-line">за <span class="beta-orange">250</span> рублей до начала!</span>
                 </div>
 
                 <div class="timer-title">До закрытого бета-теста осталось</div>
@@ -857,7 +863,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Какой транспорт будет в игре? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>В игре будет: ВАЗ-2109, ГАЗель, мотоблок, трактор, и мб мотоцикл.</p></div>
+                    <div class="faq-answer"><p>В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Что такое MSV? <span class="faq-arrow">▼</span></button>
@@ -879,7 +885,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">Какая будет цена у игры? <span class="faq-arrow">▼</span></button>
-                    <div class="faq-answer"><p>Цена будет 6–7 долларов. Это ещё не итоговая цена и она может меняться.</p></div>
+                    <div class="faq-answer"><p>Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
                 </div>
 
                 <div class="faq-subtitle">Разработка</div>

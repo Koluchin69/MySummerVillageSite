@@ -266,13 +266,38 @@
         }
         .faq-question:hover { color: white; }
         .faq-question.open { color: var(--highlight); }
-        .faq-arrow {
-            font-size: 1.1rem;
-            color: var(--accent);
-            transition: transform 0.35s;
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(var(--accent-glow), 0.12);
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
+            color: var(--accent);
+            transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease, color 0.35s ease;
         }
-        .faq-question.open .faq-arrow { transform: rotate(180deg); }
+        .faq-icon svg { display: block; }
+        .faq-icon .v-line {
+            transform-origin: 12px 12px;
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        .faq-question:hover .faq-icon {
+            border-color: var(--accent);
+            transform: scale(1.08);
+        }
+        .faq-question.open .faq-icon {
+            color: var(--highlight);
+            background: rgba(var(--highlight-glow), 0.18);
+            border-color: var(--highlight);
+            box-shadow: 0 0 14px rgba(var(--highlight-glow), 0.4);
+            transform: rotate(180deg);
+        }
+        .faq-question.open .faq-icon .v-line {
+            transform: rotate(90deg);
+        }
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -1096,65 +1121,65 @@
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub1">Об игре</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q1">Какой транспорт будет в игре?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q1">Какой транспорт будет в игре?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a1">В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q2">Что такое MSV?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q2">Что такое MSV?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a2">MSV — MySummerVillage. Аббревиатура игры.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q3">Про что игра?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q3">Про что игра?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a3">MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q4">У игры есть сюжет?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q4">У игры есть сюжет?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a4">У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q5">Где и когда происходят события игры?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q5">Где и когда происходят события игры?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a5">События игры происходят в Казахстане в 2009 году.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q6">Что будет представлять из себя карта?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q6">Что будет представлять из себя карта?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a6">Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.</p></div>
                 </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub2">Релиз и цена</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q7">Релиз игры будет в Steam?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q7">Релиз игры будет в Steam?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a7">Да, релиз игры будет на площадке Steam.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q8">Когда релиз?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q8">Когда релиз?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a8">Дата релиза ещё неизвестна.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q9">Какая будет цена у игры?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q9">Какая будет цена у игры?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a9">Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
                 </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub3">Разработка</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q10">Будет на телефоны?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q10">Будет на телефоны?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a10">Нет, игра разрабатывается только для ПК устройств.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q11">Сколько людей разрабатывает игру?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q11">Сколько людей разрабатывает игру?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a11">У игры всего 1 разработчик.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q12">Какая студия занимается разработкой?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q12">Какая студия занимается разработкой?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a12">Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q13">Сколько разрабатывается игра?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q13">Сколько разрабатывается игра?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a13">Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
                 </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub4">Прочее</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q14">Как связаться с разработчиком?</span> <span class="faq-arrow">▼</span></button>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q14">Как связаться с разработчиком?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a14">Написать разработчику можно в Telegram: <a href="https://t.me/Koluchin6" target="_blank">@Koluchin6</a>.</p></div>
                 </div>
 

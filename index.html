@@ -582,6 +582,58 @@
             letter-spacing: 1px;
             margin-bottom: 30px;
         }
+        .donors-list-outer {
+            position: relative;
+        }
+        .donors-rows {
+            position: relative;
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .donors-rows.expanded {
+            max-height: 2000px;
+        }
+        .donors-fade {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(11,8,20,0) 100%);
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 2;
+        }
+        .donors-rows.expanded ~ .donors-fade {
+            opacity: 0;
+        }
+        .donors-toggle {
+            position: absolute;
+            top: 50%;
+            right: -52px;
+            transform: translateY(-50%);
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+        .donors-toggle:hover {
+            border-color: var(--highlight);
+            color: var(--highlight);
+            box-shadow: 0 0 16px rgba(255,107,53,0.4);
+        }
+        .donors-toggle svg {
+            transition: transform 0.35s ease;
+        }
+        .donors-toggle.rotated svg {
+            transform: rotate(180deg);
+        }
         .donor-row {
             display: flex;
             align-items: center;
@@ -848,6 +900,8 @@
             .faq-answer.open { padding: 0 20px 16px; }
             .donor-row { padding: 14px 16px; gap: 10px; }
             .donor-name { font-size: 0.95rem; }
+            .donors-list-outer { display: flex; flex-direction: column; align-items: center; }
+            .donors-toggle { position: static; margin: 16px auto 0; transform: none; }
             .beta-title { font-size: 1.15rem; }
             .beta-line { margin-bottom: 4px; }
             .timer-display { gap: 6px; padding: 0; }
@@ -932,41 +986,56 @@
             <div class="donors-section reveal">
                 <div class="donors-title" data-i18n="donors_title">Топ донатеров</div>
                 <div class="donors-desc" data-i18n="donors_desc">Люди, которые поддержали разработку</div>
-                <div class="donor-row reveal">
-                    <span class="donor-rank">
-                        <svg class="donor-medal medal-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="currentColor"/>
-                            <circle cx="12" cy="15" r="7" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M12 11.5V18.5M9 15H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <div class="donors-list-outer">
+                    <div class="donors-rows" id="donorsRows">
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">
+                                <svg class="donor-medal medal-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="currentColor"/>
+                                    <circle cx="12" cy="15" r="7" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M12 11.5V18.5M9 15H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <span class="donor-name">ChernyMalchik</span>
+                            <span class="donor-amount">500 ₽</span>
+                        </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">
+                                <svg class="donor-medal medal-silver" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <span class="donor-name">Melki</span>
+                            <span class="donor-amount">500 ₽</span>
+                        </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">
+                                <svg class="donor-medal medal-bronze" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
+                                    <circle cx="12" cy="13" r="3" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="donor-name">Максим Onyx_forever</span>
+                            <span class="donor-amount">450 ₽</span>
+                        </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">#4</span>
+                            <span class="donor-name">Byalew</span>
+                            <span class="donor-amount">450 ₽</span>
+                        </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">#5</span>
+                            <span class="donor-name">Саймон опасни</span>
+                            <span class="donor-amount">250 ₽</span>
+                        </div>
+                    </div>
+                    <div class="donors-fade" id="donorsFade"></div>
+                    <button class="donors-toggle" id="donorsToggle" onclick="toggleDonors()" aria-expanded="false">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </span>
-                    <span class="donor-name">ChernyMalchik</span>
-                    <span class="donor-amount">500 ₽</span>
-                </div>
-                <div class="donor-row reveal">
-                    <span class="donor-rank">
-                        <svg class="donor-medal medal-silver" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </span>
-                    <span class="donor-name">Melki</span>
-                    <span class="donor-amount">500 ₽</span>
-                </div>
-                <div class="donor-row reveal">
-                    <span class="donor-rank">
-                        <svg class="donor-medal medal-bronze" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                            <circle cx="12" cy="13" r="3" fill="currentColor"/>
-                        </svg>
-                    </span>
-                    <span class="donor-name">Максим Onyx_forever</span>
-                    <span class="donor-amount">450 ₽</span>
-                </div>
-                <div class="donor-row reveal">
-                    <span class="donor-rank">#4</span>
-                    <span class="donor-name">Byalew</span>
-                    <span class="donor-amount">350 ₽</span>
+                    </button>
                 </div>
             </div>
 
@@ -1271,6 +1340,14 @@
             document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
             document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
             if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+        }
+
+        function toggleDonors() {
+            const rows = document.getElementById('donorsRows');
+            const btn = document.getElementById('donorsToggle');
+            const expanded = rows.classList.toggle('expanded');
+            btn.classList.toggle('rotated', expanded);
+            btn.setAttribute('aria-expanded', expanded);
         }
 
         const betaTargetDate = new Date('2026-07-25T00:00:00');

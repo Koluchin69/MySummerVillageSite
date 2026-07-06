@@ -624,32 +624,58 @@
             mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
         }
         .donors-toggle {
-            position: absolute;
-            top: 50%;
-            right: -52px;
-            transform: translateY(-50%);
-            width: 38px; height: 38px;
-            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 22px auto 0;
+            padding: 10px 12px 10px 24px;
+            border-radius: 50px;
             background: var(--card);
-            border: 2px solid var(--accent);
+            border: 1.5px solid var(--border);
+            color: var(--text-light);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .donors-toggle:hover {
+            border-color: var(--highlight);
+            color: white;
+            box-shadow: 0 0 18px rgba(var(--highlight-glow), 0.3);
+        }
+        .donors-toggle-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(var(--accent-glow), 0.12);
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 3;
+            flex-shrink: 0;
+            transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
         }
-        .donors-toggle:hover {
-            border-color: var(--highlight);
+        .donors-toggle-icon .v-line {
+            transform-origin: 12px 12px;
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        .donors-toggle:hover .donors-toggle-icon {
             color: var(--highlight);
-            box-shadow: 0 0 16px rgba(255,107,53,0.4);
         }
-        .donors-toggle svg {
-            transition: transform 0.35s ease;
+        .donors-toggle.rotated {
+            color: white;
+            border-color: var(--highlight);
         }
-        .donors-toggle.rotated svg {
-            transform: rotate(180deg);
+        .donors-toggle.rotated .donors-toggle-icon {
+            background: rgba(var(--highlight-glow), 0.2);
+            color: var(--highlight);
+            box-shadow: 0 0 12px rgba(var(--highlight-glow), 0.4);
+        }
+        .donors-toggle.rotated .donors-toggle-icon .v-line {
+            transform: rotate(90deg);
         }
         .donor-row {
             display: flex;
@@ -918,7 +944,6 @@
             .donor-row { padding: 14px 16px; gap: 10px; }
             .donor-name { font-size: 0.95rem; }
             .donors-list-outer { display: flex; flex-direction: column; align-items: center; }
-            .donors-toggle { position: static; margin: 16px auto 0; transform: none; }
             .beta-title { font-size: 1.15rem; }
             .beta-line { margin-bottom: 4px; }
             .timer-display { gap: 6px; padding: 0; }
@@ -1048,9 +1073,13 @@
                         </div>
                     </div>
                     <button class="donors-toggle" id="donorsToggle" onclick="toggleDonors()" aria-expanded="false">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <span id="donorsToggleText">Показать всех</span>
+                        <span class="donors-toggle-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <line class="h-line" x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <line class="v-line" x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -1389,6 +1418,14 @@
             const expanded = donorsRowsEl.classList.toggle('expanded');
             donorsToggleEl.classList.toggle('rotated', expanded);
             donorsToggleEl.setAttribute('aria-expanded', expanded);
+            updateDonorsToggleText();
+        }
+
+        function updateDonorsToggleText() {
+            const expanded = donorsRowsEl.classList.contains('expanded');
+            const key = expanded ? 'donors_collapse' : 'donors_expand';
+            const label = translations[key][currentLang];
+            document.getElementById('donorsToggleText').textContent = label;
         }
 
         recalcDonorsCollapse();
@@ -1462,6 +1499,8 @@
             screenshots_title: { ru: 'Скриншоты', en: 'Screenshots' },
             donors_title: { ru: 'Топ донатеров', en: 'Top Donors' },
             donors_desc: { ru: 'Люди, которые поддержали разработку', en: 'People who supported the development' },
+            donors_expand: { ru: 'Показать всех', en: 'Show all' },
+            donors_collapse: { ru: 'Свернуть', en: 'Collapse' },
             donate_title: { ru: 'Поддержать разработку', en: 'Support Development' },
             donate_btn: { ru: 'Поддержать', en: 'Support' },
             footer: { ru: '© 2026 Koluchin6Studio. Все права защищены.', en: '© 2026 Koluchin6Studio. All rights reserved.' },
@@ -1515,7 +1554,10 @@
             contact_btn: { ru: 'ТГК', en: 'Telegram' }
         };
 
+        let currentLang = 'ru';
+
         function setLanguage(lang) {
+            currentLang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[key] && translations[key][lang]) {
@@ -1525,6 +1567,7 @@
             document.getElementById('langRu').classList.toggle('active', lang === 'ru');
             document.getElementById('langEn').classList.toggle('active', lang === 'en');
             document.documentElement.lang = lang;
+            updateDonorsToggleText();
             try { localStorage.setItem('msv_lang', lang); } catch (e) {}
         }
 

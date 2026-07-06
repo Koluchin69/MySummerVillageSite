@@ -587,24 +587,16 @@
         }
         .donors-rows {
             position: relative;
-            max-height: 200px;
+            max-height: var(--donors-collapsed-height, 1000px);
             overflow: hidden;
-            transition: max-height 0.5s ease;
+            transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), -webkit-mask-image 0.6s ease, mask-image 0.6s ease;
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 var(--donors-mask-solid, 100%), transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 var(--donors-mask-solid, 100%), transparent 100%);
         }
         .donors-rows.expanded {
-            max-height: 2000px;
-        }
-        .donors-fade {
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 100px;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(11,8,20,0) 100%);
-            pointer-events: none;
-            transition: opacity 0.35s ease;
-            z-index: 2;
-        }
-        .donors-rows.expanded ~ .donors-fade {
-            opacity: 0;
+            max-height: var(--donors-expanded-height, 3000px);
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
         }
         .donors-toggle {
             position: absolute;
@@ -1030,7 +1022,6 @@
                             <span class="donor-amount">250 ₽</span>
                         </div>
                     </div>
-                    <div class="donors-fade" id="donorsFade"></div>
                     <button class="donors-toggle" id="donorsToggle" onclick="toggleDonors()" aria-expanded="false">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1342,13 +1333,45 @@
             if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
         }
 
-        function toggleDonors() {
-            const rows = document.getElementById('donorsRows');
-            const btn = document.getElementById('donorsToggle');
-            const expanded = rows.classList.toggle('expanded');
-            btn.classList.toggle('rotated', expanded);
-            btn.setAttribute('aria-expanded', expanded);
+        const donorsRowsEl = document.getElementById('donorsRows');
+        const donorsToggleEl = document.getElementById('donorsToggle');
+        const DONORS_VISIBLE_FULL = 3;
+        const DONORS_GAP = 10;
+
+        function recalcDonorsCollapse() {
+            const rows = donorsRowsEl.querySelectorAll('.donor-row');
+            if (rows.length <= DONORS_VISIBLE_FULL) {
+                donorsRowsEl.classList.add('expanded');
+                donorsToggleEl.style.display = 'none';
+                return;
+            }
+            donorsToggleEl.style.display = 'flex';
+            const rowHeight = rows[0].getBoundingClientRect().height;
+            const fullBlock = rowHeight * DONORS_VISIBLE_FULL + DONORS_GAP * DONORS_VISIBLE_FULL;
+            const collapsed = fullBlock + rowHeight * 0.5;
+            const solidPct = (fullBlock / collapsed * 100).toFixed(2) + '%';
+            let total = 0;
+            rows.forEach((r, i) => {
+                total += r.getBoundingClientRect().height;
+                if (i < rows.length - 1) total += DONORS_GAP;
+            });
+            donorsRowsEl.style.setProperty('--donors-collapsed-height', collapsed + 'px');
+            donorsRowsEl.style.setProperty('--donors-mask-solid', solidPct);
+            donorsRowsEl.style.setProperty('--donors-expanded-height', total + 'px');
         }
+
+        function toggleDonors() {
+            const expanded = donorsRowsEl.classList.toggle('expanded');
+            donorsToggleEl.classList.toggle('rotated', expanded);
+            donorsToggleEl.setAttribute('aria-expanded', expanded);
+        }
+
+        recalcDonorsCollapse();
+        let donorsResizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(donorsResizeTimer);
+            donorsResizeTimer = setTimeout(recalcDonorsCollapse, 200);
+        }, { passive: true });
 
         const betaTargetDate = new Date('2026-07-25T00:00:00');
 

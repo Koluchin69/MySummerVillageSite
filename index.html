@@ -609,11 +609,14 @@
         }
         .donors-list-outer {
             position: relative;
+            padding: 0 10px;
+            margin: 0 -10px;
         }
         .donors-rows {
             position: relative;
             max-height: var(--donors-collapsed-height, 1000px);
-            overflow: hidden;
+            overflow-x: visible;
+            overflow-y: hidden;
             transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), -webkit-mask-image 0.6s ease, mask-image 0.6s ease;
             -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 var(--donors-mask-solid, 100%), transparent 100%);
             mask-image: linear-gradient(to bottom, #000 0%, #000 var(--donors-mask-solid, 100%), transparent 100%);
@@ -680,7 +683,7 @@
         .donor-row {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -693,7 +696,7 @@
             cursor: default;
         }
         .donor-row:hover {
-            transform: translateX(8px) scale(1.02);
+            transform: translateX(6px) scale(1.015);
             border-color: var(--highlight);
             box-shadow: 0 0 22px rgba(255,107,53,0.35);
         }
@@ -731,7 +734,37 @@
             color: var(--text);
             letter-spacing: 1px;
             flex: 1;
+            min-width: 0;
             word-break: break-all;
+        }
+        .donor-method {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: rgba(var(--accent-glow), 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        .donor-row:hover .donor-method {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+        .donor-method-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
         }
         .donor-amount {
             font-family: 'Orbitron', sans-serif;
@@ -741,6 +774,7 @@
             letter-spacing: 2px;
             text-shadow: 0 0 10px rgba(255,215,0,0.4);
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .donate-block {
             width: 100%;
@@ -941,8 +975,11 @@
             .faq-question { padding: 16px 20px; font-size: 0.95rem; }
             .faq-answer { padding: 0 20px; }
             .faq-answer.open { padding: 0 20px 16px; }
-            .donor-row { padding: 14px 16px; gap: 10px; }
-            .donor-name { font-size: 0.95rem; }
+            .donor-row { flex-wrap: wrap; padding: 14px 16px; gap: 8px 10px; }
+            .donor-rank { min-width: 30px; }
+            .donor-name { font-size: 0.95rem; flex-basis: calc(100% - 46px); }
+            .donor-method { order: 3; font-size: 0.65rem; padding: 3px 10px; margin-left: 46px; }
+            .donor-amount { order: 4; margin-left: auto; }
             .donors-list-outer { display: flex; flex-direction: column; align-items: center; }
             .beta-title { font-size: 1.15rem; }
             .beta-line { margin-bottom: 4px; }
@@ -1039,6 +1076,7 @@
                                 </svg>
                             </span>
                             <span class="donor-name">ChernyMalchik</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">500 ₽</span>
                         </div>
                         <div class="donor-row reveal">
@@ -1049,6 +1087,7 @@
                                 </svg>
                             </span>
                             <span class="donor-name">Melki</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">500 ₽</span>
                         </div>
                         <div class="donor-row reveal">
@@ -1059,16 +1098,19 @@
                                 </svg>
                             </span>
                             <span class="donor-name">Максим Onyx_forever</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">450 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#4</span>
                             <span class="donor-name">Byalew</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">450 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#5</span>
                             <span class="donor-name">Саймон опасни</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">450 ₽</span>
                         </div>
                     </div>

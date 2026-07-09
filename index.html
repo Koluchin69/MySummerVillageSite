@@ -609,8 +609,8 @@
         }
         .donors-list-outer {
             position: relative;
-            padding: 0 10px;
-            margin: 0 -10px;
+            padding: 0 24px;
+            margin: 0 -24px;
         }
         .donors-rows {
             position: relative;
@@ -689,16 +689,15 @@
             border-radius: 14px;
             padding: 18px 24px;
             margin-bottom: 10px;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             width: 100%;
             cursor: default;
         }
         .donor-row:hover {
-            transform: translateX(6px) scale(1.015);
             border-color: var(--highlight);
-            box-shadow: 0 0 22px rgba(255,107,53,0.35);
+            box-shadow: 0 0 16px rgba(255,107,53,0.3);
         }
         .donor-row::before {
             content: '';
@@ -975,6 +974,7 @@
             .faq-question { padding: 16px 20px; font-size: 0.95rem; }
             .faq-answer { padding: 0 20px; }
             .faq-answer.open { padding: 0 20px 16px; }
+            .donors-list-outer { padding: 0 12px; margin: 0 -12px; }
             .donor-row { flex-wrap: wrap; padding: 14px 16px; gap: 8px 10px; }
             .donor-rank { min-width: 30px; }
             .donor-name { font-size: 0.95rem; flex-basis: calc(100% - 46px); }

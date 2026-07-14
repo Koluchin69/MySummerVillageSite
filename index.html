@@ -103,6 +103,11 @@
             },
             {
               "@type": "Question",
+              "name": "На какие языки будет локализация?",
+              "acceptedAnswer": { "@type": "Answer", "text": "В игре будет 2 языка: русский и английский, а локализация только на русском и казахском." }
+            },
+            {
+              "@type": "Question",
               "name": "Релиз игры будет в Steam?",
               "acceptedAnswer": { "@type": "Answer", "text": "Да, релиз игры будет на площадке Steam." }
             },
@@ -544,6 +549,41 @@
             background-image:
                 radial-gradient(circle 3px at 32px 32px, rgba(var(--accent-glow),0.18) 0%, transparent 100%);
             background-size: 64px 64px;
+        }
+
+        .fake-ad {
+            position: fixed;
+            top: 22%;
+            left: 8%;
+            width: 200px;
+            padding: 18px 16px;
+            background: rgba(155, 77, 255, 0.05);
+            border: 1.5px dashed rgba(184, 168, 224, 0.22);
+            border-radius: 12px;
+            color: rgba(184, 168, 224, 0.3);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+            text-transform: uppercase;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            animation: fakeAdFloat 22s ease-in-out infinite;
+        }
+        @keyframes fakeAdFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(40px, 60px) rotate(2deg); }
+            40% { transform: translate(90px, -20px) rotate(-1deg); }
+            60% { transform: translate(30px, -80px) rotate(1deg); }
+            80% { transform: translate(-30px, -20px) rotate(-2deg); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .fake-ad { animation: none; }
+        }
+        @media (max-width: 700px) {
+            .fake-ad { display: none; }
         }
 
         .screenshots-section {
@@ -1171,6 +1211,7 @@
 </head>
 <body>
     <div class="bg-ambient"></div>
+    <div class="fake-ad" aria-hidden="true" data-i18n="fake_ad_text">Тут могла быть ваша реклама</div>
 
     <nav>
         <div class="nav-container">
@@ -1419,43 +1460,47 @@
                     <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q11">Какие будут способы заработка?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
                     <div class="faq-answer"><p data-i18n="faq_a11">Будут как полноценные работы, так и подработки, а также нелегальные способы заработка.</p></div>
                 </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q12">На какие языки будет локализация?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a12">В игре будет 2 языка: русский и английский, а локализация только на русском и казахском.</p></div>
+                </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub2">Релиз и цена</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q12">Релиз игры будет в Steam?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a12">Да, релиз игры будет на площадке Steam.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q13">Релиз игры будет в Steam?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a13">Да, релиз игры будет на площадке Steam.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q13">Когда релиз?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a13">Дата релиза ещё неизвестна.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q14">Когда релиз?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a14">Дата релиза ещё неизвестна.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q14">Какая будет цена у игры?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a14">Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q15">Какая будет цена у игры?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a15">Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.</p></div>
                 </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub3">Разработка</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q15">Сколько людей разрабатывает игру?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a15">У игры всего 1 разработчик.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q16">Сколько людей разрабатывает игру?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a16">У игры всего 1 разработчик.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q16">Какая студия занимается разработкой?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a16">Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q17">Какая студия занимается разработкой?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a17">Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q17">Сколько разрабатывается игра?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a17">Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q18">Сколько разрабатывается игра?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a18">Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.</p></div>
                 </div>
 
                 <div class="faq-subtitle reveal" data-i18n="faq_sub4">Прочее</div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q18">Как связаться с разработчиком?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a18">Написать разработчику можно в Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q19">Как связаться с разработчиком?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a19">Написать разработчику можно в Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.</p></div>
                 </div>
                 <div class="faq-item reveal">
-                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q19">Как я могу поддержать игру и разработчика?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
-                    <div class="faq-answer"><p data-i18n="faq_a19">Ты можешь закинуть донат или купить подписку на <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.</p></div>
+                    <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q20">Как я могу поддержать игру и разработчика?</span> <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line class="h-line" x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line class="v-line" x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button>
+                    <div class="faq-answer"><p data-i18n="faq_a20">Ты можешь закинуть донат или купить подписку на <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.</p></div>
                 </div>
 
                 <div class="contact-hint reveal">
@@ -1745,6 +1790,7 @@
 
         const translations = {
             nav_main: { ru: 'Главная', en: 'Home' },
+            fake_ad_text: { ru: 'Тут могла быть ваша реклама', en: 'Your ad could be here' },
             nav_beta: { ru: 'Бета-тест', en: 'Beta Test' },
             nav_faq: { ru: 'Вопросы (FAQ)', en: 'FAQ' },
             hero_subtitle: {
@@ -1801,22 +1847,24 @@
             faq_a10: { ru: 'Да, будут. Также можно будет загрузить свои кастомные наклейки и клеить их куда угодно, помимо стекол.', en: 'Yes, there will be. You will also be able to upload your own custom stickers and place them anywhere except the windows.' },
             faq_q11: { ru: 'Какие будут способы заработка?', en: 'What ways of earning money will there be?' },
             faq_a11: { ru: 'Будут как полноценные работы, так и подработки, а также нелегальные способы заработка.', en: 'There will be full-time jobs, side gigs, and even illegal ways of earning money.' },
-            faq_q12: { ru: 'Релиз игры будет в Steam?', en: 'Will the game release on Steam?' },
-            faq_a12: { ru: 'Да, релиз игры будет на площадке Steam.', en: 'Yes, the game will release on Steam.' },
-            faq_q13: { ru: 'Когда релиз?', en: 'When is the release?' },
-            faq_a13: { ru: 'Дата релиза ещё неизвестна.', en: 'The release date is not yet known.' },
-            faq_q14: { ru: 'Какая будет цена у игры?', en: 'What will the game cost?' },
-            faq_a14: { ru: 'Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.', en: 'The price will be 450 RUB or less. This is not final and may change.' },
-            faq_q15: { ru: 'Сколько людей разрабатывает игру?', en: 'How many people are developing the game?' },
-            faq_a15: { ru: 'У игры всего 1 разработчик.', en: 'The game has just 1 developer.' },
-            faq_q16: { ru: 'Какая студия занимается разработкой?', en: 'Which studio is developing the game?' },
-            faq_a16: { ru: 'Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.', en: 'The game is developed by the indie studio Koluchin6Studio, currently a one-person team.' },
-            faq_q17: { ru: 'Сколько разрабатывается игра?', en: 'How long has the game been in development?' },
-            faq_a17: { ru: 'Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.', en: 'The game has been in development since February 12, 2026. Counting the fact that the project has been reworked for the third time — it\'s actually been 2 years.' },
-            faq_q18: { ru: 'Как связаться с разработчиком?', en: 'How can I contact the developer?' },
-            faq_a18: { ru: 'Написать разработчику можно в Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.', en: 'You can message the developer on Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.' },
-            faq_q19: { ru: 'Как я могу поддержать игру и разработчика?', en: 'How can I support the game and the developer?' },
-            faq_a19: { ru: 'Ты можешь закинуть донат или купить подписку на <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.', en: 'You can send a donation or buy a subscription on <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.' },
+            faq_q12: { ru: 'На какие языки будет локализация?', en: 'What languages will the game be localized into?' },
+            faq_a12: { ru: 'В игре будет 2 языка: русский и английский, а локализация только на русском и казахском.', en: 'The game will have 2 languages: Russian and English, while localization is only in Russian and Kazakh.' },
+            faq_q13: { ru: 'Релиз игры будет в Steam?', en: 'Will the game release on Steam?' },
+            faq_a13: { ru: 'Да, релиз игры будет на площадке Steam.', en: 'Yes, the game will release on Steam.' },
+            faq_q14: { ru: 'Когда релиз?', en: 'When is the release?' },
+            faq_a14: { ru: 'Дата релиза ещё неизвестна.', en: 'The release date is not yet known.' },
+            faq_q15: { ru: 'Какая будет цена у игры?', en: 'What will the game cost?' },
+            faq_a15: { ru: 'Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.', en: 'The price will be 450 RUB or less. This is not final and may change.' },
+            faq_q16: { ru: 'Сколько людей разрабатывает игру?', en: 'How many people are developing the game?' },
+            faq_a16: { ru: 'У игры всего 1 разработчик.', en: 'The game has just 1 developer.' },
+            faq_q17: { ru: 'Какая студия занимается разработкой?', en: 'Which studio is developing the game?' },
+            faq_a17: { ru: 'Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.', en: 'The game is developed by the indie studio Koluchin6Studio, currently a one-person team.' },
+            faq_q18: { ru: 'Сколько разрабатывается игра?', en: 'How long has the game been in development?' },
+            faq_a18: { ru: 'Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.', en: 'The game has been in development since February 12, 2026. Counting the fact that the project has been reworked for the third time — it\'s actually been 2 years.' },
+            faq_q19: { ru: 'Как связаться с разработчиком?', en: 'How can I contact the developer?' },
+            faq_a19: { ru: 'Написать разработчику можно в Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.', en: 'You can message the developer on Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.' },
+            faq_q20: { ru: 'Как я могу поддержать игру и разработчика?', en: 'How can I support the game and the developer?' },
+            faq_a20: { ru: 'Ты можешь закинуть донат или купить подписку на <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.', en: 'You can send a donation or buy a subscription on <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.' },
             contact_hint: { ru: 'Не нашёл ответ? Задай вопрос в чате', en: 'Didn\'t find an answer? Ask in the chat' },
             contact_btn: { ru: 'ТГК', en: 'Telegram' }
         };

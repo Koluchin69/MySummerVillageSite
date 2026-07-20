@@ -1450,6 +1450,12 @@
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">250 ₽</span>
                         </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">#15</span>
+                            <span class="donor-name">Kucha</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
+                            <span class="donor-amount">250 ₽</span>
+                        </div>
                     </div>
                     <button class="donors-toggle" id="donorsToggle" onclick="toggleDonors()" aria-expanded="false">
                         <span id="donorsToggleText">Показать всех</span>
@@ -1870,163 +1876,4 @@
             const diff = betaTargetDate - now;
 
             const daysEl = document.getElementById('timerDays');
-            const hoursEl = document.getElementById('timerHours');
-            const minutesEl = document.getElementById('timerMinutes');
-            const secondsEl = document.getElementById('timerSeconds');
-            const timerTitleEl = document.getElementById('timerTitle');
-            const timerDisplayEl = document.getElementById('timerDisplay');
-            const betaStartedEl = document.getElementById('betaStarted');
-
-            if (!daysEl) return;
-
-            if (diff <= 0) {
-                if (!betaStartedShown) {
-                    betaStartedShown = true;
-                    timerTitleEl.style.display = 'none';
-                    timerDisplayEl.style.display = 'none';
-                    betaStartedEl.style.display = 'block';
-                }
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            daysEl.textContent = String(days).padStart(2, '0');
-            hoursEl.textContent = String(hours).padStart(2, '0');
-            minutesEl.textContent = String(minutes).padStart(2, '0');
-            secondsEl.textContent = String(seconds).padStart(2, '0');
-        }
-
-        updateBetaTimer();
-        setInterval(updateBetaTimer, 1000);
-
-        const currentYear = new Date().getFullYear();
-        document.querySelectorAll('.footer-year').forEach(el => { el.textContent = currentYear; });
-
-        const navScrollEl = document.querySelector('nav');
-        function handleNavScroll() {
-            if (window.scrollY > 20) navScrollEl.classList.add('scrolled');
-            else navScrollEl.classList.remove('scrolled');
-        }
-        window.addEventListener('scroll', handleNavScroll, { passive: true });
-        handleNavScroll();
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 60);
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        const translations = {
-            nav_main: { ru: 'Главная', en: 'Home' },
-            fake_ad_text: { ru: 'Тут могла быть ваша реклама', en: 'Your ad could be here' },
-            nav_beta: { ru: 'Бета-тест', en: 'Beta Test' },
-            nav_faq: { ru: 'Вопросы (FAQ)', en: 'FAQ' },
-            hero_subtitle: {
-                ru: 'Игра про жизнь в деревне и реставрацию старого <span class="highlight">ВАЗ-2109</span>, погрузись в глубинку деревни и поставь на колеса автомобиль своего отца',
-                en: 'A game about village life and restoring an old <span class="highlight">VAZ-2109</span> — dive into rural life and get your father\'s car back on the road'
-            },
-            screenshots_title: { ru: 'Скриншоты', en: 'Screenshots' },
-            donors_title: { ru: 'Топ донатеров', en: 'Top Donors' },
-            donors_desc: { ru: 'Люди, которые поддержали разработку', en: 'People who supported the development' },
-            donors_expand: { ru: 'Показать всех', en: 'Show all' },
-            donors_collapse: { ru: 'Свернуть', en: 'Collapse' },
-            donate_title: { ru: 'Поддержать разработку', en: 'Support Development' },
-            donate_btn: { ru: 'Поддержать', en: 'Support' },
-            footer_rights: { ru: 'Все права защищены.', en: 'All rights reserved.' },
-            beta_line1: { ru: 'Закрытый бета-тест MySummerVillage', en: 'Closed beta test of MySummerVillage' },
-            beta_line2: { ru: 'начнется <span class="beta-orange">25</span> июля!', en: 'starts July <span class="beta-orange">25</span>!' },
-            beta_line3: { ru: 'Успей приобрести <span class="beta-orange">бета-тест</span>', en: 'Get the <span class="beta-orange">beta test</span> now' },
-            beta_line4: { ru: 'за <span class="beta-orange">250</span> рублей до начала!', en: 'for <span class="beta-orange">250</span> RUB before it starts!' },
-            timer_title: { ru: 'До закрытого бета-теста осталось', en: 'Time left until closed beta' },
-            timer_days: { ru: 'Дней', en: 'Days' },
-            timer_hours: { ru: 'Часов', en: 'Hours' },
-            timer_minutes: { ru: 'Минут', en: 'Minutes' },
-            timer_seconds: { ru: 'Секунд', en: 'Seconds' },
-            perk1: { ru: 'Доступ к закрытому тестированию MSV', en: 'Access to MSV closed testing' },
-            perk2: { ru: 'Доступ к ТГК с эксклюзивными новостями', en: 'Access to the Telegram channel with exclusive news' },
-            perk3: { ru: 'Упоминание в ТГК', en: 'A shout-out in the Telegram channel' },
-            beta_btn: { ru: 'Приобрести бета-тест', en: 'Get Beta Access' },
-            beta_started_title: { ru: 'Бета-тест уже начался!', en: 'The beta test has already started!' },
-            beta_started_btn: { ru: 'Присоединиться к бета-тесту', en: 'Join the Beta Test' },
-            faq_title: { ru: 'Частые вопросы', en: 'Frequently Asked Questions' },
-            faq_sub1: { ru: 'Об игре', en: 'About the Game' },
-            faq_sub2: { ru: 'Релиз и цена', en: 'Release & Price' },
-            faq_sub3: { ru: 'Разработка', en: 'Development' },
-            faq_sub4: { ru: 'Прочее', en: 'Other' },
-            faq_q1: { ru: 'Будет на телефоны?', en: 'Will it be on mobile?' },
-            faq_a1: { ru: 'Нет, игра разрабатывается только для ПК устройств.', en: 'No, the game is being developed for PC only.' },
-            faq_q2: { ru: 'Какой транспорт будет в игре?', en: 'What vehicles will be in the game?' },
-            faq_a2: { ru: 'В игре будет: ВАЗ-2109, ГАЗ-3302, МТЗ-80, ИЖ-Планета 2, мотоблок.', en: 'The game will feature: VAZ-2109, GAZ-3302, MTZ-80, IZH-Planeta 2, and a walk-behind tractor.' },
-            faq_q3: { ru: 'Что такое MSV?', en: 'What does MSV mean?' },
-            faq_a3: { ru: 'MSV — MySummerVillage. Аббревиатура игры.', en: 'MSV stands for MySummerVillage — the game\'s abbreviation.' },
-            faq_q4: { ru: 'Про что игра?', en: 'What is the game about?' },
-            faq_a4: { ru: 'MySummerVillage — это игра про жизнь в деревне казахстанской глубинки и сборку ВАЗ-2109. Игроку надо будет реставрировать старую Девятку, которая уже как 2 года простаивает во дворе.', en: 'MySummerVillage is a game about village life in the Kazakh countryside and rebuilding a VAZ-2109. The player restores an old "Devyatka" that has been sitting idle in the yard for 2 years.' },
-            faq_q5: { ru: 'У игры есть сюжет?', en: 'Does the game have a story?' },
-            faq_a5: { ru: 'У игры есть сюжет и лор, но он не будет распространяться, чтобы не спойлерить.', en: 'The game has a story and lore, but details won\'t be revealed to avoid spoilers.' },
-            faq_q6: { ru: 'Где и когда происходят события игры?', en: 'Where and when does the game take place?' },
-            faq_a6: { ru: 'События игры происходят в Казахстане в 2009 году.', en: 'The game is set in Kazakhstan in 2009.' },
-            faq_q7: { ru: 'Что будет представлять из себя карта?', en: 'What will the map look like?' },
-            faq_a7: { ru: 'Карта будет состоять из основной деревни «Заречное» и ПГТ «Киевка», на карте также будет озеро и много других интересных мест.', en: 'The map will include the main village "Zarechnoye" and the town "Kievka", along with a lake and many other interesting locations.' },
-            faq_q8: { ru: 'Какие минимальные требования будут?', en: 'What will the minimum requirements be?' },
-            faq_a8: { ru: 'Пока-что они неизвестны, но игра будет оптимизированна и будет тянуть на слабых ПК и ноутбуках.', en: 'They are not known yet, but the game will be optimized to run on weak PCs and laptops.' },
-            faq_q9: { ru: 'Будет ли тюнинг?', en: 'Will there be tuning?' },
-            faq_a9: { ru: 'Да, и уже есть несколько видов внешнего тюнинга и 6 видов дисков. Также планируется не только внешний тюнинг, но и тюнинг двигателя и подвески.', en: 'Yes, there are already several types of exterior tuning and 6 wheel designs. Engine and suspension tuning are also planned in addition to exterior tuning.' },
-            faq_q10: { ru: 'Будут ли наклейки?', en: 'Will there be stickers?' },
-            faq_a10: { ru: 'Да, будут. Также можно будет загрузить свои кастомные наклейки и клеить их куда угодно, помимо стекол.', en: 'Yes, there will be. You will also be able to upload your own custom stickers and place them anywhere except the windows.' },
-            faq_q11: { ru: 'Какие будут способы заработка?', en: 'What ways of earning money will there be?' },
-            faq_a11: { ru: 'Будут как полноценные работы, так и подработки, а также нелегальные способы заработка.', en: 'There will be full-time jobs, side gigs, and even illegal ways of earning money.' },
-            faq_q12: { ru: 'На какие языки будет локализация?', en: 'What languages will the game be localized into?' },
-            faq_a12: { ru: 'В игре будет 2 языка: русский и английский, а локализация только на русском и казахском.', en: 'The game will have 2 languages: Russian and English, while localization is only in Russian and Kazakh.' },
-            faq_q13: { ru: 'Релиз игры будет в Steam?', en: 'Will the game release on Steam?' },
-            faq_a13: { ru: 'Да, релиз игры будет на площадке Steam.', en: 'Yes, the game will release on Steam.' },
-            faq_q14: { ru: 'Когда релиз?', en: 'When is the release?' },
-            faq_a14: { ru: 'Дата релиза ещё неизвестна.', en: 'The release date is not yet known.' },
-            faq_q15: { ru: 'Какая будет цена у игры?', en: 'What will the game cost?' },
-            faq_a15: { ru: 'Цена будет 450 рублей или меньше. Это ещё не итоговая цена и она может меняться.', en: 'The price will be 450 RUB or less. This is not final and may change.' },
-            faq_q16: { ru: 'Сколько людей разрабатывает игру?', en: 'How many people are developing the game?' },
-            faq_a16: { ru: 'У игры всего 1 разработчик.', en: 'The game has just 1 developer.' },
-            faq_q17: { ru: 'Какая студия занимается разработкой?', en: 'Which studio is developing the game?' },
-            faq_a17: { ru: 'Разработкой занимается инди-студия Koluchin6Studio. На данный момент в студии один действующий разработчик.', en: 'The game is developed by the indie studio Koluchin6Studio, currently a one-person team.' },
-            faq_q18: { ru: 'Сколько разрабатывается игра?', en: 'How long has the game been in development?' },
-            faq_a18: { ru: 'Игра разрабатывается с 12 февраля 2026 года. Если учитывать, что проект уже в третий раз переделывается — то уже 2 года.', en: 'The game has been in development since February 12, 2026. Counting the fact that the project has been reworked for the third time — it\'s actually been 2 years.' },
-            faq_q19: { ru: 'Как связаться с разработчиком?', en: 'How can I contact the developer?' },
-            faq_a19: { ru: 'Написать разработчику можно в Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.', en: 'You can message the developer on Telegram: <a href="https://telegram.me/Kouchin6" target="_blank">@Koluchin6</a>.' },
-            faq_q20: { ru: 'Как я могу поддержать игру и разработчика?', en: 'How can I support the game and the developer?' },
-            faq_a20: { ru: 'Ты можешь закинуть донат или купить подписку на <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.', en: 'You can send a donation or buy a subscription on <a href="https://boosty.to/koluchin6" target="_blank">Boosty</a>.' },
-            contact_hint: { ru: 'Не нашёл ответ? Задай вопрос в чате', en: 'Didn\'t find an answer? Ask in the chat' },
-            contact_btn: { ru: 'ТГК', en: 'Telegram' }
-        };
-
-        let currentLang = 'ru';
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[key] && translations[key][lang]) {
-                    el.innerHTML = translations[key][lang];
-                }
-            });
-            document.getElementById('langRu').classList.toggle('active', lang === 'ru');
-            document.getElementById('langEn').classList.toggle('active', lang === 'en');
-            document.documentElement.lang = lang;
-            updateDonorsToggleText();
-            try { localStorage.setItem('msv_lang', lang); } catch (e) {}
-        }
-
-        (function initLanguage() {
-            let saved = 'ru';
-            try { saved = localStorage.getItem('msv_lang') || 'ru'; } catch (e) {}
-            if (saved === 'en') setLanguage('en');
-        })();
-    </script>
-</body>
-</html>
+            const hoursEl

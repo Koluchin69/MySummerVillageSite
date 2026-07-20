@@ -818,6 +818,139 @@
             letter-spacing: 1px;
             margin-bottom: 30px;
         }
+        .donors-podium {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+        .podium-card {
+            flex: 1;
+            max-width: 190px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 18px 12px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .podium-card:hover {
+            transform: translateY(-4px);
+        }
+        .podium-1 {
+            order: 2;
+            padding-top: 40px;
+            background: linear-gradient(180deg, rgba(255,215,0,0.16), var(--card) 65%);
+            border-color: rgba(255,215,0,0.5);
+            box-shadow: 0 0 34px rgba(255,215,0,0.22);
+        }
+        .podium-2 {
+            order: 1;
+            margin-top: 26px;
+            background: linear-gradient(180deg, rgba(215,219,224,0.12), var(--card) 65%);
+            border-color: rgba(215,219,224,0.4);
+            box-shadow: 0 0 22px rgba(215,219,224,0.16);
+        }
+        .podium-3 {
+            order: 3;
+            margin-top: 26px;
+            background: linear-gradient(180deg, rgba(205,127,50,0.12), var(--card) 65%);
+            border-color: rgba(205,127,50,0.4);
+            box-shadow: 0 0 22px rgba(205,127,50,0.16);
+        }
+        .podium-crown {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffd700;
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.6));
+        }
+        .podium-avatar-wrap {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .podium-1 .podium-avatar-wrap {
+            width: 84px;
+            height: 84px;
+        }
+        .podium-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 3px solid var(--border);
+        }
+        .podium-1 .podium-avatar { border-color: #ffd700; box-shadow: 0 0 18px rgba(255,215,0,0.5); }
+        .podium-2 .podium-avatar { border-color: #d7dbe0; box-shadow: 0 0 14px rgba(215,219,224,0.4); }
+        .podium-3 .podium-avatar { border-color: #cd7f32; box-shadow: 0 0 14px rgba(205,127,50,0.4); }
+        .podium-avatar-fallback {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: white;
+            background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+        }
+        .podium-medal {
+            width: 26px;
+            height: 26px;
+            margin-bottom: 8px;
+        }
+        .podium-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            word-break: break-word;
+            transition: color 0.25s ease;
+        }
+        .podium-name:hover {
+            color: var(--highlight);
+            text-decoration: underline;
+        }
+        .podium-method {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: rgba(var(--accent-glow), 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-top: 8px;
+        }
+        .podium-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.4);
+            margin-top: 8px;
+        }
         .donors-list-outer {
             position: relative;
             padding: 0 24px;
@@ -928,15 +1061,6 @@
             align-items: center;
             justify-content: center;
         }
-        .donor-medal {
-            width: 34px;
-            height: 34px;
-            display: block;
-            filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
-        }
-        .medal-gold { color: #ffd700; filter: drop-shadow(0 0 8px rgba(255,215,0,0.6)); }
-        .medal-silver { color: #d7dbe0; filter: drop-shadow(0 0 8px rgba(215,219,224,0.5)); }
-        .medal-bronze { color: #cd7f32; filter: drop-shadow(0 0 8px rgba(205,127,50,0.5)); }
         .donor-name {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.15rem;
@@ -1252,6 +1376,17 @@
             .faq-question { padding: 16px 20px; font-size: 0.95rem; }
             .faq-answer { padding: 0 20px; }
             .faq-answer.open { padding: 0 20px 16px; }
+            .donors-podium { gap: 6px; margin-bottom: 26px; }
+            .podium-card { padding: 12px 6px 14px; border-radius: 14px; max-width: 120px; }
+            .podium-1 { padding-top: 30px; }
+            .podium-2, .podium-3 { margin-top: 20px; }
+            .podium-avatar-wrap { width: 52px; height: 52px; margin-bottom: 8px; }
+            .podium-1 .podium-avatar-wrap { width: 64px; height: 64px; }
+            .podium-avatar-fallback { font-size: 1.2rem; }
+            .podium-name { font-size: 0.78rem; }
+            .podium-method { font-size: 0.55rem; padding: 2px 7px; margin-top: 6px; }
+            .podium-amount { font-size: 0.75rem; margin-top: 6px; }
+            .podium-crown svg { width: 20px; height: 20px; }
             .donors-list-outer { padding: 0 12px; margin: 0 -12px; }
             .donor-row { flex-wrap: wrap; padding: 14px 16px; gap: 8px 10px; }
             .donor-rank { min-width: 30px; }
@@ -1346,44 +1481,60 @@
             </div>
 
             <div class="donors-section reveal">
-                <div class="donors-title" data-i18n="donors_title">Топ донатеров</div>
+                <div class="donors-title" data-i18n="donors_title">ТОП 15 ДОНАТЕРОВ</div>
                 <div class="donors-desc" data-i18n="donors_desc">Люди, которые поддержали разработку</div>
+
+                <div class="donors-podium">
+                    <div class="podium-card podium-2">
+                        <div class="podium-avatar-wrap">
+                            <img class="podium-avatar" src="https://t.me/i/userpic/320/sums1n.jpg" alt="Саймон опасни" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="podium-avatar-fallback">С</div>
+                        </div>
+                        <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="13" r="7.5" fill="#d7dbe0" opacity="0.25" stroke="#d7dbe0" stroke-width="1.5"/>
+                            <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="#d7dbe0" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <a class="podium-name" href="https://t.me/sums1n" target="_blank">Саймон опасни</a>
+                        <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
+                        <span class="podium-amount">593 ₽</span>
+                    </div>
+                    <div class="podium-card podium-1">
+                        <span class="podium-crown">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8L7 11L12 4L17 11L21 8L19 18H5L3 8Z" fill="currentColor"/>
+                                <rect x="5" y="19" width="14" height="2" rx="1" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <div class="podium-avatar-wrap">
+                            <img class="podium-avatar" src="https://t.me/i/userpic/320/ChernyMalch1k.jpg" alt="ChernyMalchik" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="podium-avatar-fallback">C</div>
+                        </div>
+                        <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="#ffd700"/>
+                            <circle cx="12" cy="15" r="7" fill="#ffd700" opacity="0.25" stroke="#ffd700" stroke-width="1.5"/>
+                            <path d="M12 11.5V18.5M9 15H15" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <a class="podium-name" href="https://t.me/ChernyMalch1k" target="_blank">ChernyMalchik</a>
+                        <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
+                        <span class="podium-amount">864 ₽</span>
+                    </div>
+                    <div class="podium-card podium-3">
+                        <div class="podium-avatar-wrap">
+                            <img class="podium-avatar" src="https://t.me/i/userpic/320/Maksimka_kst.jpg" alt="Максим" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="podium-avatar-fallback">М</div>
+                        </div>
+                        <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="13" r="7.5" fill="#cd7f32" opacity="0.25" stroke="#cd7f32" stroke-width="1.5"/>
+                            <circle cx="12" cy="13" r="3" fill="#cd7f32"/>
+                        </svg>
+                        <a class="podium-name" href="https://t.me/Maksimka_kst" target="_blank">Максим</a>
+                        <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
+                        <span class="podium-amount">541 ₽</span>
+                    </div>
+                </div>
+
                 <div class="donors-list-outer">
                     <div class="donors-rows" id="donorsRows">
-                        <div class="donor-row reveal">
-                            <span class="donor-rank">
-                                <svg class="donor-medal medal-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="currentColor"/>
-                                    <circle cx="12" cy="15" r="7" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                                    <path d="M12 11.5V18.5M9 15H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <span class="donor-name">ChernyMalchik</span>
-                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">864 ₽</span>
-                        </div>
-                        <div class="donor-row reveal">
-                            <span class="donor-rank">
-                                <svg class="donor-medal medal-silver" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                                    <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <span class="donor-name">Саймон опасни</span>
-                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">593 ₽</span>
-                        </div>
-                        <div class="donor-row reveal">
-                            <span class="donor-rank">
-                                <svg class="donor-medal medal-bronze" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="13" r="7.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-                                    <circle cx="12" cy="13" r="3" fill="currentColor"/>
-                                </svg>
-                            </span>
-                            <span class="donor-name">Максим</span>
-                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">541 ₽</span>
-                        </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#4</span>
                             <span class="donor-name">Melki</span>
@@ -1447,6 +1598,12 @@
                         <div class="donor-row reveal">
                             <span class="donor-rank">#14</span>
                             <span class="donor-name">Никита Лапинский</span>
+                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
+                            <span class="donor-amount">250 ₽</span>
+                        </div>
+                        <div class="donor-row reveal">
+                            <span class="donor-rank">#15</span>
+                            <span class="donor-name">Kucha</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">250 ₽</span>
                         </div>
@@ -1934,7 +2091,7 @@
                 en: 'A game about village life and restoring an old <span class="highlight">VAZ-2109</span> — dive into rural life and get your father\'s car back on the road'
             },
             screenshots_title: { ru: 'Скриншоты', en: 'Screenshots' },
-            donors_title: { ru: 'Топ донатеров', en: 'Top Donors' },
+            donors_title: { ru: 'ТОП 15 ДОНАТЕРОВ', en: 'Top Donors' },
             donors_desc: { ru: 'Люди, которые поддержали разработку', en: 'People who supported the development' },
             donors_expand: { ru: 'Показать всех', en: 'Show all' },
             donors_collapse: { ru: 'Свернуть', en: 'Collapse' },

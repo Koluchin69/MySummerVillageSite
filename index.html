@@ -1309,26 +1309,6 @@
             margin-bottom: 24px;
             text-shadow: 0 0 20px rgba(var(--highlight-glow), 0.4);
         }
-        .beta-started-btn {
-            display: inline-block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: white;
-            background: linear-gradient(135deg, var(--grad-b), var(--grad-a));
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s;
-            box-shadow: 0 0 30px rgba(var(--highlight-glow), 0.4);
-            animation: donatePulse 2.6s ease-in-out infinite;
-        }
-        .beta-started-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(var(--highlight-glow), 0.6);
-        }
         @media (max-width: 700px) {
             nav { padding: 10px 0; }
             .nav-container { padding: 0 8px; min-height: 34px; justify-content: space-between; }
@@ -1662,7 +1642,6 @@
 
                 <div class="beta-started" id="betaStarted" style="display:none;">
                     <div class="beta-started-title" data-i18n="beta_started_title">Бета-тест уже начался!</div>
-                    <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-started-btn" data-i18n="beta_started_btn">Присоединиться к бета-тесту</a>
                 </div>
 
                 <ul class="beta-perks reveal">
@@ -1680,7 +1659,7 @@
                     </li>
                 </ul>
 
-                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn reveal" data-i18n="beta_btn">Приобрести бета-тест</a>
+                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn reveal" id="betaBuyBtn" data-i18n="beta_btn">Приобрести бета-тест</a>
             </div>
             <div class="footer">© <span class="footer-year"></span> Koluchin6Studio. <span data-i18n="footer_rights">Все права защищены.</span></div>
         </div>
@@ -2033,6 +2012,7 @@
             const timerTitleEl = document.getElementById('timerTitle');
             const timerDisplayEl = document.getElementById('timerDisplay');
             const betaStartedEl = document.getElementById('betaStarted');
+            const betaBuyBtnEl = document.getElementById('betaBuyBtn');
 
             if (!daysEl) return;
 
@@ -2042,6 +2022,7 @@
                     timerTitleEl.style.display = 'none';
                     timerDisplayEl.style.display = 'none';
                     betaStartedEl.style.display = 'block';
+                    betaBuyBtnEl.style.display = 'none';
                 }
                 return;
             }
@@ -2112,7 +2093,6 @@
             perk3: { ru: 'Упоминание в ТГК', en: 'A shout-out in the Telegram channel' },
             beta_btn: { ru: 'Приобрести бета-тест', en: 'Get Beta Access' },
             beta_started_title: { ru: 'Бета-тест уже начался!', en: 'The beta test has already started!' },
-            beta_started_btn: { ru: 'Присоединиться к бета-тесту', en: 'Join the Beta Test' },
             faq_title: { ru: 'Частые вопросы', en: 'Frequently Asked Questions' },
             faq_sub1: { ru: 'Об игре', en: 'About the Game' },
             faq_sub2: { ru: 'Релиз и цена', en: 'Release & Price' },

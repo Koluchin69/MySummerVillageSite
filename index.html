@@ -1235,47 +1235,6 @@
             flex-shrink: 0;
             color: var(--highlight);
         }
-        .timer-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.2rem;
-            color: var(--highlight);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .timer-display {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px;
-            width: 100%;
-        }
-        .timer-segment {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 15px 20px;
-            min-width: 95px;
-            box-shadow: 0 0 20px rgba(155, 77, 255, 0.05);
-            flex: 1;
-            max-width: 110px;
-        }
-        .timer-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            color: white;
-            display: block;
-            line-height: 1.2;
-        }
-        .timer-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
         .beta-btn {
             display: inline-block;
             font-family: 'Orbitron', sans-serif;
@@ -1295,19 +1254,6 @@
         .beta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 0 40px rgba(var(--highlight-glow), 0.5);
-        }
-        .beta-started {
-            margin-bottom: 50px;
-        }
-        .beta-started-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--highlight);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            text-shadow: 0 0 20px rgba(var(--highlight-glow), 0.4);
         }
         @media (max-width: 700px) {
             nav { padding: 10px 0; }
@@ -1376,10 +1322,6 @@
             .donors-list-outer { display: flex; flex-direction: column; align-items: center; }
             .beta-title { font-size: 1.15rem; }
             .beta-line { margin-bottom: 4px; }
-            .timer-display { gap: 6px; padding: 0; }
-            .timer-segment { padding: 10px 2px; min-width: auto; max-width: 80px; }
-            .timer-number { font-size: 1.2rem; }
-            .timer-label { font-size: 0.6rem; letter-spacing: 0; }
             .beta-container { padding: 40px 0; }
             .beta-subtitle { font-size: 1.05rem; padding: 0; }
             .beta-btn { font-size: 0.85rem; padding: 16px 20px; }
@@ -1614,34 +1556,9 @@
         <div class="page" id="page-beta">
             <div class="beta-container">
                 <div class="beta-title reveal">
-                    <span class="beta-line" data-i18n="beta_line1">Закрытый бета-тест MySummerVillage</span>
-                    <span class="beta-line" data-i18n="beta_line2">начнется <span class="beta-orange">25</span> июля!</span>
-                    <span class="beta-line" data-i18n="beta_line3">Успей приобрести <span class="beta-orange">бета-тест</span></span>
-                    <span class="beta-line" data-i18n="beta_line4">за <span class="beta-orange">250</span> рублей до начала!</span>
-                </div>
-
-                <div class="timer-title reveal" id="timerTitle" data-i18n="timer_title">До закрытого бета-теста осталось</div>
-                <div class="timer-display reveal" id="timerDisplay">
-                    <div class="timer-segment">
-                        <span class="timer-number" id="timerDays">00</span>
-                        <span class="timer-label" data-i18n="timer_days">Дней</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="timerHours">00</span>
-                        <span class="timer-label" data-i18n="timer_hours">Часов</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="timerMinutes">00</span>
-                        <span class="timer-label" data-i18n="timer_minutes">Минут</span>
-                    </div>
-                    <div class="timer-segment">
-                        <span class="timer-number" id="timerSeconds">00</span>
-                        <span class="timer-label" data-i18n="timer_seconds">Секунд</span>
-                    </div>
-                </div>
-
-                <div class="beta-started" id="betaStarted" style="display:none;">
-                    <div class="beta-started-title" data-i18n="beta_started_title">Бета-тест уже начался!</div>
+                    <span class="beta-line" data-i18n="beta_line1">Ты уже можешь поиграть в ранние билды игры</span>
+                    <span class="beta-line" data-i18n="beta_line2">и поучаствовать в развитии игры всего за <span class="beta-orange">150</span> рублей!</span>
+                    <span class="beta-line" data-i18n="beta_line3">Уровень <span class="beta-orange">«Подмастерье в гараже»</span></span>
                 </div>
 
                 <ul class="beta-perks reveal">
@@ -1651,15 +1568,15 @@
                     </li>
                     <li>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span data-i18n="perk2">Доступ к ТГК с эксклюзивными новостями</span>
+                        <span data-i18n="perk2">Доступ к эксклюзивным новостям на сайте</span>
                     </li>
                     <li>
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span data-i18n="perk3">Упоминание в ТГК</span>
+                        <span data-i18n="perk3">Упоминание на сайте</span>
                     </li>
                 </ul>
 
-                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn reveal" id="betaBuyBtn" data-i18n="beta_btn">Приобрести бета-тест</a>
+                <a href="https://boosty.to/koluchin6/purchase/3986713?ssource=SUBSCRIBE_LEVEL" target="_blank" class="beta-btn reveal" id="betaBuyBtn" data-i18n="beta_btn">Купить бета-тест</a>
             </div>
             <div class="footer">© <span class="footer-year"></span> Koluchin6Studio. <span data-i18n="footer_rights">Все права защищены.</span></div>
         </div>
@@ -1998,49 +1915,6 @@
             donorsResizeTimer = setTimeout(recalcDonorsCollapse, 200);
         }, { passive: true });
 
-        const betaTargetDate = new Date('2026-07-25T00:00:00');
-        let betaStartedShown = false;
-
-        function updateBetaTimer() {
-            const now = new Date();
-            const diff = betaTargetDate - now;
-
-            const daysEl = document.getElementById('timerDays');
-            const hoursEl = document.getElementById('timerHours');
-            const minutesEl = document.getElementById('timerMinutes');
-            const secondsEl = document.getElementById('timerSeconds');
-            const timerTitleEl = document.getElementById('timerTitle');
-            const timerDisplayEl = document.getElementById('timerDisplay');
-            const betaStartedEl = document.getElementById('betaStarted');
-            const betaBuyBtnEl = document.getElementById('betaBuyBtn');
-
-            if (!daysEl) return;
-
-            if (diff <= 0) {
-                if (!betaStartedShown) {
-                    betaStartedShown = true;
-                    timerTitleEl.style.display = 'none';
-                    timerDisplayEl.style.display = 'none';
-                    betaStartedEl.style.display = 'block';
-                    betaBuyBtnEl.style.display = 'none';
-                }
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            daysEl.textContent = String(days).padStart(2, '0');
-            hoursEl.textContent = String(hours).padStart(2, '0');
-            minutesEl.textContent = String(minutes).padStart(2, '0');
-            secondsEl.textContent = String(seconds).padStart(2, '0');
-        }
-
-        updateBetaTimer();
-        setInterval(updateBetaTimer, 1000);
-
         const currentYear = new Date().getFullYear();
         document.querySelectorAll('.footer-year').forEach(el => { el.textContent = currentYear; });
 
@@ -2079,20 +1953,13 @@
             donate_title: { ru: 'Поддержать разработку', en: 'Support Development' },
             donate_btn: { ru: 'Поддержать', en: 'Support' },
             footer_rights: { ru: 'Все права защищены.', en: 'All rights reserved.' },
-            beta_line1: { ru: 'Закрытый бета-тест MySummerVillage', en: 'Closed beta test of MySummerVillage' },
-            beta_line2: { ru: 'начнется <span class="beta-orange">25</span> июля!', en: 'starts July <span class="beta-orange">25</span>!' },
-            beta_line3: { ru: 'Успей приобрести <span class="beta-orange">бета-тест</span>', en: 'Get the <span class="beta-orange">beta test</span> now' },
-            beta_line4: { ru: 'за <span class="beta-orange">250</span> рублей до начала!', en: 'for <span class="beta-orange">250</span> RUB before it starts!' },
-            timer_title: { ru: 'До закрытого бета-теста осталось', en: 'Time left until closed beta' },
-            timer_days: { ru: 'Дней', en: 'Days' },
-            timer_hours: { ru: 'Часов', en: 'Hours' },
-            timer_minutes: { ru: 'Минут', en: 'Minutes' },
-            timer_seconds: { ru: 'Секунд', en: 'Seconds' },
+            beta_line1: { ru: 'Ты уже можешь поиграть в ранние билды игры', en: 'You can already play the early builds of the game' },
+            beta_line2: { ru: 'и поучаствовать в развитии игры всего за <span class="beta-orange">150</span> рублей!', en: 'and take part in its development for just <span class="beta-orange">150</span> RUB!' },
+            beta_line3: { ru: 'Уровень <span class="beta-orange">«Подмастерье в гараже»</span>', en: 'Tier <span class="beta-orange">"Garage Apprentice"</span>' },
             perk1: { ru: 'Доступ к закрытому тестированию MSV', en: 'Access to MSV closed testing' },
-            perk2: { ru: 'Доступ к ТГК с эксклюзивными новостями', en: 'Access to the Telegram channel with exclusive news' },
-            perk3: { ru: 'Упоминание в ТГК', en: 'A shout-out in the Telegram channel' },
-            beta_btn: { ru: 'Приобрести бета-тест', en: 'Get Beta Access' },
-            beta_started_title: { ru: 'Бета-тест уже начался!', en: 'The beta test has already started!' },
+            perk2: { ru: 'Доступ к эксклюзивным новостям на сайте', en: 'Access to exclusive news on the website' },
+            perk3: { ru: 'Упоминание на сайте', en: 'A shout-out on the website' },
+            beta_btn: { ru: 'Купить бета-тест', en: 'Buy Beta Access' },
             faq_title: { ru: 'Частые вопросы', en: 'Frequently Asked Questions' },
             faq_sub1: { ru: 'Об игре', en: 'About the Game' },
             faq_sub2: { ru: 'Релиз и цена', en: 'Release & Price' },

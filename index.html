@@ -726,9 +726,8 @@
         .lightbox-track-outer {
             position: relative;
             overflow: hidden;
-            width: 90vw;
-            max-width: 1100px;
-            max-height: 85vh;
+            width: min(90vw, 1100px);
+            height: 85vh;
             border-radius: 14px;
         }
         .lightbox-track {
@@ -738,13 +737,15 @@
         }
         .lightbox-slide {
             min-width: 100%;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .lightbox-slide img {
-            max-width: 90vw;
-            max-height: 85vh;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             border-radius: 10px;
             display: block;
@@ -772,17 +773,35 @@
             border-color: var(--highlight);
             color: white;
         }
-        .lightbox-corner {
-            position: absolute;
-            width: 25%;
-            height: 25%;
-            z-index: 10;
+        .lightbox-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(11,8,20,0.85);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            z-index: 10001;
+            transition: all 0.2s;
         }
-        .corner-tl { top: 0; left: 0; }
-        .corner-bl { bottom: 0; left: 0; }
-        .corner-tr { top: 0; right: 0; }
-        .corner-br { bottom: 0; right: 0; }
+        .lightbox-arrow:hover {
+            background: rgba(155,77,255,0.3);
+            border-color: var(--accent);
+            color: white;
+        }
+        .lightbox-arrow-left { left: 22px; }
+        .lightbox-arrow-right { right: 22px; }
+        @media (max-width: 700px) {
+            .lightbox-arrow { width: 40px; height: 40px; }
+            .lightbox-arrow-left { left: 8px; }
+            .lightbox-arrow-right { right: 8px; }
+        }
         .lightbox-counter {
             position: fixed;
             bottom: 22px;
@@ -1689,11 +1708,17 @@
                     <div class="lightbox-slide"><img src="Images/Image7.png" alt="Screenshot 7"></div>
                     <div class="lightbox-slide"><img src="Images/Image8.png" alt="Screenshot 8"></div>
                 </div>
-                <div class="lightbox-corner corner-tl" onclick="lightboxMove(-1)"></div>
-                <div class="lightbox-corner corner-bl" onclick="lightboxMove(-1)"></div>
-                <div class="lightbox-corner corner-tr" onclick="lightboxMove(1)"></div>
-                <div class="lightbox-corner corner-br" onclick="lightboxMove(1)"></div>
             </div>
+            <button class="lightbox-arrow lightbox-arrow-left" onclick="lightboxMove(-1)" aria-label="Назад">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="lightbox-arrow lightbox-arrow-right" onclick="lightboxMove(1)" aria-label="Вперёд">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
             <button class="lightbox-close" onclick="closeLightbox()">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

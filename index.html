@@ -527,49 +527,91 @@
         .roadmap-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 36px;
         }
         .roadmap-tab {
             display: flex;
             align-items: center;
             gap: 9px;
+            padding: 11px 24px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: var(--card);
+            color: var(--text-light);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
             font-weight: 700;
+            font-size: 0.95rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--text-light);
-            background: var(--card);
-            border: 1.5px solid var(--border);
-            border-radius: 50px;
-            padding: 11px 22px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .roadmap-tab svg { flex-shrink: 0; transition: transform 0.3s ease; }
-        .roadmap-tab:hover { border-color: var(--accent); color: var(--text); }
-        .roadmap-tab-done.active { color: #3ddc84; border-color: #3ddc84; background: rgba(61,220,132,0.12); box-shadow: 0 0 18px rgba(61,220,132,0.3); }
-        .roadmap-tab-progress.active { color: var(--highlight); border-color: var(--highlight); background: rgba(var(--highlight-glow),0.12); box-shadow: 0 0 18px rgba(var(--highlight-glow),0.3); }
-        .roadmap-tab-planned.active { color: var(--text); border-color: var(--text-light); background: rgba(184,168,224,0.12); box-shadow: 0 0 14px rgba(184,168,224,0.25); }
-        .roadmap-tab-progress .roadmap-tab-icon-progress {
-            animation: roadmapSpin 3.2s linear infinite;
-            transform-origin: 12px 12px;
+        .roadmap-tab svg { flex-shrink: 0; display: block; }
+        .roadmap-tab.active .roadmap-spin {
+            transform-box: view-box;
+            transform-origin: 50% 50%;
+            animation: roadmapSpin 2.4s linear infinite;
         }
         @keyframes roadmapSpin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+        .roadmap-tab.active .roadmap-flip {
+            transform-box: view-box;
+            transform-origin: 12px 11px;
+            animation: roadmapFlip 2.4s cubic-bezier(0.6,0,0.3,1) infinite;
+        }
+        @keyframes roadmapFlip {
+            0%, 55% { transform: rotate(0deg); }
+            100% { transform: rotate(180deg); }
+        }
+        .roadmap-check { stroke-dasharray: 1; stroke-dashoffset: 0; }
+        .roadmap-tab.active .roadmap-check {
+            animation: roadmapDraw 0.6s ease-out both;
+        }
+        @keyframes roadmapDraw {
+            from { stroke-dashoffset: 1; }
+            to { stroke-dashoffset: 0; }
+        }
+        .roadmap-tab.active .roadmap-pop {
+            transform-box: view-box;
+            transform-origin: 50% 50%;
+            animation: roadmapPop 0.6s cubic-bezier(0.3,1.6,0.5,1) both;
+        }
+        @keyframes roadmapPop {
+            0% { transform: scale(0.6); }
+            100% { transform: scale(1); }
+        }
+        .roadmap-tab:hover { border-color: var(--accent); color: white; }
+        .roadmap-tab.active[data-status="done"] {
+            background: rgba(61,220,132,0.16);
+            border-color: #3ddc84;
+            color: #3ddc84;
+            box-shadow: 0 0 16px rgba(61,220,132,0.3);
+        }
+        .roadmap-tab.active[data-status="progress"] {
+            background: rgba(var(--highlight-glow), 0.16);
+            border-color: var(--highlight);
+            color: var(--highlight);
+            box-shadow: 0 0 16px rgba(var(--highlight-glow), 0.3);
+        }
+        .roadmap-tab.active[data-status="planned"] {
+            background: rgba(var(--accent-glow), 0.14);
+            border-color: var(--text-light);
+            color: white;
+            box-shadow: 0 0 16px rgba(184,168,224,0.25);
+        }
         .roadmap-panels { position: relative; }
         .roadmap-panel { display: none; }
         .roadmap-panel.active {
             display: block;
-            animation: roadmapPanelIn 0.45s cubic-bezier(0.2,0.6,0.2,1);
+            animation: roadmapFadeIn 0.45s cubic-bezier(0.2,0.6,0.2,1);
         }
-        @keyframes roadmapPanelIn {
-            from { opacity: 0; transform: translateY(16px) scale(0.99); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        @keyframes roadmapFadeIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .roadmap-item {
             display: flex;
@@ -599,7 +641,7 @@
         .roadmap-dot-planned { background: var(--text-light); }
         @media (max-width: 700px) {
             .roadmap-item { padding: 12px 16px; font-size: 0.95rem; }
-            .roadmap-tab { font-size: 0.85rem; padding: 9px 16px; }
+            .roadmap-group-title { font-size: 1.1rem; }
         }
         .social-fixed {
             position: fixed;
@@ -1770,22 +1812,22 @@
             <div class="roadmap-section">
                 <div class="section-title" data-i18n="roadmap_title">Roadmap</div>
 
-                <div class="roadmap-tabs reveal">
-                    <button class="roadmap-tab roadmap-tab-done active" data-target="done" onclick="switchRoadmapTab('done', this)">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><path d="M7.5 12.5L10.3 15.3L16.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="roadmap-tabs">
+                    <button class="roadmap-tab active" data-status="done" onclick="showRoadmapTab('done', this)">
+                        <svg class="roadmap-pop" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="roadmap-check" pathLength="1" d="M4 12L9 17L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <span data-i18n="roadmap_done_title">Готово</span>
                     </button>
-                    <button class="roadmap-tab roadmap-tab-progress" data-target="progress" onclick="switchRoadmapTab('progress', this)">
-                        <svg class="roadmap-tab-icon-progress" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 0 1 13.66-5.66M20 12a8 8 0 0 1-13.66 5.66" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17.66 3.34V7.34H13.66M6.34 20.66V16.66H10.34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <button class="roadmap-tab" data-status="progress" onclick="showRoadmapTab('progress', this)">
+                        <svg class="roadmap-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="23 4 23 10 17 10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="1 20 1 14 7 14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <span data-i18n="roadmap_progress_title">В работе</span>
                     </button>
-                    <button class="roadmap-tab roadmap-tab-planned" data-target="planned" onclick="switchRoadmapTab('planned', this)">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M4 9.5H20" stroke="currentColor" stroke-width="1.8"/><path d="M8 3.5V6.5M16 3.5V6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    <button class="roadmap-tab" data-status="planned" onclick="showRoadmapTab('planned', this)">
+                        <svg class="roadmap-flip" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2H16M12 6V2M6 20H18M8 20C8 16 10 14.5 12 13C14 11.5 16 10 16 6H8C8 10 10 11.5 12 13C14 14.5 16 16 16 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <span data-i18n="roadmap_planned_title">В планах</span>
                     </button>
                 </div>
 
-                <div class="roadmap-panels reveal">
+                <div class="roadmap-panels">
                     <div class="roadmap-panel active" id="roadmap-panel-done">
                         <div class="roadmap-item reveal"><span class="roadmap-dot roadmap-dot-done"></span><span data-i18n="rm_d1">Базовое управление персонажем</span></div>
                         <div class="roadmap-item reveal"><span class="roadmap-dot roadmap-dot-done"></span><span data-i18n="rm_d2">Базовое управление ВАЗ-2109</span></div>
@@ -2008,15 +2050,13 @@
             items.forEach(el => revealObserver.observe(el));
         }
 
-        function switchRoadmapTab(target, btn) {
-            if (btn.classList.contains('active')) return;
+        function showRoadmapTab(status, btn) {
             document.querySelectorAll('.roadmap-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.roadmap-panel').forEach(p => p.classList.remove('active'));
             btn.classList.add('active');
-            const current = document.querySelector('.roadmap-panel.active');
-            const next = document.getElementById('roadmap-panel-' + target);
-            if (current) current.classList.remove('active');
-            next.classList.add('active');
-            replayReveal(next);
+            const panel = document.getElementById('roadmap-panel-' + status);
+            panel.classList.add('active');
+            replayReveal(panel);
         }
 
         function toggleFaq(btn) {

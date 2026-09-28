@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="MySummerVillage — игра про life в деревне и детальный ремонт ВАЗ-2109">
     <title>MySummerVillage — жизнь в деревне и ремонт ВАЗ-2109</title>
@@ -914,22 +915,53 @@
         }
         .slider-msg::after { display: none; }
         .lightbox-slide video {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             display: block;
+            border-radius: 10px;
             background: #000;
         }
-        .lightbox-caption {
+        .lightbox-videocard {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+        }
+        .lightbox-videocard img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .lightbox-videocard .slider-play { z-index: 2; }
+        .vc-label {
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 5;
-            max-height: 34%;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: rgba(11,8,20,0.8);
+            border: 1px solid var(--border);
+        }
+        .lightbox-caption {
+            flex: none;
+            max-height: 30%;
             overflow-y: auto;
-            padding: 42px 22px 16px;
-            background: linear-gradient(to top, rgba(11,8,20,0.94) 55%, transparent);
+            padding: 14px 22px 16px;
+            background: rgba(11,8,20,0.92);
+            border-top: 1px solid var(--border);
             color: #e8dfff;
             font-family: 'Inter', system-ui, sans-serif;
             font-size: 0.95rem;
@@ -940,7 +972,7 @@
         }
         @media (max-width: 700px) {
             .slider-msg, .slider-slide video { height: 220px; }
-            .lightbox-caption { font-size: 0.85rem; padding: 34px 14px 12px; max-height: 40%; }
+            .lightbox-caption { font-size: 0.85rem; padding: 10px 14px 12px; max-height: 38%; }
             .slider-play { width: 48px; height: 48px; }
         }
         .slider-counter {
@@ -982,7 +1014,16 @@
             width: min(90vw, 1100px);
             height: 85vh;
             border-radius: 14px;
+            display: flex;
+            flex-direction: column;
         }
+        .lightbox-view {
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .lightbox-view .lightbox-track { height: 100%; }
         .lightbox-track {
             display: flex;
             transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -1988,7 +2029,9 @@
     <div class="lightbox" id="lightbox">
         <div class="lightbox-inner">
             <div class="lightbox-track-outer">
-                <div class="lightbox-track" id="lightboxTrack">
+                <div class="lightbox-view">
+                    <div class="lightbox-track" id="lightboxTrack">
+                    </div>
                 </div>
                 <div class="lightbox-caption" id="lbCaption"></div>
             </div>
@@ -2062,35 +2105,64 @@
             sliderPostLinkEl.href = TG_URL;
         }
 
+        const VIDEO_MSG = { ru: 'Смотреть видео в Telegram', en: 'Watch video in Telegram' };
+
+        function videoCard(s) {
+            const a = document.createElement('a');
+            a.className = 'lightbox-videocard';
+            a.href = s.link;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            if (s.poster) {
+                const img = document.createElement('img');
+                img.src = s.poster;
+                img.alt = 'MySummerVillage';
+                a.appendChild(img);
+            }
+            const badge = document.createElement('div');
+            badge.className = 'slider-play';
+            badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5V19L19 12L8 5Z"/></svg>';
+            a.appendChild(badge);
+            const label = document.createElement('span');
+            label.className = 'vc-label';
+            label.textContent = VIDEO_MSG[currentLang];
+            a.appendChild(label);
+            return a;
+        }
+
         function buildMedia(s, big) {
             if (s.type === 'video') {
-                if (big) {
-                    const v = document.createElement('video');
-                    v.src = s.src;
-                    if (s.poster) v.poster = s.poster;
-                    v.controls = true;
-                    v.playsInline = true;
-                    v.preload = 'metadata';
-                    return v;
-                }
-                if (s.poster) {
+                if (!s.src) {
+                    if (big) return videoCard(s);
                     const img = document.createElement('img');
                     img.src = s.poster;
                     img.alt = 'MySummerVillage';
-                    img.referrerPolicy = 'no-referrer';
                     return img;
                 }
                 const v = document.createElement('video');
-                v.src = s.src + '#t=0.1';
-                v.muted = true;
                 v.playsInline = true;
                 v.preload = 'metadata';
+                if (s.poster) v.poster = s.poster;
+                if (big) {
+                    v.controls = true;
+                    v.src = s.src;
+                    v.onerror = () => v.replaceWith(videoCard(s));
+                } else {
+                    v.muted = true;
+                    v.src = s.src + '#t=0.1';
+                    v.onerror = () => {
+                        if (!s.poster) return;
+                        const img = document.createElement('img');
+                        img.src = s.poster;
+                        img.alt = 'MySummerVillage';
+                        v.replaceWith(img);
+                    };
+                }
                 return v;
             }
             const img = document.createElement('img');
             img.src = s.src;
             img.alt = 'MySummerVillage';
-            img.referrerPolicy = 'no-referrer';
             return img;
         }
 
@@ -2163,7 +2235,7 @@
                     const thumb = bgUrl(a.querySelector('.tgme_widget_message_video_thumb'));
                     const link = (a.getAttribute('href') || postLink).replace(/\?single$/, '');
                     if (v && v.getAttribute('src')) media.push({ type: 'video', src: v.getAttribute('src'), poster: thumb || '', link, text });
-                    else if (thumb) media.push({ type: 'image', src: thumb, link, text });
+                    else if (thumb) media.push({ type: 'video', src: '', poster: thumb, link, text });
                 });
                 if (media.length) messages.push(media);
             });

@@ -918,6 +918,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            object-position: center;
             display: block;
             border-radius: 10px;
             background: #000;
@@ -933,9 +934,10 @@
             color: white;
         }
         .lightbox-videocard img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            object-position: center;
             border-radius: 10px;
         }
         .lightbox-videocard .slider-play { z-index: 2; }
@@ -1011,8 +1013,8 @@
         .lightbox-track-outer {
             position: relative;
             overflow: hidden;
-            width: min(90vw, 1100px);
-            height: 85vh;
+            width: min(92vw, 1200px);
+            height: 86vh;
             border-radius: 14px;
             display: flex;
             flex-direction: column;
@@ -1023,7 +1025,13 @@
             overflow: hidden;
             position: relative;
         }
-        .lightbox-view .lightbox-track { height: 100%; }
+        .lightbox-view .lightbox-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         .lightbox-track {
             display: flex;
             transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
@@ -1038,9 +1046,10 @@
             justify-content: center;
         }
         .lightbox-slide img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            object-position: center;
             border-radius: 10px;
             display: block;
             pointer-events: none;

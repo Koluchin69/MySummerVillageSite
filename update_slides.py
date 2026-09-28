@@ -56,7 +56,7 @@ def parse(html):
             if video is not None and video.get('src'):
                 media.append({'type': 'video', 'src': video.get('src'), 'poster': thumb or '', 'link': link})
             elif thumb:
-                media.append({'type': 'image', 'src': thumb, 'link': link})
+                media.append({'type': 'video', 'src': '', 'poster': thumb, 'link': link})
         for item in media:
             item['text'] = text
             item['date'] = date

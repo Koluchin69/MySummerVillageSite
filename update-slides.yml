@@ -1,0 +1,33 @@
+name: Update slides
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - update_slides.py
+      - .github/workflows/update-slides.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install beautifulsoup4
+      - run: python update_slides.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add slides.json
+          if ! git diff --cached --quiet; then
+            git commit -m "update slides"
+            git push
+          fi

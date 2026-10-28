@@ -9,203 +9,203 @@
   {
     "type": "video",
     "src": "",
-    "poster": "https://cdn4.telesco.pe/file/hkoglPLfuPHk_lKzU5_3UcwAtnnzemwfhHj8ZphVR_-sVCvQ8i2fCFNKnEN4UUHgjevVG4gf2bHIouNlJIpyEw7z2ZJkazwltVKzJXYVn_eBElvJ__7Pj3W2p9UVzhYtCbsLeSXdkj50dvZO5z_3SWRfBUODXhWD3M_jH_nxoxShiaWh4_ZgFKV7ODCeO0VeS36PNc_HrjbazZn5Y0bEc9xU2PsQqClRieT_FyDvxmouKC-X80pPgfBGDt4Siv06Oh9ufrN4vzWrNYU4hmN3h_1DyT01-n3W5xUTpGlkjamB0zyMbZzntOC5Wfaw4NTs2R4NeODKzAbcUjho0uy0AQ",
+    "poster": "https://cdn4.telesco.pe/file/EV3jIGkS7gTwZ4xtvWNSqB5cW5ZnWvqJrYyZ1JbZ-9fRgywRpextwS9YcEP-6pBqFgRqq2gV6kmDls79WX7wht6dkE-8zY6qKNUnmX20Bfb-P5AjbmYbA9f_PgdqZ4yK-pnd9G0W7bJeAcv5QkgzpbNntMd1wNrfxAafUd5_2o79tKEFWt3g0FidaGH9sRCWIPlIyjmJ2Vt_xlvk5y9bAJm80f9BPbd1E-HDK5Aqljr8YYZkbRcqBkY9B9ltBe6k8QiAW_CA0JCeFSvvxPeQ2_LYI6j6ZWqiEfwrJlAPbltVxuFuVzLnYN6gczewVaqoQR5GJ0cf1GEXyBBCwbnoFg",
     "link": "https://t.me/MSVgame/544",
     "text": "Вот как выглядит процесс сборки небольшой части двигателя, это еще не конечный результат.\n\nТакже будут пластиковые канистры, в которых будут находиться разные жидкости, которые можно будет смешивать. Например разбавлять бензин водой с целью экономии итд.",
     "date": "2026-10-20T15:36:33+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/FzgI69kEcZC3ucZ3GCTpywHJ8VymQ-gy8YBDHcjgdhWMhqr7nA5M9he4LVWMXBU3G2vvPJ1LdB2GiPx1ZcOXxURptTv9tB1bGJOqCEVJ2QQTOQjI8vPuCqW_L4FJhOk4tiPdm-oa6shUH9jly6TJr2PMFlr7iAA3lLMn2I9VnBj_scHx19aXNarjSl7rd4SCbC6gJO3wEdCgn1T1QZCRpLUlhoBu7FCGZDJ1lZLQeLDieKf0opakbDNZnssZmcwAW2TkR0s7m-1HaF0Hgp40TxebuHqUShjvCinay2NauExgmByevPS9gfg1ekUUiYtZnOILEmL8J0YBsLw1zYU8fg.jpg",
+    "src": "https://cdn4.telesco.pe/file/PhdfVdorhcDZvtmRhhtqC7bcPihxRGS0HfMLAqqdID0J3Ob4wdS3kaRpry7QdsGOka8xHjttURrv46hmHOn5ZVgIyToMmhSWeaI7g43vtZLh7534eAVhK2gjLRiFB6ulSRD3yTf1z43foV2uAKP7Z0Gb3cfeC1ImXcSpBM5YDpYfZZuOpfvI3KEo-SXuzXNZje-UKp9PWNa0geQeoLc24jMfPUePuRq_qE_UrAto5299Ffd3guisfg9HFvvipGx08VKf6k0geI-b5ZEBapl3jvRRu0UJDCAvXqY24a_6Kwmv8AgTKAH9hioBjYsiuJOyKI7OAK-UP5yJM2i0LDOIeA.jpg",
     "link": "https://t.me/MSVgame/542",
     "text": "В общем, видимо, MySummerVillage нужен будет второй рестарт.\n\nПоследние дни я добавлял также некоторые мелкие механики и экспериментировал с кое-чем. Сегодня решил также зайти и посидеть над игрой, но самая основная сцена где было абсолютно всё отсутствовала.\nНет, бэкапов у меня нет. Последний был с момента версии 1.1. И да, скрипты, материалы, модели, шейдеры и прочее остались, но вся сцена, где было остальное, безвозвратно стерта.\n\n8 месяцев моей жизни было стерто самой обычной ошибкой, когда я чистил файлы на ноуте вчера и не заметил, как я стер сцену. Я не знаю, насколько надо быть идиотом, чтобы не сделать ни одного бэкапа за такое долгое время.\n\nВ общем, проект не будет заброшен. Я думаю, я начну с чистого листа в новом чистом проекте Unity и изначально построю план разработки: то, что надо будет первым реализовать и закончить.\nТак что не спешите отписываться, скоро будет новый пост.",
     "date": "2026-10-15T09:36:53+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/bpG18YIqudkfVUZ3fYwYs9uvg9MD2DzmNLauBU2jXbzGBlyW7DdEcLadgftZXu54g499Do6dmKaJh7LJ80FrJqklJaVgdywht94e31bLeVg1UY90pVSmhRizc3cpfy6T4ZDcUzg4RjaLN-eOD5FkuZMK-VGSnuKhEHbTawBCqhAgGxTfQcY2NSW9BbOZGE0VYKbOiPmCvUcDnJOI6Mdaq1pU5NkfWj9vKxubBmAv9HtkElSd1ra-ABG0qFgX40hcLJecPRJ2npNtKUwZHGoofvwh4UUye6M-5_rq9VcdS-IhuGNKvfcFV3ghSodrrEhqAn0rzovI1EMcEGnvE_FVsQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/vgx-RL5qIRaok1WjlZdtP6_Ql19jwS6zdopyA7Lv2vo3BEJw-pm-BI0W3ap-Soa8QzCJlMeH3yXyaCcNu9qybSEjBnMxckxSepjDlZDMbWWmmGftN8Fg9gvg4YuivzmnLsRu-mAFurXXKYMyhpKO7WUBkIrZ3JAN6AlbaUImTYecNYbYmD9XP9frwQhyHIrZktUeC2m3KhgDmCb6Q7x1V5qfkPoV08Ke3tPlNxEJn9HrUUe6fIf7wyfKyKHW5AYmR_4n4DrXl02GeJMB1GS5K4dPEeA_6q42qnbHTNKR3vT7Uv9UzrdLmoyYTD3F6CHMicZ6ArUGa7FVn7KoJZMuxw.jpg",
     "link": "https://t.me/MSVgame/533",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/uVWWFwcpAKCy2wvf6qRMeqPNNO2JX3KswjvPBmh1C6cHAXLc2mFxhdoitRdhctbJCo5ctQZumHdh1ZsDdIC7vjOXlDpgZNjJ3zVuZTd11tCSACgM2K146ybwNyeow9Qs1C9mGx3ci4UeepccDghaanATYODWQzCb1RUE_iIKKRIdOPgpzC43mC0CtPaRzVfXSApNpw8Z8un84V_T_SFK3kT1o1sLndcquOtiy3aNXJwwQdWPUeiX4mxAVsplCXl-Lip6eqK4ex9EekSnTNvxJQtONoHdUvGgyYj6f6kSuZIEovnOQUQEfCYVfQw1l5N1WC_PNMdvwI5sn6ah8MRUmg.jpg",
+    "src": "https://cdn4.telesco.pe/file/OU-a1HGoPzvgbQU9imnR9I05jx7qDQbNTqcD43R4XzdTXE6kb1U5JxeKwhYAqaqG9_qazO2ptAcbA02YZlbUyR-3jC0hyD3ldELkdzlb9rNJu0cHRQTpJLdJ5dC-yFY9NpGimiIUVf8Y8aUVX_0QIeg64nRjFvwbJRijXNYaK6SNir6NvFSDsgkPkOh__W6J8nt0TesjLPUP97LuNjL0M2NgqI8qh_psXclweyzol6rHfwmNmHfcN-vxXpd0k4A-dYczEG0sU5cWr3a2WE7AsH6gYwIQtnU7yZL1K9R2qnljdcpoyh8o8duUGkK4AcuI6Fd3G3-fKGrzkYKNHYg2gQ.jpg",
     "link": "https://t.me/MSVgame/534",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/JpkXNKOsAk-eBHMpOosa_LihjnOVPeQeznzvfiwFhzyWFg1SJsCsbdhgLhBrHEgmk_sFNAQaZPaxl1WHGvLzULhAxkbPGewXKuJ0dBrQrPtshko7OI6soy4Y315YHHRRLBGtClAAT8B8OkGxAhAzw89O_rnPV4Lv1HTbs51qGYYNsnzmZ54_fhgTvquT3ryPYvvnXMXed6yxmhe_rrBwQQenqfr9vBYA3ZwE-A82Ty5d1Qpz3lCrBawgdWIyGwNSIFHDYelbaO2zasMQo2ga1TZituc2_moAuxgChEKJ67MmwaQMe5BL0pcDYmeTmlCbVnupmyM1ZwMeHk7_1NXg3Q.jpg",
+    "src": "https://cdn4.telesco.pe/file/g-8PBkzdPu43Gqj6ir5E2U_-hCk2y8e4ctz0vsc2CX0tkPBIIcaMF7X7cV68d1SLvScvKYtoU39urLNBrRPVHf3XiXPkTjamutXJOJFzaTj1YSzxfSMIOX-Ddlu6zOhGOpan49AyPDr-NZ1U398M4UBV7_m5sTTBftG3nNc7yFtmk7JqXiZYYD_0dokAAkwf6iyGwKKk6sPQtO-ASgicAA_r_Nz06y9UnzGzUypcwnlRdVX2cGWu_0vrAqTcDuoBHZw6zyWSXhSmNClMuZkJErjVherKZadDV43XGYcocQIk3rbB09L9VdxW5F4W9e_6UXxBgXh7CYyG4i_USQaylQ.jpg",
     "link": "https://t.me/MSVgame/535",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/fjYba3O9PxPFdAU6clD962_E9VFdLnUtCOyR5VSqyYZzJ-4ZreIm9dEhJogS0GVDUBwLhjSJAtWa15mm49Y_bXSTMG7v1uL5UEXY9YC35Co3Pnzvbq57exOcik-y4Eaa3fcfH684Bmaz5md0-4i8qZZjw9IBVrd4iv1v_oRcKbZpWoxtOQJWy1yTotAB3nLMOCHcYDxhEKhzr_4WeRlayZLtg3PVrYbCtIyOzMRRZKMtfzHEJWEjAATaUGqIw61x0Ct0SmlGkshqdbAh3I7yIayWIwj02iX4fjGBxx7qbX-ZJUmhdBI4tjMiX_5KHq4CMiFanTbdj2bdNdX0LFoqTg.jpg",
+    "src": "https://cdn4.telesco.pe/file/HmLBkPLgDfztSFmhk2I6dmhqc6gI88Zq903FuA6jVUUwn2onG1a_aAbYtRHiCyL1-1KugXnVVelL4YLF5kKEMjlUqryaA-3N4EI9GbtIosJAYvUA9f-PUSsu5EjJRqEH53BB1y5Q9UisOqfTaK5b_K1S5MKyhl2Vn7ptGX4b43cODWkw5rKbL-jFUg4FkuNtUljkYoLzZQmvScyuW4Zbp5kaCuDJfK5xVLHMHl5ZF_1AYQpdla6ELNQo5YUrktmnY0d52-NNDWdae4-nz9IBYTKsujnC1r6jqjthnyMAUIkQfrNuBnj2mGPQd-6YfV-XuHJHxaMtAhNHQU6P-hGkGg.jpg",
     "link": "https://t.me/MSVgame/536",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/paGvXZv1JR9K72OdmBpQUu44fA7cG4KHj7uop9oJfbSUE-0VdfCCCNFW0MPeka3hPvFxQj0CDHTPKFY1he5YHZRUpdJK3KTJLGTOBBUgtz2JRymtf9l1Dfd_m1KDLaKkBAOaQy9cptESWXXpzD_Fp5Sm0FEf2bj6N3qXEgvLpva3DFHpxM7K8naiZiAoCUM7Nvmtq7X3StXd3JJBc3Ix81RnNEOdu0a96JpkW76smpM9zFT7xjDqzapYv6Yqf8utkbjjwJP9scG-Dqcv6I4hFsj6gUPNKiR_czq3y6KkRBLl_-1v3jnWqAp-TCKKKwn7KyyIR96kPrhYCQOYNxHe_A.jpg",
+    "src": "https://cdn4.telesco.pe/file/o0K1qXZ-SGMuQ5rFUFDgY498Oup2GLdNAPweusuE1GpxbpqMIm_wPVRGqJoGloG4Du26Cl_SYzPVPRXUiZAsIzBGdL61fg0-wkNYTH9RzZgQkrz6oS3-8VWG8-mb7HkXeXy1NiezZ7ubRjvALqM-Q2msk9gkqb31skm8xRqtjQHrfW8SpovXjnwBgwHnDWNnh-roLXN5NbHQzh-ezuhejUMLqIvaWc7ke72iH0zFbmzGhO9mzc_V-gLg9DY69JDE4f8gFUgceDcnXnzBKVfVKoBfJRaTc8R2ZqFoovY37wqBpKHLAEl_Y6X-WxMd-e_so5JXz4x9XE257z701GhSsQ.jpg",
     "link": "https://t.me/MSVgame/537",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/pzPDjZytYg7wyNrKz9AFpwG9c4HT5fhFv9jeTVdhBcRxMxQwqBMMBaNQaM2PPpoZO6x0s9YCIijumFGtJauwE9dQtYahGYiTTEJQf_8LrafyI2fL8WSUYtnEJ5hJRGHnsV9g20RGi15O5_ACaKZaAPiGBcgd7FkgN0s213MGlRF3RCxMRAeg1hpE1o-2S6fRCDoOkNRLSR3jBH7GO1s2tL8Jid12791wymKNFxE849rIGab5KG2pW-xGU35MeDPfgToc28GH8Pcx9nWqme-mOTAelrJ2J9hIM_3f8OGmGrtSXtDweF9KvZYoMPuoL3eQpotsViQyI1yvwDPglP3U9Q.jpg",
+    "src": "https://cdn4.telesco.pe/file/DYypabGKJDxJ67MrOWydr-FYxjcZdF_KJXmq7jnenY8kN-hrGUpHOr5Zykjf5DzW4nmMwZ9KRpmpfE8XG1YxDiJdYB-wzx0JY5t_KOByytJj9TXGlDb3kDN1tJC2LWeQkGYfCRhJ-2oL_IKi4N6PaAPz_JGyD5Y6wETh0s0G3ysgwLr1Rjkr3Aq-16t5CgsrrnqF_BNBPF9Mejp6ThGHM6TvqMkjGgiJcsGZlYQmhCWGT5Mva7DXF8VW7RRCAQ59eJflnERLSypWeBcr6pv7xqbTmE7Eqa-0WRTRipZ-idcndK4rKhiWQ2h_pvfMD9-wJ_3H095ZowPMfA-2y4gqog.jpg",
     "link": "https://t.me/MSVgame/538",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/dPQVym1nFH-eHhtC-yy40i09jHj-KAUYRuQeJHDTgkr4xcp0Avf2WAumjeg-NnmWbkOgchEsxXp1vyApp63U6X1DWd-4Q1RrCnUjhdsiaQk8k-5cwYtjAkBPRwc8wtnDRH_mT2B0F5DZ6QK7UmEJWpWV_JMRHShtWcqhyV6L5VNLDHdK-M9dVxBG20-NS0eOcjywxet5gpeZv7MqtPjg0tK9rVvxBEI7NmzOImTbkUsM7OmUJvgJ1uXYZXcw9HZQLYT-0Gjm40_57G97T_goUKIDAGBqnykU8vtWyrC49ImHJkH-XMGFxX1dSCyNgWI2p3wZg5K46_oGi8KYBrTCSQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/Kteyx0sjsyRShNE4x4pcq_zMfp0i0xkVds9MUvNBy5m8RDTqQovI5hLBz8WtCbFsL5g619Jr360iwC9K-D3z1e1RYaka-w_NyB9rNXkVhWdSU3umyC8UzEVG7gKlq_IFgyz1AhQgBDlvaOP4a8Z2TM67JgCg5mhC9BDtrwnBLAgmBkAZPbeFZVeO-UEONlLRCglfkXiPXWoKlfZQJ-HnGHTTj1HzAUcX_aKkcOfEoGcrb_iDm_c4_0Z0uqHCMe4h7GI-r0K45zJcf8N2esHnUDBSMhvIK9Iev9pjlWZwxv9-8bVt9wbPVz1BeYWhhwctQC730Jz41pYVTVtSqAdisA.jpg",
     "link": "https://t.me/MSVgame/527",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/UxdzQHwVpQYVjq2I3B-3IpIFiIXX3QOOWYpjjJw8jUexPJquKmWNbgDPn10OJDTc5bpQtN9BslmV_VOprHqjhV-yK9LvkeicpitKZidH6kAeFRAIlB36aS5jC7iP--7XZEazllX3Rc633SAfWFdNeBNQWXaD-59SzpzhBqOue35LPSmC_pTnj2qpMB8o1dDZ6aT_R96I9vVYgpkUUZa-m3JlLGLNHSkytKHiibLZjqXqiWGWc6z3lrxueYL_1EhkH-UjaJcTMZCrq1UajYC8IJA1Iqj8WKlqhSbUGg-6sfZqY1h-vAIlLaxNfbU6_eZ4JYfrNakReahwbpeGtCARcQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/C8Xsun9hcF0bGFzoVXJRW_vzENknFY5P72MBLflXJ7xOKh9k1YXnDDH2l_HSh1B79ywiAocUugMCnkGhX8CsRP61XLETlqp9wbBmywTnjxAeHXb3Jvks-ewRMjhHSOwuIttaokSBHjV5oKRvi7MMsz0liGb46iz2GgBx2d7ugdsgFHK1XdCmfPdagMVA7SyhbWlUsGKgCb0Tt2L0XTLdKbzWaFKCYVUZDEpi7Bxs2xIhSvOzeUlOKqyvgzcxsr7wvWeqN--P0s5mb6h4AoVyYh-3qOVLDxtPPgXD5sq2zVmJbHtUB0Ghe4sbiKB9b5pBV8aldwNT4l3G_zaBzVaRFw.jpg",
     "link": "https://t.me/MSVgame/528",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/mqokJqAjc0yWxdUMbTxyCPow6XEUWpiruAyfKlO8TMF-0CRYox1om5ziC2yt-7NSgxJQLeEV_ZQMHnHJKqGZ4oeNg5ILKbSPs_6wgLzos9kXfzvmE7A0LtPv0v3id4jg7fecReD8jPX55jKVgcJfdBHzrsyL0-OVBw_EGgY2RuTEbSrl_zJ9PuChwU-mqeH12xccR8c5RQ3Qa8adyAcHZa4abmNeZTv7nMMvo1YJJgVOPFGcsxA-PC2IHv_zKliveu8Mccctb-yM-vtGW2nvrkPXPQce3yws4e-_TS4p6OGbyHEffsVHsT_HGSuVOi7uDypCSPNW78iwhn27Hk3M6g.jpg",
+    "src": "https://cdn4.telesco.pe/file/Nw168G7pd2OsdONbAO6xqqZEnTWdtVRYff-cYaBfzHdsQJMxr1Wd6maZGnu6VcqkMcZTOyXXG_A0cl9GJD7jhnxjVQlzOE8CHwPTbRqFjEMlIQbGd8V4F7thVzvL2f4R9eAy0mpR3pQN1mvwPW_VKTE6v3Gu3XFkibVBthk0eEMzu2jm8G-rs4UuaGFQWO95vO0mwPWknX_Ak8SzOn-VMETB3yptWxW-Jy8RCA78GCzDlFqbMcJF0WNcvMeeO762yla87Fcq5A1WlXXwSIyhfpfAdR9f035IyvyMYnbCSsS9am0krgX9mw0m_neeY-gEFcIYREaccfULEyrnCbfnYQ.jpg",
     "link": "https://t.me/MSVgame/529",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/dmiyeLMEygJLfeYiY7wz22g8TIOkmvaWff4XUcZQ_pOK8o42TJ2trJ-mDZZYOncK6lCTdfgE43PqWLb4jcm5HyLA-87RgQfdOCC2JVO8G2EjzBSz5X4ge53ink1aEE3aCFdZTw8V8YyB1ik5hdP--keeN9FWkYsyOdWirb-gx4200BeKNOuUBekiD28SZOKXt8_JjvTG2qCKAEgoYMnzqZAlEV7furj4Ad1dZXnzgiphkqNsr5f0xZLnh-uR6jidUY6QcIRm2tSJgPujirDnWczAwsGx8PEVDXuhf6JPed_hNOltmq9mP5dHiKYIqACTdR1eS0ocQ2LFGaSmr-JuWg.jpg",
+    "src": "https://cdn4.telesco.pe/file/eZx3pDEzMhEXkUwthCi8G3veYgT2ENmDuX-u8QFM2PBrZCsAyqvk5gfv939LkgxCpmvp8DRSpBVIDCTnglN_Vze1yHbc3fO_TLP95CAxrTx2DuMh5-GDcF_NPU58n1CSVd6Wya2_iFXFiF6RKeersH5xeJWNXJ8vhj2QYlZH1jrdKPne7AX7zvCC-xutv33eRgbTdLlTwF8i-jkBo55HbUTphLPwKW0FDfJN1FeUVZIz0-tbq43BsiuJoYfYKcitVSfygoD9WsQaIQjF-el6rvYzapaO5-poDJpQp5_By36b6w1bbuKKrBkzFLhYDooKmln3kr6DxnJCoQr77mxS7w.jpg",
     "link": "https://t.me/MSVgame/530",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/NhpoYvQs6mV36pDDXrH1ramPpQrjfL1gTH5bIE7CxscBcCVcTzt8XkK4RgJsGM0ZT4VaQFD2Lz6999S4d-5pnicdP4SOkZdy-fZtcse9pN0p67LNfYLeBlj02KKbGlpF6zv8vIeRABSAfQgwYpQsgVGwKPlZem9M9xjA4ebH5vKIsdzsPGqgs2hCeXLLcnu58cpchB6Pi9r_VwDaftKw5jhwhE9r3r5yMiUlyHer5cMwTXVLcDSJPag2v0Nt79cbQWrnRX-UQQinA3QkaLH0i4GkqVYZhIQNzP4saazLjjYHHwpkS5-9O-zwgGi_u-tn3xOQ0WSemT1ciPN3rt-QJw.jpg",
+    "src": "https://cdn4.telesco.pe/file/m6LOQSJ9pZ_Lm9o598tRYSY47RK7aQcvXjjVZ9FUeleXKIWrJa4r9Vo5hA-8vYtOX9f9nxvkcD8G20cfldAWLADNKTFExBcKwm7XcWitkWKM0V9vFQ9fUZc66tplkzZUxck6EcaazY3P943-MNoAj6lYe3CTJH4peh5HJtDzbEkhduA_G2r845AvgyHIuYt-XZdt6LZER94TkByHTvqpUN_jhQGhG2oMc13-ziotRXfY_2OH24_A8UXLSVXJqHRb5hs74-rUOSvpn_Lsf3SH1ls3BVgJen_b5qM4v9XyJkm2XqyYVhkgRIgsCdKrQMesAVLq-pajA3tg13DHc70QPg.jpg",
     "link": "https://t.me/MSVgame/531",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/g8V_Trtpo1a10mAvZwt6k5JfNvKsP4EKuoEmlKCAQcRsq6OviZ1cL09zlDo9FWIElzAz6uA1VxM0ctMi2gSKFTR-CbiQMh9F1FRVQdiOMpt2ae67zUJHvqhx0ABM5ikCk4k6RNkKZCIW2TMTDnXDoglf-6D4YaIApgGQZEHILo5GFH5JKlzpXL6vnPtgyXhQe_zjiuPKMhiskWVhFHKCMqmy2lhHmAplS4LJIWuWcbUjd-F49hWlE1kfaeDG1Qj1MSS5lf5CbyGU__IrC42yjZGp8NQQFx-Yn-W4NmeMv9aRdISL4dQhlzWKCAQyJjfkrTaV18Xvn5upfnbfkfu6TQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/jDPFfOq0zj0RVN-VbMmB8EMmxVuVlFydMkB62BQekYj3GS1puf1hZpRgHuhP87d4NmvQgW_WyK0pOXyqI3b8vWMcaDwiAoXOp0YQn1zdFdtz-u6ExJjM-PihqjU39Fo5-zF-IR_2OV2jo_JHPlcIoU4ZOREZK3GpaXS4t1mxi7N0bsWxnCr5j-5T8awmU1QkprEcq3s0xtRkuB5aIkApwtpzb4YD9kJaj93waM5rV-Qa-YipjE-RImXlawulKKC_Evy2O3wok67_8nXyTjNOoOrXdWTFt0jTlB_2BM6K5hdo8g5B6KkxeHC2mk_WOrwsmjBiepZQrTkVL6eEnQceMQ.jpg",
     "link": "https://t.me/MSVgame/532",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/UtJLBN8iD1YmPVHr_A76d45MAC2yOxbLEcVoAU2x1uPfCs0CZW2PBU7JllXmhpX_J_k6Wnz_KDNY4ATs2ylNCmVIT6VaZYb8Wgx_nucrbIsdHKO6Neh8o6a6hk0VPn8hzj001I1mJEl-iDLVXd3TWmdLoEHF7eJBzjoCJ3Lnqyx41s7RS2Q0k3XtQLb4jXLAMa3DD5JWfXYcLpNnn9FtRpVqF6ZWZ0oFlYziy956NLCSmsNwSlGyQ2NskfZzAGPP-OvMP42Gy1QrEbWti6u3dO6VG3M-vZjDLln7rrQUV3AU07-NQ89J0fbmpATBRdb7bk5oQ7JGzMdERPXEPtQv1g.jpg",
+    "src": "https://cdn4.telesco.pe/file/UcA6FLN2uwbUTaBXHOZeucj7TbRhMiLFlXvG5p-KF88PCcsRxTtySv4GMCMliiqRG17FBkwjrdpjAEpErqPO5geL6RoCWDESuao2gyZY5ugc4_l9hNp1kXMe07YSxBLUbf7P1G08PRcZ6qmVGblGxWlmS4zIJX1q3flhr7r5JkjtT4usQPIqoaXTU90zA5-QK4gdcTTSK8MxMjLMURmndcG0AAxEGGg2EZtA2B147HfTL_AEdy5w4ZV0vYyW6zT0nvWc5rGKGIdpah9XJ8Qji7_agwgMFNwYh3GcUVk7W4-B0NqD7UjOiRtbXSCyNAZKeeza9OtMOeeP70HmbiteLg.jpg",
     "link": "https://t.me/MSVgame/526",
     "text": "Все также продолжаю работать над текстурами ВАЗ-2109.\n\nНа фото пример скрина с поста на Boosty\n\nPS: Еще раз огромное спасибо всем кто поддерживает проект",
     "date": "2026-09-25T15:14:57+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/iFM3-mTWtlJ_CEWb31cT3ZL8TLAOvnIGhvTsS2OK5vnvo3n5OGMUC8seNftmaTRMHCYPKyO9lCLIHNfLdcmfmnuMlneZq48Na5HojoTns9DowS13NdfyE94FMuFbgSp6cX60oQHG2DdfHQV-RHaVS-xm97I2uM8W9Oter3FUuVQYNA5g_0WGh6hZ2gQbRcRqotd-mme8xxIIM9i2sH5legicD5iRNNPhRfjHz7TBEUIAYuoq2lK8E_XWoKG23oxCGz5WI-Xbyb7qeBSZ1nMVfFK6xmtgKxdfxXoezzeIrtX4brfVOk877CIAjvO6EogIi0sG5KYq1nOW3n2kXpN3eA.jpg",
+    "src": "https://cdn4.telesco.pe/file/c0Ntgsmru9NQWiV_V66cZ0SbkjOPR5Ki2ajrgHcxxZMH6Qr-_ZztXHnJ2MWGT1pl-AeQO3hWeR7WYZp_QqfWHXS-Cxwho9RWAtMVq2bh2Vc-eG_XSvNPRPzpKk0gsoulXWDFqIq77o-Lezi91fYUYwRyZJcq1_OOM_47nDdH5uuQ88iw3FIKkOb2L0CdOAwm0oNiKQYiHFMz7_-xRzXv1Ph9bni1cX9A8cqs9Wwm7eT8fPEywTm0oHEt4olSEjqEQ9Xs9lGHtfm-y1wfWz4iDPn7QMiBfliLPzoEcVX47AxMg2rXjtxd0p3IA0QdprogPjR3Rr5TRfbuASA3ghQU_A.jpg",
     "link": "https://t.me/MSVgame/523",
     "text": "Всем большое спасибо за покупку подписки на Boosty. \n\nТак вы поддерживаете проект и не даете ему загнуться.\nТакже топ донатеры попадают в список на сайте: https://koluchin69.github.io/MySummerVillageSite/",
     "date": "2026-09-22T15:46:52+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/lA2k9kpZvu27vbGtDfzNQi_kj6zyvk9YQoW48QNM5uo-_-hwVSkOqvHT-YUGUVANN39o26QOpfAzVltIGc2wwe0hFl1x14x1dwcSxeOlnH4R0EqYD23M1rAOJ6YtMWki-HSu5cZQNi9lft8Edf0mwZWK4hCg5rzmZ4Moke49Sx4nXDfS_5TjV9OMYzpgN_MxVMJwUwNBZkiBbeaqvQVqJvsNb8B1TFUJw7IrIwYd4RmfGjD_ttWPvQ600yjtFMwwq4AkmNyhsNWPuv5jc0dw5M86xijtQ3woK772sRwzXyZMjDCVW4xOjO0DaFi1sBg23sgjoMaJV1d2hE2-SjW97A.jpg",
+    "src": "https://cdn4.telesco.pe/file/K2DTgm4-p0iM7ctI1Bl0_xiSSogRWeZOX-ZxyCfk7VMK8cVGbkNvuN9E9cGI8ib9qej_CT8DdbCDQOu2g-uporYvn-LNoVsO_o5645n_cuCIR6JI6TC9psYKOWTbYyCC5SAV7JCyA5-710AHT8qish8AjZlr8gC_bwkK6zLuiLCsxaGe1eNztujag7Gqq7G4Vdxkkv8vCB2Pjo52e6HkznR-0rPF5Qq9kwh3RZdP6EPTNAczL1QP6Z7Ty6uCdesF3cnNUVEidWzgEpzGRHBbQ5zjzPt9kAgi4omTjq9qTaiZ9ZNVKgSANyz9432lNfGh2owOnEvzT8i44e7iK3wlOg.jpg",
     "link": "https://t.me/MSVgame/524",
     "text": "Всем большое спасибо за покупку подписки на Boosty. \n\nТак вы поддерживаете проект и не даете ему загнуться.\nТакже топ донатеры попадают в список на сайте: https://koluchin69.github.io/MySummerVillageSite/",
     "date": "2026-09-22T15:46:52+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/f3i37Toq_G3JOFJ-eEFdYh91-7iHltQyWKoW4_vr8oaeTXViEdpE8kXWilRCJA7Q-QG2un8jY3BI9jcLblYgYvMCScIdG8m7uJF_9QcyHNIgvTr6otC1gtNRTy8NVHVyH1M80CkhjCYoORRsus5gMWWNl5bODP-1ZjzzdI8xbMbQWzSAFZwmbCWaiQwLCc2iaIsjSiMuttv_YZ2JFtqea32Qc7YhOIdAiD1B0j8uLUqA-QZ1dQmVcud-Rdg9QWyXB8etaoEAEgnwf19EO6Sj7o_utiYYFGvnLMBj-Z93CRjW7J3v5Dqp9DvEuKmuFPvcMBLGDrAnoYxnmz8lBPfjYA.jpg",
+    "src": "https://cdn4.telesco.pe/file/oL2478CaTyuaSefN0bJPiACRcusWEnD9Z6A5xv89vdXWEB5gxxrGENzMrKVH67mye3z2vTOhLH3OBcwPLGpYKP5XfxbzjU0MY4HZsIXTT6Ma2m_rlzGuVahytFoVGKFge1kXLsk5EWV-7ztvXoNaWOE7b8aS5JYxiCu6t0TJ_l7X0xix9j5foYYu14l4RG3A-aUA2AXpe5JckRY8_GiG4v9yw56Wsjk_po3AO-7xSbb0EiTOLHKHaHjxb8cbsq6zkGRUZZLT7GoH9VuBn4Rif1iX6yGk9gQaX6rHC_YQEHPCI1x07bOJX5fw8Zl1fm4lOlvkUmI8B-vNW9NMIGQmxg.jpg",
     "link": "https://t.me/MSVgame/525",
     "text": "Всем большое спасибо за покупку подписки на Boosty. \n\nТак вы поддерживаете проект и не даете ему загнуться.\nТакже топ донатеры попадают в список на сайте: https://koluchin69.github.io/MySummerVillageSite/",
     "date": "2026-09-22T15:46:52+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/EqvZwSEXDIjZtxTdKIvVjlreiWqwYgb7ebRl_gjjbJkbNJWGA7w6j6bKqtfQL6ZYRzoYdw7hYZ2K8vn2FYaZ8kaeooQ5xQHMJ5hGKxn-nUnd4PMPcX5rDtlOCCbZBmrVuHBVNTFRlEB9H4DpW7S6orRarIGhneWsQKk1DQVrD6FuhZ-9hGLjkAnd7dHXwnPhEuv39m0zBHDJy5xIi9w2ikF4vy70WOcO6Nb-csNi9UwJGL4S3m5DYkjipGjTQO5xVRQO-fWzsGbarFqHgqvqxkAW6HOV-_SBeayGtX6LYNE2m9944c-O9p_OHC3OkWboUi0LsjTvoT-IQvSXOwWGjQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/MmIh-WowRuUeVh7rDzr1B0RozTDEf6RZs8Ikfb5LZgakuYxtytvfHXSVPk9OPg8BaoRxFODKd7yB1QwxkQQki6Sf1NwvaziW6y3RBBi5K-RXKaVC7KJ4cVM4Owc0xTNFtBseTW7Yff6r7144fhij1EqzQPNPay_9dW8_zCBcbOmMo39wFy736TuoZDjFFdWctTszfXuvasAz1y1UxMZg3D-6eAsVJiRZ6lfJvAIkJGGq-VHPV9nXE_5RphRYCKZWVT8uP8rt2AOEfvmGy_lE1z5RmxC8bbFKc95zLo_ihO5N3mcj5UC8YyS7xkctagZnx3i85A7ec9QYpDOZkd9AUA.jpg",
     "link": "https://t.me/MSVgame/514",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/G89zLWxWcRu-mvJnk6O2ilwg8R_hmX20tHfLlye_8U7PbrmivaB6GAsJvtRmcJD_ugcLNobFEwN84PGSTM9NLNNpsXdvRo1sVeqPWhbvvdKkyo6ZyEdCc0yfmfTcSZcYIFiRkGzh0DUtXcF6lnlPgsH40Gzl0j1YjVIaxie5nrRExY92HQDDp4UTQMFzFNJbTU36qAFow2m-QB5Kqp74JJQmt02BHpsPsKjV-S_lZpscpaDJthCyHPRS56lOLYjWkPuNnR1JKn_8DubIAvW7HqswTOlp_OVBrGhHu5hrazB2gYdJnuJ2rP9qlZcCd4RCT_yQziXaerYBb4_WHmAGqA.jpg",
+    "src": "https://cdn4.telesco.pe/file/YrucgoGWOqMWw8JlQuifvKPTwm0bMkvoHjHzHltsuvGWO-zKG8Pwkwz1-18kChY_ZvztfMatk0Ke1O7zF5LEgnEymcGpjrMsMj1esHJ5wQNkY0lCwyOGefoEUcOiPt_hsUFE7AnAKD6ANpmm3eVD1tWsFbH800Yu4djsYSB5_DAWXS_YF5qg3bYnsIM81D8gZ6Dtiutfjd5AW21DwEHDzfDblbttkDfZwIFZd6rNy0LCejANTn47jJPtWZSCcha3R0R7Fy7-aw5K52vS6k54RM0GIdbKTAVJf6fDNHZwsGftwr5jm42uIJbG4a29UAH9S1Kz-fNbQtimnECSI4Hmhw.jpg",
     "link": "https://t.me/MSVgame/515",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/nqn3TzLROe2TrLFyHYFZMgIxtAb5nX3HsaHzKT8anOJg1XZFqP5kDduHiegTgskEzjxwYfHPUcbYlY3ok760eED5WPP5b2kyMakPSO4PZscsv4tUiJWyFEgmA2Lrk6njFSyDBcLHGeZUEMvsIG6yeUbN2MRSaEath5u_Jq6-T28-JEK_mLIu5WSwRxnP9_evJB6qPP159xIkVppS33-ILNCa7uxByH2fRFLROzjSEPCYl2vAB1qiw5gQ_rShtaD8YRgWmKaO_fXmF810Y819YPEByVF88DWafkaEfIsC8OI8piAcU0satbnFsSWRkjiwC04WV15k8UnXy5k03KOJRQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/oGVXPmbnFrPEnjo4kTeAPZmJEBsf-V5x2YaZaF1pn82PliXWZ-DDmRzZf5A5j4GfNq5RW5GBHl89lXyPAkLxS__LulncZD1mhrO6kkm2wYTO1GESMJ8CHWGgZahNgzgWd24B-Ll-24fz3QJZRPGOvGCDrnyjAGrJyQn1jULkHG0SlPjmri1ZXC6-Tj9oiO3SQIrfigSSFiAZvKp5Fn_60FWDpyoW62qGlpd2aqk6BbFBGPNpIIQ2DNf9MLdEMAb3ttqlZptrgRuVE-xz7FQPHHW5edX2vUnXnitcjfKa8p6Nfj0o1APwHvGlWU0uRNMuhSjUWVuVpvvzAMpOli3UkA.jpg",
     "link": "https://t.me/MSVgame/516",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/fESQBkZlPBX-SGkY8SEaEIHajgZvW6xUBR7OUulDxWUAwCpJRMOVxLhh-yAaVZDRhYKlgC5uyHNRY6KNJn-3LdjSwBdTunNri5CKVFKEcPgpYJs0nrV-urfx1Pl4w-w2v6veSZdVXFb2TbuMfIQSmj_EmPE6ZZwZFsYswE464NSYsLIWWr746GVom3OcCHlD6BYJJR_WQ0UzXU5o7-h8bLhksPbRT9cQBShlrWqCQ7hSrtLZOr0MsSwBXz_dywM1U1VoBs7zWglMrfnV-JuZ2NoVSLTgaxwJ1Vdg1yfuUOS8PfgPti_6tZdpHCPHq6GKH3ZJ5a6tUwjx7skG8Flj3A.jpg",
+    "src": "https://cdn4.telesco.pe/file/X4olOkChxS8OXLFinRaCHmd_TPPnUpPmjC3lWgs12cwRyT1nSOsHDI4wPfny8SJJhqe-IbJNWbeNNhf9oFYbNyxxTpgy_yZV4CKP3B3zYvC6_qWLW0htC2AT0KT-7Kb6na6ME087DhSsBU8EnBTloYRe5vH7xwjZrr-P27po0cNPxJ02T3JSmtmJ2jYL04-fYLHvmdOjvxMz5CyGhI15a2mbtYbAtWopwd_uieUP-130FKl7V29GLtVMaNjpbyREfnBU9cX4n_gPM6r8r9IL0zMhvnlzFZEVCGMsk6q92y5gfhZYm3Zt9tCuiaxBlQbO1QU2Oj8avi6cyU6M1MnYqw.jpg",
     "link": "https://t.me/MSVgame/517",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/hs4mkoovF_ZY84E1-L2_6xM06pfjL3WZl1XNtYErdZvfLxIjcJZlUw15a764CzHSRiYjWvSgIK2jCqKMYnkCtYu6pzLOt2J2eLDGNl90CO3pWcX1Ly2sOpy3zxPwLU3g6pY5CPZjPQRGzXyE6bWnLAi8eUghzx42OpsfXScpfxNUyWMGAGYNvi777Z-f98fbOUNLWZEsFzhqYVNYxYkphCQU9HjZaWPbZchy9xChZ_BvzkQlfd4THmc4fd_FeCGpgbmhAIOP6MmLwXL9vdyelp1IqBtoLAo3ML-bbTEFVbeYtaI6sbqNBplx7kYMSOBuD4A8g9DTA5fdQbH150dh5A.jpg",
+    "src": "https://cdn4.telesco.pe/file/Cq0kwtWdl2pp70wZxrf2c-ztzEbc37lGA6IKjVRFP5WpKMbnLSlHybBvngf0t-H5pqNX2VUwwuq9JVWG52rhA6sRf7I-UDMzTknnzzm5ab1GsjRISyUnxPHHsAencpvgeuYDR2gSlFzf_I1v6XCOGCwdSVJJa0sYMjIKfnS-aJITrL9j4GvQGTEOFqB7IhoR7LAVh5SPPW2jKNeo-lRD231t4_Mb5V6YW-JAsPiZamJVcXTTrwCy1y2IcbCUbzcZKXDFiO_sVhTa_pOKoI6qol2hUqyIvPZqVpkomCnNaIoBl0MSONUFyQgbMjJZQ_ei9lEaziewuhBvl3WmM0tJZQ.jpg",
     "link": "https://t.me/MSVgame/518",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/E9vnBn3hb6SFmsNEf2659QSZ2zRvlaV7Sh5eGB9B8mAwl5GOvKZkX7fqCKYF2Ygsn2c9zlIHCa4g39bfHHU8sEepLQ6D2roHnr4mjqNZT5KmMF9yRCMKfj4_AbYV7irg8zKy8pt1ln_XIs_75jTs3t124WrviQ9eS9TLudFuZRwIcwSWRa66AKxLD8wKHuCzOtSHwWSlqd4R97ERebrt5hJ-JHbP_0ha7hUy_N-DwSHiL2UkPAV9GZ7-57gHFhT5WYU5e-fpnopWvlwZ7cdWqF0lkxNQxg82LYpyyLsyPWrkyMIIh3QmWq2e0KPirLLOrhKaIArmIAY4euFdPkW5ZQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/LM8rsM9LkwQbOre4r1HTfLzFMzV0a1ySf5fKXWvrkzPp1sRm78qRZTKf_OXabFwBVjfsbsTPxWRTreWzuRN4XJEZNdB4AJdWQx4nbiWslw3Uv6rNejZAJpt1y-ChQf__APa-5tuHIzO0AV1cNM9h_yswnuR6vIAnsMn8oEfztx-4gTNAAS2jzXh-owi-g9iBAd3BflVtJIUq6nHH-YHnijLCoMGpj8aUysBYrC5xgJuWVypZpL8-Fkdh1rgBoKRsDO4WwlHNfOpRxCh9df9l3QfClsKPDClJvJXkuW0Ky1J56ADb2p3FqmC8-QCZhe7u2I5kGIKSnsrDTLeZxfCxnA.jpg",
     "link": "https://t.me/MSVgame/519",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/OKfvbdcNL3O3an7IrS_bKX316W04uWy125nyNiHPjMasIH-OLVHpUtr19M3ioTJTNmeqQ3RP2W4RY2afunWEuIFbt7NSvDHMbwx1D9BQBOBwcw6jedf-2TI3bKPd577QdOi1CN8P24y_ouNSLbWVfi3CmXHFuUmlT-X_s_oCSAEi6zOnaaAERjy9RaR_WcPr5LR_lH_bNJN9cWHNnFV3CNWWTjjEBLFJy-PmqjJeXpkYQl903NR7EtFpftLTAyc-DkshMgNBZeYX3ENf-hkIeGYx9v6Dns50NCG84_KADoWmO0LsVr9GGvQSsHqqzQp0dtrCYi2O_PM66bPMFA-Gng.jpg",
+    "src": "https://cdn4.telesco.pe/file/s_ycM5_1MHzMG8VKG2z4g_IDy07oM7Y-9BkeRUUnYRnoC-YPPVDQmeW-p1WJMwjyh0OnJgNcwVAqD97L93JHa0-XP5_OLkannzRK5S3QTy-as7Jm3ss1cgKWAdOEk50nZA8C0-4wFxC6XNeNJym6BfK2Ll0W8_oCpe9UHz8qBDbTV3FqFB5jlfA4R5MNv6Nb025dIk5QTyoFvHH9GkcE3M6BsERL2JfEHOhWhetmEffV8zhRMS4FtKjo27pCDEu9yc8u1MTb6LvyRrfIKYxaLpU6y6GQjGxGnZogBSgJDItT7yQKUz3Fr8dhC-t998J_oPlP0URhz8rBuFL5BPCfvg.jpg",
     "link": "https://t.me/MSVgame/520",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/kZeRUAjDOSQxXCBESM81j54odKAWoCAmesrtT14xHs1HCYy0oZgs_7QOFlYPhR1dy7Y6oqOAwvHi2teKQXRzvayTOeLnJ_2nQ6wYnx9ZBkrmP5oteqEqiZXJ5uUo_dOZHxvg2D1fWmetkKG3gwG8vuQFqLjAzUtMnRMF8t492EzQ1-xp4U3U3UFQROEVKAa-PXFRL5kumY7tcFRz-f2XMpB6RdzkTx8XROu5WDPWojF0Gpr71x0ib0Rd-aboPgY0U6PcQ-RCgNkyLGs9PhTkEVIsKyNxLZVLcwdYZO3B2HOUBPVqGqDCq6rYOSmq8f1iGW1IXUnhn15xzCdAbb4VLA.jpg",
+    "src": "https://cdn4.telesco.pe/file/iHpv-w9TPE78KEbO4ODml2muVo4JB2lZ0S2e2tGqxOqy2-ME50YuSzE4OTMN23PRiW8voPSOIIo_a3H-cP7F-lOJ5iopB2MMcUCsg-B9EowHZ6xJ0Szs8P2VlAJO-ZG2eJVMyAwFM_WGgNhBfHsB6YJcsTbrzd9W9QTl0sHV6D5aiW7_39apV5juQ1pvxy0wp8biP-Kw0CvEPgd_y1o0OJZFsRn-mLqMYRSWxsTTrMzuY-0w1CSPDUG1E5gJz7bo04v8ocEwwU1nMnAze-nirhyLlAFFeBMGza-W-hXtMJlpntenqFF68DdO5BtC-NqF4OWrgUuWjcYo5Dt8CsS7Ew.jpg",
     "link": "https://t.me/MSVgame/521",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/kJKNecAfX7N23jRKplg16t8IhkuHlW8qbxu_Nj0VCcurbFJ1NY-gmS8Gpv_hekiKUsvZpiRt-SCAZIw8rmvv1x_GFUgdKaXptVDx4E8g-SIqXbx7iS0JPxvbH7AeOd0F4fIIa9PVayu_0iUTr3ivdsNMFGa2LeITXiYicvTzAXZzlp61Pe7fTQF02Y5trSqfzPtgktijP_8vFXtNYGA3nmB2VJ2BLbk90B0Zc0HVp6COVyzLXpjoEfun6ABrqMyUGLs6nLp3pS60FUEYvmHdR_keb7YM6KJHq53TCY-vVB1wyRKnlPvus97f1krJEXuSHjeo2GyK1tf8CKRvCof9xQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/QXOfo8WTVJPquMnkfDELi3FVwJ-WWJrWGO6_Kfbh4Zvix1zlnMK_ZTPJzPe2V9tHr00YiuuN0s8DXZ8yFdS2o89uFGiSvVFwpkrkzJNGQ3gQk_dyS-4czAR-R6SSqpZFjbZTEw8YOpoQkvmrSY8DaQkulD3U8-rvUsx_eDAwMFqYp69VX_2K0LNNrV5SMk1C_jfrDMUQGL9sLrw85nvnNZifmXUaPrMu4DAxsIvK5jVYOCcKP4_fELACaEZxGQTANjTwMGC9j9kKD3M_JjF_diczLWhXjPn7E3I8RE750WFHdz5AiROE5N8RY5br1OagA7SMJOn12P3xTtrQ-9sBjA.jpg",
     "link": "https://t.me/MSVgame/522",
     "text": "Продолжаю накладывать текстуры на ВАЗ-2109, вроде получается неплохо.\n\nТакже наконец-то заработал Boosty: https://boosty.to/koluchin6\nПоэтому кто хочет может подкинуть монетку для поддержки проекта.",
     "date": "2026-09-21T13:00:18+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/XOwM0lskwuXwWmBJWXqwOKBlqSBEcrhf2jWyNI4-uWZbFJG6UAaXepHcA13_aUPEc849pVCVUsbkhz_NpXLDAxh1y7fJUER3sAcK6DGFxfwiuoF0448P7PnNZXq7XdWigVlYC6WjiZMtdvkUt3hxJ228ptezvEfqEKYzXQ3m57L-NFXNV46t9CmwdY29Ps2b7yGE98ch1iJM_iWIMoJSEgrTsafU19l6O43eqZdvmcJh-CXVh2kpB76TRXgjNlr4WSefi8NMYw-w-a53vP0S9vu13IyQl2F2oGog5ZFPYaUiN7w1-cN5h2oP9VVUjXU5jJgaLljcXDD2R79InzkJmQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/qMXkpyTIJKwcDzoPel5m9U8jq5bARY4eNAAVoPQlc88mnUPkn_O-ZV1Mn-fEuKYsUPJpOykMlLDzSWIbd4r1THSocTyq74lz6wlafJe0nKh2JomTM9PonAzY_mB0YlrlZ4Dmvxi8f6zJ2hN7MIDMrnSroRg_4mL4mGAVwniqIdVwLi4PIsWPPp_b4U8G4G-X0UXiqPlT0gui7WdneNTuBsj02Q-y1wZpk2LZqO5A8bJeVTCN9o7THmgItEdgUf8Uf1yzoVBUzdjawbMuJRc_WqDlrHXM9ypBhV-iD9j1JSAAI4jIdW5HNOOvC_yhga-RQXHsgDGeETZdH4rBQGdpfg.jpg",
     "link": "https://t.me/MSVgame/509",
     "text": "Снова переделываю текстуры для ВАЗ-2109.\nВроде получается неплохо, но работы еще полно.",
     "date": "2026-09-15T12:59:06+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/UH8dijAQaEs1ayzsDGSn4m-u_wEuqX_YQR9fITI8lsQ_aUrj_VhMNDUuhGV-YjXTHuYExfiV955w-q6cHlRNY1YtbPDwJnqI7ABRiRsUY_JAP2qihIVDLTECpxkmj-8CuYggkpx7dyI__MvuUR8G3AlDThP8eFgJa8cSMnxCQAQ4bfcEez-2IW_9Aa1L4ALXlgCY0HPkIvpuaot4c0UxicpdO8w9j-3oGztDETFUYo2-5hVQbEgRdTz4xmaUFtnm571KEcIab9C52Odk5kdRBs_h7poDAb3HVwlBETrwtSbxyCqGGzsSt7ojfr-_guXUoYMKCrPIPEyBPCgJqDdwHQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/YZ35BZeM1IjtfSZFe2KN9qOREPHEvNv0afca2WkD4UIHHauMp5AGkoOr-q1Dw3AjH4rvaar3f5uDg6ij4s5bO_pz7mOD-_Mte8g71VlJhHe9dwgi4ykcCF_747uS5N-8FypJZzP0MTS50nf7GmvjlZcuvqREpKjJ--vCUQvxhZ5u7t_p1_8Un9kJpMyscEIfN8E2PgWMZT5jT2cLX1CbWN7SIVJ5Fi7S8cXt3Yg3URHHawNYOER1pjYp-hlW-DTujH18atFoaIlKvF-MOB9wBa3ysfTvf21_FsrqGWtQv3J9XEPhH-jb3JZGLn9D0x10jpSwJbM58oLXnJfuUjHSJQ.jpg",
     "link": "https://t.me/MSVgame/510",
     "text": "Снова переделываю текстуры для ВАЗ-2109.\nВроде получается неплохо, но работы еще полно.",
     "date": "2026-09-15T12:59:06+00:00"

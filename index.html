@@ -1153,7 +1153,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
-            padding: 18px 12px 20px;
+            padding: 22px 12px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1166,7 +1166,7 @@
         }
         .podium-1 {
             order: 2;
-            padding-top: 40px;
+            padding-top: 44px;
             background: linear-gradient(180deg, rgba(255,215,0,0.16), var(--card) 65%);
             border-color: rgba(255,215,0,0.5);
             box-shadow: 0 0 34px rgba(255,215,0,0.22);
@@ -1193,60 +1193,22 @@
             color: #ffd700;
             filter: drop-shadow(0 0 8px rgba(255,215,0,0.6));
         }
-        .podium-avatar-wrap {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            margin-bottom: 12px;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .podium-1 .podium-avatar-wrap {
-            width: 84px;
-            height: 84px;
-        }
-        .podium-avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            border: 3px solid var(--border);
-        }
-        .podium-1 .podium-avatar { border-color: #ffd700; box-shadow: 0 0 18px rgba(255,215,0,0.5); }
-        .podium-2 .podium-avatar { border-color: #d7dbe0; box-shadow: 0 0 14px rgba(215,219,224,0.4); }
-        .podium-3 .podium-avatar { border-color: #cd7f32; box-shadow: 0 0 14px rgba(205,127,50,0.4); }
-        .podium-avatar-fallback {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 1.6rem;
-            color: white;
-            background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
-        }
         .podium-medal {
-            width: 26px;
-            height: 26px;
-            margin-bottom: 8px;
+            width: 46px;
+            height: 46px;
+            margin-bottom: 12px;
+        }
+        .podium-1 .podium-medal {
+            width: 58px;
+            height: 58px;
         }
         .podium-name {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 1.05rem;
             color: var(--text);
-            text-decoration: none;
             letter-spacing: 0.5px;
             word-break: break-word;
-            transition: color 0.25s ease;
-        }
-        .podium-name:hover {
-            color: var(--highlight);
-            text-decoration: underline;
         }
         .podium-method {
             display: inline-flex;
@@ -1625,12 +1587,11 @@
             .faq-answer { padding: 0 20px; }
             .faq-answer.open { padding: 0 20px 16px; }
             .donors-podium { gap: 6px; margin-bottom: 26px; }
-            .podium-card { padding: 12px 6px 14px; border-radius: 14px; max-width: 120px; }
-            .podium-1 { padding-top: 30px; }
+            .podium-card { padding: 16px 6px 14px; border-radius: 14px; max-width: 120px; }
+            .podium-1 { padding-top: 32px; }
             .podium-2, .podium-3 { margin-top: 20px; }
-            .podium-avatar-wrap { width: 52px; height: 52px; margin-bottom: 8px; }
-            .podium-1 .podium-avatar-wrap { width: 64px; height: 64px; }
-            .podium-avatar-fallback { font-size: 1.2rem; }
+            .podium-medal { width: 34px; height: 34px; margin-bottom: 8px; }
+            .podium-1 .podium-medal { width: 44px; height: 44px; }
             .podium-name { font-size: 0.78rem; }
             .podium-method { font-size: 0.55rem; padding: 2px 7px; margin-top: 6px; }
             .podium-amount { font-size: 0.75rem; margin-top: 6px; }
@@ -1705,22 +1666,18 @@
             </div>
 
             <div class="donors-section reveal">
-                <div class="donors-title" data-i18n="donors_title">ТОП 15 ДОНАТЕРОВ</div>
+                <div class="donors-title" data-i18n="donors_title">ТОП 14 ДОНАТЕРОВ</div>
                 <div class="donors-desc" data-i18n="donors_desc">Люди, которые поддержали разработку</div>
 
                 <div class="donors-podium">
                     <div class="podium-card podium-2">
-                        <div class="podium-avatar-wrap">
-                            <img class="podium-avatar" src="https://t.me/i/userpic/320/ChernyMalch1k.jpg" alt="ChernyMalchik" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="podium-avatar-fallback">C</div>
-                        </div>
                         <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="13" r="7.5" fill="#d7dbe0" opacity="0.25" stroke="#d7dbe0" stroke-width="1.5"/>
                             <path d="M9.2 10.2L12 13L14.8 15.8M14.8 10.2L12 13L9.2 15.8" stroke="#d7dbe0" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                        <span class="podium-name">ChernyMalchik</span>
+                        <span class="podium-name">Bambula futae</span>
                         <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
-                        <span class="podium-amount">864 ₽</span>
+                        <span class="podium-amount">618 ₽</span>
                     </div>
                     <div class="podium-card podium-1">
                         <span class="podium-crown">
@@ -1729,31 +1686,23 @@
                                 <rect x="5" y="19" width="14" height="2" rx="1" fill="currentColor"/>
                             </svg>
                         </span>
-                        <div class="podium-avatar-wrap">
-                            <img class="podium-avatar" src="https://t.me/i/userpic/320/sums1n.jpg" alt="Саймон опасни" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="podium-avatar-fallback">С</div>
-                        </div>
                         <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L13.6 5.4L17.3 5.9L14.7 8.4L15.3 12.1L12 10.3L8.7 12.1L9.3 8.4L6.7 5.9L10.4 5.4L12 2Z" fill="#ffd700"/>
                             <circle cx="12" cy="15" r="7" fill="#ffd700" opacity="0.25" stroke="#ffd700" stroke-width="1.5"/>
                             <path d="M12 11.5V18.5M9 15H15" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                        <span class="podium-name">Саймон опасни</span>
+                        <span class="podium-name">Byalew</span>
                         <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
-                        <span class="podium-amount">1443 ₽</span>
+                        <span class="podium-amount">706 ₽</span>
                     </div>
                     <div class="podium-card podium-3">
-                        <div class="podium-avatar-wrap">
-                            <img class="podium-avatar" src="https://t.me/i/userpic/320/Maksimka_kst.jpg" alt="Максим" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="podium-avatar-fallback">М</div>
-                        </div>
                         <svg class="podium-medal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="13" r="7.5" fill="#cd7f32" opacity="0.25" stroke="#cd7f32" stroke-width="1.5"/>
                             <circle cx="12" cy="13" r="3" fill="#cd7f32"/>
                         </svg>
-                        <span class="podium-name">Максим</span>
+                        <span class="podium-name">Никита Лапинский</span>
                         <span class="podium-method"><span class="donor-method-dot"></span>Boosty</span>
-                        <span class="podium-amount">688 ₽</span>
+                        <span class="podium-amount">550 ₽</span>
                     </div>
                 </div>
 
@@ -1761,75 +1710,69 @@
                     <div class="donors-rows" id="donorsRows">
                         <div class="donor-row reveal">
                             <span class="donor-rank">#4</span>
-                            <span class="donor-name">Melki</span>
+                            <span class="donor-name">Aleksey</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">510 ₽</span>
+                            <span class="donor-amount">486 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#5</span>
-                            <span class="donor-name">Byalew</span>
+                            <span class="donor-name">кузнецов Леонид</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">450 ₽</span>
+                            <span class="donor-amount">486 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#6</span>
-                            <span class="donor-name">Максим Onyx_forever</span>
+                            <span class="donor-name">slepkof</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">450 ₽</span>
+                            <span class="donor-amount">486 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#7</span>
-                            <span class="donor-name">Матвей</span>
+                            <span class="donor-name">Данила Муфтахов</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
                             <span class="donor-amount">450 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#8</span>
-                            <span class="donor-name">Ранис Нуркаев</span>
+                            <span class="donor-name">Матвей</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">300 ₽</span>
+                            <span class="donor-amount">397 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#9</span>
                             <span class="donor-name">Амир Галеев</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">397 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#10</span>
-                            <span class="donor-name">Belyi</span>
+                            <span class="donor-name">flamexdollars</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">397 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#11</span>
-                            <span class="donor-name">Belomor</span>
+                            <span class="donor-name">рикки</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">397 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#12</span>
-                            <span class="donor-name">Данил Асбалов</span>
+                            <span class="donor-name">Макс Некрасов</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">350 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#13</span>
-                            <span class="donor-name">Алексей Сергеевич</span>
+                            <span class="donor-name">blazer1878</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">350 ₽</span>
                         </div>
                         <div class="donor-row reveal">
                             <span class="donor-rank">#14</span>
-                            <span class="donor-name">Кирилл Марченко</span>
+                            <span class="donor-name">Ахтун Злюкин</span>
                             <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
-                        </div>
-                        <div class="donor-row reveal">
-                            <span class="donor-rank">#15</span>
-                            <span class="donor-name">Никита Лапинский</span>
-                            <span class="donor-method"><span class="donor-method-dot"></span>Boosty</span>
-                            <span class="donor-amount">250 ₽</span>
+                            <span class="donor-amount">132 ₽</span>
                         </div>
                     </div>
                     <button class="donors-toggle" id="donorsToggle" onclick="toggleDonors()" aria-expanded="false">
@@ -2539,7 +2482,7 @@
                 en: 'A game about village life and restoring an old <span class="highlight">VAZ-2109</span> — dive into rural life and get your father\'s car back on the road'
             },
             screenshots_title: { ru: 'Скриншоты', en: 'Screenshots' },
-            donors_title: { ru: 'ТОП 15 ДОНАТЕРОВ', en: 'Top Donors' },
+            donors_title: { ru: 'ТОП 14 ДОНАТЕРОВ', en: 'Top Donors' },
             donors_desc: { ru: 'Люди, которые поддержали разработку', en: 'People who supported the development' },
             donors_expand: { ru: 'Показать всех', en: 'Show all' },
             donors_collapse: { ru: 'Свернуть', en: 'Collapse' },

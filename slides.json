@@ -146,70 +146,70 @@
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/K19sX5cZNRBVqh_Oo7XJXtiFvVIT8bvbqHent665y_Jb2ZZc86Gq-0hsPz0cP-Jfpz4c5PLqqmXRS2hVSB_cDRm1Wumo2ZdqY98HtvPqqQlatUkWvjIQSmi-pHFOuQBg55G3V2PpdcY7ZyuZEOQtgUkLDvuRKU8SCPrvTNVywoQ4cF_rNZJzBrfFYExy2dCcOPdRxsMUm2h8-xi3BLqPGq4IuKwrw91V6JOr28UoF8XWZ7UrFyEFgI6l2PBIt9u3VPUp5B5ATdw_Rwz_AxnQjbOlNssDJ3xrZ6EOYNOcR1FhtjygIxUSw2pMIlHawr6npyZSyFHOqIOyeA94ffGXiA.jpg",
+    "src": "https://cdn4.telesco.pe/file/kiDBAWGCGBBYgdvdkCkHx5m2xNhYNxHnb-bBlByrpn4k56WIslRBTvEDK8cHuUjTk7vnnoq2VZ_RiIV58sj4KdfxGpZljjEpH60zjmBwSNS3Ig5VCylI076ulomJoy0JC1qJ_I2XWSb8jpa5gWJiiWtPwZexh7D930-xU-Oyq5fpmGnffixWqN0bMqNAEAPszehJfamq9ovXCnkiPrSILNiLkInZlCEVajGJVaCvQotuHUvlBny8YmPV8pOmmQWpKz5YyxcyGTWD1T-H-cKU6JTsw0qkt2c7-yknf2pO0oXtYY8XvEMbjxndZfKDdbHzJlVs97LE6RiAjk2huTvH0Q.jpg",
     "link": "https://t.me/MSVgame/545",
     "text": "Вот как выглядит процесс сборки небольшой части двигателя, это еще не конечный результат.\n\nТакже будут пластиковые канистры, в которых будут находиться разные жидкости, которые можно будет смешивать. Например разбавлять бензин водой с целью экономии итд.",
     "date": "2026-10-20T15:36:33+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/o5ZMXF6SEJ4_9lcBrCpx2JrVr9bX6fQN5OW5XpOOUD6UVl0Ho3FpCPk2b7rWnrOvZBtq5V1bdESUhDs0YMvuTF2xnEzL3v-7NiENLBP5wMLvCg5aI73lKjnHy_BOA8vg1SQ5BcwSypOQa_VbgBMb2_bZUVoTheu-2xZI4_lLDUghjOM_cJaqYX93iirqvhzUVdNoYY31r_JH3m6cgzOeBszEYP0HtEG29Si1QM_PBcN5thJcir7cVWajLi0gv-FQW6uA2t8kEc4o0zApl-mk5bA2N6yjboc9QCmmgECkxCz3t_AINtOcUfNqLrZYHI5vjqUlSWBYJGACRRBjtUwh5w.jpg",
+    "src": "https://cdn4.telesco.pe/file/B8oYWkA0IQoB8Jw43ouodgoIkyU5xEZPuGcC9nRFvTyM68bFHXBjVF5v8_xLW5LoP4p0-zeduxHfkADBoxKQynKO7-E4leReJggV0xCRoEkNgsEYdLW1c164KdOcsqYpuJaX0Dc3VtIAxfX4PTVBNf-7bFeqXXaPoe5RR-6cPi1h4Mwp7KNWYfmz7-2J8qmFduKgxrnusUlnR4shKLwLqV7NvX3ro2MSRsmkJdRLatvCCq4dxYzinSfjW311mKCwq_sv2Bo6H2jPCJ0bHMKBr6IV-2uv_8ZeZEyH6sJcMkFqhObVOoJUYci9vzae9KQ_nYagnJDnEwt_k5DexwzQaw.jpg",
     "link": "https://t.me/MSVgame/542",
     "text": "В общем, видимо, MySummerVillage нужен будет второй рестарт.\n\nПоследние дни я добавлял также некоторые мелкие механики и экспериментировал с кое-чем. Сегодня решил также зайти и посидеть над игрой, но самая основная сцена где было абсолютно всё отсутствовала.\nНет, бэкапов у меня нет. Последний был с момента версии 1.1. И да, скрипты, материалы, модели, шейдеры и прочее остались, но вся сцена, где было остальное, безвозвратно стерта.\n\n8 месяцев моей жизни было стерто самой обычной ошибкой, когда я чистил файлы на ноуте вчера и не заметил, как я стер сцену. Я не знаю, насколько надо быть идиотом, чтобы не сделать ни одного бэкапа за такое долгое время.\n\nВ общем, проект не будет заброшен. Я думаю, я начну с чистого листа в новом чистом проекте Unity и изначально построю план разработки: то, что надо будет первым реализовать и закончить.\nТак что не спешите отписываться, скоро будет новый пост.",
     "date": "2026-10-15T09:36:53+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/cOJe6Zfx-K7t0i3GZN_PWY-fmJGVGjvIt7YYCc-SsQiyySzI3NEd1dWpBA15nISFwidDPnQ1m3TBfk-xPsojY4PRoU_zLnDXuTh9EGRMEhQd4Fx1iuiUwH1kMALBMdayTRKHe4w5y_XLheu_6r16XaAXhkV9xKB8YEzNkwGnN4mpfjzk56_7gVCOz2fRIDOA_Da_XCV-ouPwNAbntTqyKUSr5Vo8ImZJh-YhadkEaYQwZfxepUj_r4rREXejVWZpGoYgazXmSMEdrd5Im3lZ-DxmmZ-wznMjoI8GOWX3dUm1L6-PZkMOKF6pxZmKPiab9I2nYJ-RudOyc2wzL9VBtQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/bEd9eF2AYGmK4f8ccVsVfVfuY37S5XnN6EQJgZwGuub-bIa6lGgs79JEMZSQvfG7zYENhrP2S9MiFdRn4YVvS-yYvsBEW2kZIdr-kXQ4B8gDjyaK23masKf3l3sdEPfRhdcvubboAiloFndINXumplvBJsX9MC7o7ShInrrkpq4lZeCf-tS2AoeyeuBtW462gWcdgW5nRjFOw_KsPBldr1P3YR4hlNMWv82oSEymGmQhJKQANr5MUyT46gXw99xN8PogeirHe7ieya50RYuN5hDg5iImResMIarfAJ33-Kq21QnxlGELkZm36fLgOoTMGlS5aQl6c_b6v6VmFXNSZw.jpg",
     "link": "https://t.me/MSVgame/533",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/V4M886VK7xVk1_MG5RlYFd2tgFG86URIHbX5t5bZpA5nTkp4uod_4w_Ow4LvUcLwax7amya85o--CTdrfYGkG9UASRQywi7HYfG3pQvkZYyKFx22B67_5ev5AUEKYl0hS9qGW9q_Tgn_ocfBlZ4djO0E9C8jtfU9pNBVDzDijjt5AWS4pTyTDMME_pa0fObZ0XeaB2NM2qRj8kEhpf_9RjOSuDeMZZ289drjjxMmDs_4SdfMyd-5IHxysYt0-eh_clmnRXaEDdZHwFkyw-RiBXvvgAoBpuY29l-DNpBSeIqQEonfYSV76xxwT7zydzz_Zh_RWh3Ua6tvwOWyZZ9Jbw.jpg",
+    "src": "https://cdn4.telesco.pe/file/Snhc06gdUBDQ_SFE39wJaqlxf4QITRkTi0DXaRYNmJX1r3qvUBgz4AQF29qNdXAF0pJm2ghmkLFR8PW76ntOsv1b0jiJteHDxR9wnaEBxDHInM7lpzSxDd9eCD5QjAXgj-kTIKycSPS9D7QCN58V713hKO9Lh34z-ayeaGGVGr7Z6CRGlp67YudkB7OUvHIvsR5nj-TtmUCKwgsKX_qCtCaFeEsYWPB6GQ-As4bUVgxXFUCxL__6DtVar_B9D8tHjgUQ0RqMxX0meXflnl1emaE6DwkwobDrN83mm1ZwKt0EegMhNvQ0M-BlrXJsjN2LBkmVNbr08q23d6Ps-Bh-3A.jpg",
     "link": "https://t.me/MSVgame/534",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/ub4mlNnzTM-7mT1_9dTNw5NRJMDEyNmkRiT9R4K6GctGmOcKtLELo-FdOj_8n8RaiYBpB4aNAKBE8GTSNJPVfE8cJXfHqZjnk6fb5p0cj9_-JIEPdTk9Bn812xc1vuNT7BV6vtaWWowaWSAiRm9B5irc9xVc6sOOIUJ-rip_HChYXwUSDXggux-UAfL8YxR3IZHXowzJ8RvsYZONE2DkzMVNsaiEgm6RJX51s23DhoOYAn4e-VLP6fpoHBJF5r932aaSwEGJNm35dQ6PU9E3a01Mv6Qje_hkdPZ_7lVY1vfw7E1KUlOGFE4hhLZXktg2803VlxUTN23kX1rjBo9Jsw.jpg",
+    "src": "https://cdn4.telesco.pe/file/B56HhJApltN9OO46kgG9DfdUAgL5HtPRi2BwhctHueDUF495Rb8DZAPgWcUbuWrGkFLI2dU1rfCy59xklZBUIJ0dZ2FOBYWhMc_2v8eGxw852okpVjo9qU8IbGawKOqsc4Ytq7obyIkRoklox_cio7KMi3RczQKEx1OWGpktThbur6V6GucUyp2CsdFWRi67tdAQeNBpKc4WNILWAP0REDqykc_EEoOfHOQEM7BvJuWOXNV-qZb8DiOv8WOVn9ZlwIzjFxyd0aythwSIiT7HpUZ-IPHCN8Bid3fP3pvYdVIUeebmSwfLjhhJ3Kh0Cuh0oN6SYJEHnNj7l-jlykauxg.jpg",
     "link": "https://t.me/MSVgame/535",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/sO9MT5yauIKYw9xA1NalJby2gUvr2LksYyUuALGT-pqFRJG9_hUPT8jgKpXj3qazzhwjV92m1LKVBgOSZGYDjL6k03KnqCqzP5u24YsTophQGx_kRNk2zVABuFN8J6Jo_IROKBiEudkhXVvyw6F9lNneWbH57vSz5GSCLWyi3nC_TpLDa-PM-yrO2P4Sj3GUois08amlqYSTNi-nrhCY-bAW4_1Nt0bATUFZZ5uGi_9lm05rJvKz6MAbAcT4ZN0TJKRLjdQN4BSvkxpij6ZJIlrpfsSWYJTWupHafS7jH6VSQDWUzzziCAJIxBZNsGeCExmv3bWqGk4W_lZuLe9V6g.jpg",
+    "src": "https://cdn4.telesco.pe/file/cfjg0JBwdOYWDRRqBwxpmXPUA7-KR6h27oN9_5ErSfFr-nsJ4Hly65mwB8NaUj-44N35GbBhvZ-IjrkQhe7eZcKVc-5ZrFQl-wJ_Yey0HEg6ExIMSA6-5UPBcVhnmGYDHV-NZkbS2Dx4JFSepfanzWL69xxI0ydBywSt_WmMYjBb4PieXleYnjw0NeRvnuhWUpZROe0kAvQoNGFyyqr0yPSEwZ0TlWcbIh1FPoupdRIukObp4YrSDYyNCj3ajoW3xOFIFN7BJfoyE0YDTDVoIUYcFH-bZVVThZjVzCvNcxrM3oCvjc_vofQlZzW0dn06KmLbwq0xsYwZSU3-cFDljQ.jpg",
     "link": "https://t.me/MSVgame/536",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/OUMvanHt8TF9Xj-d3DLI0zxfhjso93pKKkOaPeJhrHU0HpsBuGbPLod9dnq8OXVO23cVjD-BW221XyWx1pCBMCkrmRrAPrcVlLTUL7Q_IvmsDWVDtguN05WmP2BvpZG2Ch8O1jYpxK0dmFOthFEbbxAaAsC0yNe20icd33XM7HUCbsKY-d-iLjMMdSC16KMrYH0pOn6BaYc8TxFywIax_oKii4vDtp3mBBl_yO4Zi6rEO4I7GYyE1Ree-we2TCDgAiGx_u-Yfzv_7I42bbBEEC_TqpRVLhoNvWrM143-NTLjAaF2-w68jHq6Lej4J4JRfRmCTwGiM7MAHZPECykK5g.jpg",
+    "src": "https://cdn4.telesco.pe/file/TqqEYEnAHMqjrRXcy2wG36VH51_nMJq3RVqKO4b096PLTQaen7tyhSpllWr9KRo648PTHncY_8lTm0RN-UfUaBWoY9l7JGGTJbaIkLMKUy7Opms4mVrUNI4qwGdkgqgF3kPAO6JsE7LYJ-fMTPCWYUsAjkyNlMLBF1MtFmMRtuTDPupLebR85KKNmgLWlTH4JWFLbhr0LPoVdceF_lRGmlZsn4RPy6f54Oc_WA1NLhIX0Bg-P5UkMcXRJeHlsOXal_ntLlbH8K0FoOsECsxvybZrJ6yE3T8mylPsdWlrZ0vnehHUcyzfzZE44vcnRbLezEQjqXgPSGxHYhoM4hxZDQ.jpg",
     "link": "https://t.me/MSVgame/537",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/L2HW_g2cFUukFE8tnvLygvi_CB8062Zt9hc4_QjGdJaoABQH6jiWGlN2BLkh_uVY3PbGROmPWZDkcFlg3tnEoP_ZVEY-vAOAet_bldtrebtMYHHkoxBh6pfOHUSEMIZiLV2lLH9529uqjzxQwVtMPaPDfgi0KE_AQPkRUee5mBep-BvZAiwjfvqokdngnSR8SgYn-llDdnEYRLZ7rd14y9tJ78qFcgIy8C22_JkW2siz5Rq8NuFNcURtnq3r35AE2TiP_ERMAjY3Cjlth1x6ot3EOraX0nBBjzSGDi1S6LuacWcn2CeKas7J7Ffj50QUjaZV2uk7ddMm8FqCoHXSMQ.jpg",
+    "src": "https://cdn4.telesco.pe/file/da4Npkp0cdhiW12Pb1zUL-GwIgN5lQxrmIWSHrjgPai2idrvUQxiZ1SkmvvDDRKT8siR2ety4vFhPxfpamKjmdONpwqJIIOQmfQtftjMpzlTL6MBWfeY71-EsqxmyH0JowFwE4GR0rD4-qQ-rcnjkd-Xslw8bfWZFEJFdqnmZNxfcgh-BEiT6QIf5pI0z7ehxs6P00ftEMwYVGVOK-7FhLyjqYSJEqB6x8DE44CxZ_cElHpvP6Hy9qvbp_91TxM04Um13WMudzd1qG6hq-8iBh43SgmBtd6EOIL8IEMiCK05uULMBmee1awZCRbX0lRnQaVwFSxpt6dSVDlTkWlFQA.jpg",
     "link": "https://t.me/MSVgame/538",
     "text": "Болты будут разными, не только в плане размеров, но и в плане состояния.\n\nНекоторые болты будут закисшими, некоторые в масле. Те что в масле будут ближе к масляному поддону, а закисшие в местах где собирается больше всего влаги.\n\nЗакисшие болты надо будет смазывать, иначе их не открутить, а масляные отмывать, чтобы гаечный ключ не скользил.\n\nPS: Всем огромное спасибо всем за 4000 скачиваний на itch.io и донатах на Boosty!",
     "date": "2026-10-01T13:56:08+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/MQOO_HyfRuBExxn1oUsJUOPEhiiZlhVTqPnhrFOc3LagU6instJFGzMfapYtjBh7UKeOXtvZ5d2k5jFMQPENbm80e24_hiBOK7KqI3iVO1i2YTfMD3IHP-RyFpB9MlmzXndG4DQksh0QfDaG76VFREk134eEkx5m4rr3Izp6oBaY1B4AlKPAIP6g6qmgv9pP_wP0_uHCq4ICciEZVNKWsByj2nlSVgHKDv3DmtHmeMR5xbaiVnoOxG-j85g87tKojEpc8xRRUpxsbkjWrocaGa458cgBAkwFv5B2LlBA95kVRH6HSSsuYuF4J-fNocp_C8LEJygBzuOV0ONfUMAK9Q.jpg",
+    "src": "https://cdn4.telesco.pe/file/URjE4T3olpVZv-KFkKdd9oWB4kpGHezHTctqSCN5WdmBaTTK3DUHegNwHicSZZWOpwRs0RIzKv4rW4Aw3MeJ5O-kLQbL15Wjg--Y-QMJdPnBdvlBaRA4Bu8FCe-PnyAJ7cv7YepkI7B6aOERH0rD7wrp27wuP4abp2jE5ZQi3qpXB817qHcSiwvf_TDetBJ0zXMd1XxVNyVmPgufwk7P2J_iwF_DpVRw5vlINIwPFxVXfRv5d33QRBrXg-qDiFMmZScR7IfxBaR0wWNdAmwejJ2UhLnMmvsasg0buiZNH_MbvooYszwjdMb4XTGnrZT9CbWPG5YpUDemhVsUsyh8fg.jpg",
     "link": "https://t.me/MSVgame/527",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
   },
   {
     "type": "image",
-    "src": "https://cdn4.telesco.pe/file/iGp_rdnj_g5ov7JzKBkaRFp4P74LCIEtrBCZ7_KKtuN9PPRfe6lqY7-cKyFx1FNdOiVJCzb-JWf7xuuwFYYSHwUQRZJoeipgKLikfk1uCVZyRTg8l6S43XB4Or_alO1N7vX5a9aabIRRndqv0w8P-PglM_BQJA90ZlrXzM0odLeJ52NraJpFkbg0eEn3SzwWGciZH-i2iUth4nOJObe86fBgi9B0x_0pMSI4zzAY7NZvZ8v6ae2fraHUj2mfXAlqNk_X0KVqHSHXqo6lUU0P82t2uPg0oQJ8uyIcZwQEKfVjk4lBnkuOGloq8SaWBxDffs9upN3Zum8l8xe5uSVvGw.jpg",
+    "src": "https://cdn4.telesco.pe/file/j7QrUdGVEfN_lOBLC1xWfhEDzs_yP4_sUJX0FeSU-1FwQF2prE9xQzjVzTRGRFMhd0C-FRZURkdr37XVj_DM8vr_ZNdyZ3DH_wmPGIwIyi70om36QW8wO9HLf_7GZH23vtSxE7dav-YQOKQlIWZJuitYfdnHTHXj3qKISc96Uq4TtB-2ZODymA9zFpdEpB27uQ5PrqAIzFVymKQqtrAo-mPgh3wyR-i-YjG-4CCTJBU2yePLzK1-grXM_9zUzjOstPR0uEriTQ80CT-g-HRYKsQHjM7VF0RdHMzrEwaKqhOVGoMFvTzuHqELjDs2ebJ6bO89lD7B6OAl8taAZbGpEg.jpg",
     "link": "https://t.me/MSVgame/528",
     "text": "Продолжаю также делать текстуры для ВАЗ-2109, начал работать над текстурами салона и болтов.\n\nТакже я сделал Roadmap на сайте, и теперь вы можете динамично следить за продвижением работы над проектом: https://koluchin69.github.io/MySummerVillageSite/\n\nИ напоминаю что намного больше контента вы можете получить за подписку на Boosty: https://boosty.to/koluchin6",
     "date": "2026-09-28T13:20:35+00:00"
